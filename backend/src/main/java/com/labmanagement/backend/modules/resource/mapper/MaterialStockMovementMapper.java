@@ -1,4 +1,8 @@
 package com.labmanagement.backend.modules.resource.mapper;
 
-public class MaterialStockMovementMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.labmanagement.backend.modules.log.entity.SystemLog;
+
+
+public interface MaterialStockMovementMapper extends BaseMapper<SystemLog> {
 }

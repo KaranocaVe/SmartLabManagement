@@ -1,4 +1,8 @@
 package com.labmanagement.backend.modules.safety.mapper;
 
-public class SafetyIncidentMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.labmanagement.backend.modules.log.entity.SystemLog;
+
+
+public interface SafetyIncidentMapper extends BaseMapper<SystemLog> {
 }
