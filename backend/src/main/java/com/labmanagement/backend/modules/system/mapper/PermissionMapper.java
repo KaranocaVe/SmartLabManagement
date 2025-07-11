@@ -1,8 +1,9 @@
 package com.labmanagement.backend.modules.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.labmanagement.backend.modules.log.entity.SystemLog;
+import com.labmanagement.backend.modules.system.entity.Permission;
+import org.apache.ibatis.annotations.Mapper;
 
-
-public interface PermissionMapper extends BaseMapper<SystemLog> {
+@Mapper
+public interface PermissionMapper extends BaseMapper<Permission> {
 }

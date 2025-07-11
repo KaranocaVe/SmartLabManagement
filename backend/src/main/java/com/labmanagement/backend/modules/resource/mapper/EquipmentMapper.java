@@ -1,8 +1,9 @@
 package com.labmanagement.backend.modules.resource.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.labmanagement.backend.modules.log.entity.SystemLog;
+import com.labmanagement.backend.modules.resource.entity.Equipment;
+import org.apache.ibatis.annotations.Mapper;
 
-
-public interface EquipmentMapper extends BaseMapper<SystemLog> {
+@Mapper
+public interface EquipmentMapper extends BaseMapper<Equipment> {
 }
