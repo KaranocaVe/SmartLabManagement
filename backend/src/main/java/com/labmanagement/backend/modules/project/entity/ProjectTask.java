@@ -1,11 +1,7 @@
 package com.labmanagement.backend.modules.project.entity;
 
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.io.Serial;
@@ -57,7 +53,7 @@ public class ProjectTask implements Serializable {
     private Long assignedToUserId;
 
     /**
-     * 任务状态: 'todo', 'in_progress', 'done', 'blocked'
+     * 任务状态: 't/odo', 'in_progress', 'done', 'blocked'
      */
     @TableField("status")
     private String status;
