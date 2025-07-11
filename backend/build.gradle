@@ -40,7 +40,7 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation("com.baomidou:mybatis-plus-boot-starter:3.5.12")
+	implementation("com.baomidou:mybatis-plus-spring-boot3-starter:3.5.12")
 	implementation("com.baomidou:mybatis-plus-jsqlparser:3.5.12")
 }
 
