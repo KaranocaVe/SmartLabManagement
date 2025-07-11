@@ -14,5 +14,4 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements PermissionService {
-    // 继承 ServiceImpl 已获得强大的CRUD能力，暂时无需额外实现
 }
