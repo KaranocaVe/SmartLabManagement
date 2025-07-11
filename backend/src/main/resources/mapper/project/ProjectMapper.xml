@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.platform.modules.project.mapper.ProjectMapper">
+
+    <!--
+        未来可以在这里定义复杂的、多表连接的SQL查询。
+        例如：分页查询项目列表，并同时返回项目负责人的真实姓名。
+    -->
+    <!--
+    <select id="findProjectDetailsById" resultType="com.lab.platform.modules.project.vo.ProjectVO">
+        SELECT
+            p.*,
+            u.real_name as projectLeadName
+        FROM
+            projects p
+        LEFT JOIN
+            users u ON p.project_lead_id = u.id
+        WHERE
+            p.id = #{id}
+    </select>
+    -->
+
+</mapper>

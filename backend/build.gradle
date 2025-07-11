@@ -41,6 +41,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation("com.baomidou:mybatis-plus-boot-starter:3.5.12")
+	implementation("com.baomidou:mybatis-plus-jsqlparser:3.5.12")
 }
 
 tasks.named('test') {

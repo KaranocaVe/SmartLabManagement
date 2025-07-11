@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.platform.modules.system.mapper.UserMapper">
+
+    <!--
+        未来可以在这里定义复杂的、多表连接的SQL查询。
+        例如：分页查询用户列表，并同时返回每个用户所属的角色名称列表。
+    -->
+    <!--
+    <resultMap id="UserWithRolesResultMap" type="com.lab.platform.modules.system.vo.UserVO">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        ...
+        <collection property="roles" ofType="java.lang.String">
+            <result column="role_name"/>
+        </collection>
+    </resultMap>
+
+    <select id="findUserPageWithRoles" resultMap="UserWithRolesResultMap">
+        - 这里是复杂的分页查询SQL
+    </select>
+    -->
+
+</mapper>
