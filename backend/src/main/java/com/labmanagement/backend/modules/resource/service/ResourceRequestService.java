@@ -1,11 +1,14 @@
 package com.labmanagement.backend.modules.resource.service;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.labmanagement.backend.modules.resource.dto.ResourceRequestApproveDTO;
 import com.labmanagement.backend.modules.resource.dto.ResourceRequestCreateDTO;
+import com.labmanagement.backend.modules.resource.dto.ResourceRequestQueryDTO;
 import com.labmanagement.backend.modules.resource.dto.ResourceRequestVO;
 import com.labmanagement.backend.modules.resource.entity.ResourceRequest;
+import com.labmanagement.backend.modules.system.entity.User;
 
 /**
  * Service for orchestrating the entire resource request process.
@@ -35,4 +38,23 @@ public interface ResourceRequestService extends IService<ResourceRequest> {
      * @return A VO representing the updated request.
      */
     ResourceRequestVO approveRequest(ResourceRequestApproveDTO approveDTO, Long approverId);
+
+    /**
+     * 获取资源申请详情。
+     *
+     * @param requestId   资源申请ID
+     * @param currentUser 当前用户
+     * @return 资源申请详情VO
+     */
+    ResourceRequestVO getRequestDetails(Long requestId, User currentUser);
+    
+    /**
+     * 查询资源申请列表。
+     *
+     * @param queryDTO    查询条件DTO
+     * @param currentUser 当前用户
+     * @return 分页的资源申请VO列表
+     */
+    IPage<ResourceRequestVO> queryRequests(ResourceRequestQueryDTO queryDTO, User currentUser);
+
 }
