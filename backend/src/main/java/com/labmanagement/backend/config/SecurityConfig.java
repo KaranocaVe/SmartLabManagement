@@ -83,7 +83,7 @@ public class SecurityConfig {
                 // 3. 配置 HTTP 请求的授权规则
                 .authorizeHttpRequests(auth -> auth
                         // 放行登录接口和API文档路径，允许匿名访问
-                        .requestMatchers("/api/auth/**", "/v3/api-docs/**", "/swagger-ui/**", "/doc.html").permitAll()
+                        .requestMatchers("/api/auth/**", "/error", "/v3/api-docs/**", "/swagger-ui/**", "/doc.html").permitAll()
                         // 除上述路径外，所有其他请求都需要认证
                         .anyRequest().authenticated()
                 )
