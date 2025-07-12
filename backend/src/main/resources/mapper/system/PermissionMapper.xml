@@ -3,14 +3,31 @@
 <mapper namespace="com.lab.platform.modules.system.mapper.PermissionMapper">
 
     <!--
-        未来可以在这里定义复杂的、多表连接的SQL查询。
-        例如：根据用户ID查询其拥有的所有权限码。
-        这个查询会涉及到 users, user_roles, roles, role_permissions, user_permissions 等多张表。
+        根据用户ID查询其拥有的所有权限码。
+        这个查询是权限系统的核心，它通过 UNION 合并了两种权限来源：
+        1. 用户通过角色继承的权限。
+        2. 直接授予用户的、未过期的临时权限。
     -->
-    <!--
     <select id="findPermissionCodesByUserId" resultType="java.lang.String" parameterType="java.lang.Long">
-        - 这里是复杂的SQL语句
+        -- 第一部分：查询用户通过角色继承的权限
+        SELECT p.permission_code
+        FROM permissions p
+                 LEFT JOIN
+             role_permissions rp ON p.id = rp.permission_id
+                 LEFT JOIN
+             user_roles ur ON rp.role_id = ur.role_id
+        WHERE ur.user_id = #{userId}
+
+        UNION
+        -- 使用 UNION 会自动去重
+
+        -- 第二部分：查询直接授予用户的、且未过期的权限
+        SELECT p.permission_code
+        FROM permissions p
+                 LEFT JOIN
+             user_permissions up ON p.id = up.permission_id
+        WHERE up.user_id = #{userId}
+          AND (up.expires_at IS NULL OR up.expires_at >= NOW())
     </select>
-    -->
 
 </mapper>
