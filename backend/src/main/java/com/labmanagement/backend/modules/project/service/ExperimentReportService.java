@@ -1,6 +1,8 @@
 package com.labmanagement.backend.modules.project.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.labmanagement.backend.modules.project.dto.ExperimentReportCreateDTO;
+import com.labmanagement.backend.modules.project.dto.ExperimentReportVO;
 import com.labmanagement.backend.modules.project.entity.ExperimentReport;
 
 /**
@@ -11,7 +13,9 @@ import com.labmanagement.backend.modules.project.entity.ExperimentReport;
  * @since 2025-07-12
  */
 public interface ExperimentReportService extends IService<ExperimentReport> {
-    // Report management logic, such as creating a new report with its first version,
-    // creating new versions, etc., would be defined here.
-    // 报告管理逻辑，例如创建一份包含其初版的新报告、创建新版本等，将在此处定义。
+    ExperimentReportVO createReport(ExperimentReportCreateDTO createDTO, Long authorId);
+
+    ExperimentReportVO createNewVersion(Long reportId, String newContent, Long modifierId);
+
+    ExperimentReportVO getReportDetails(Long reportId);
 }
