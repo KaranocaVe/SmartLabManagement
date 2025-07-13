@@ -7535,6 +7535,3 @@ export class UserControllerApi extends BaseAPI {
         return UserControllerApiFp(this.configuration).updateUser(id, userUpdateDTO, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
-
-

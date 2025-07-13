@@ -15,8 +15,8 @@ services:
     environment:
       - 'MYSQL_ROOT_PASSWORD=password'      # 设置 root 用户的密码
       - 'MYSQL_DATABASE=smart_lab_db'         # Spring Boot 将连接到这个数据库
-      - 'MYSQL_USER=labuser'                 # Spring Boot 将使用这个用户名
-      - 'MYSQL_PASSWORD=labpass'             # Spring Boot 将使用这个密码
+      - 'MYSQL_USER=labUser'                 # Spring Boot 将使用这个用户名
+      - 'MYSQL_PASSWORD=labPass'             # Spring Boot 将使用这个密码
 
     # 端口映射：将主机的 3306 端口映射到容器的 3306 端口
     # 这样你可以用本地的数据库客户端（如 DBeaver, DataGrip）连接到它
