@@ -116,7 +116,7 @@ const UserPage: React.FC = () => {
             headerName: '角色',
             flex: 2,
             renderCell: (params) => (
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, alignItems: 'center', height: '100%' }}>
                     {params.row.roles?.map((role) => (
                         <Chip key={role} label={role} size="small" />
                     ))}

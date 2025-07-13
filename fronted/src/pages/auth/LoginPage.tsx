@@ -23,54 +23,45 @@ import { ROUTES } from '../../router/paths';
 import type { LoginRequestDTO } from '../../client';
 
 /**
- * 登录页面组件
- * @description 包含用户登录表单、表单验证、API调用和状态更新逻辑。
+ * 登录页面组件 (修正版)
  */
 const LoginPage: React.FC = () => {
-    // --- Hooks ---
     const navigate = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
-    const { login: loginAction } = useAuthStore(); // 从Zustand store获取login action
+    const { login: loginAction } = useAuthStore();
 
-    // --- State ---
     const [isLoading, setIsLoading] = useState(false);
 
-    // --- React Hook Form ---
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<LoginRequestDTO>();
 
-    // --- Event Handlers ---
     /**
-     * 表单提交处理函数
-     * @param {LoginRequestDTO} data - 表单数据
+     * 表单提交处理函数 (已修正)
      */
     const onSubmit: SubmitHandler<LoginRequestDTO> = async (data) => {
         setIsLoading(true);
         try {
-            // 调用登录API
             const response = await authApi.login(data);
 
-            // 检查API响应是否成功并且包含所需数据
-            if (response.data.code === 200 && response.data.data) {
-                const { token, user } = response.data.data;
+            if (response.data.code === 200 && response.data.data?.accessToken) {
+                // --- 核心修正点 ---
+                // 1. 正确地从 response.data.data 中解构出 accessToken
+                const { accessToken } = response.data.data;
 
-                // 调用Zustand action来更新全局状态并持久化
-                loginAction(token, user);
+                // 2. 调用 loginAction，传入获取到的 accessToken。
+                //    由于登录接口不返回用户信息，我们暂时传入 null。
+                //    后续可以在Dashboard页面加载时，再通过一个 /api/me 之类的接口获取用户信息。
+                loginAction(accessToken, null);
 
-                // 显示成功通知
                 enqueueSnackbar('登录成功，欢迎回来！', { variant: 'success' });
-
-                // 重定向到仪表盘页面
                 navigate(ROUTES.DASHBOARD, { replace: true });
             } else {
-                // 处理后端返回的业务错误
-                throw new Error(response.data.message || '登录失败');
+                throw new Error(response.data.message || '登录失败，返回数据格式不正确');
             }
         } catch (error: any) {
-            // 处理网络错误或业务错误
             const errorMessage = error.response?.data?.message || error.message || '用户名或密码错误';
             enqueueSnackbar(errorMessage, { variant: 'error' });
         } finally {
@@ -88,15 +79,12 @@ const LoginPage: React.FC = () => {
                     请输入您的凭据以继续
                 </Typography>
 
-                {/* 使用 handleSubmit 来包裹我们的 onSubmit 函数 */}
                 <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
                     <TextField
-                        // 使用 register 来注册输入框
                         {...register('username', { required: '用户名为必填项' })}
                         label="用户名"
                         margin="normal"
                         required
-                        // 显示验证错误信息
                         error={!!errors.username}
                         helperText={errors.username?.message}
                         disabled={isLoading}
@@ -121,7 +109,6 @@ const LoginPage: React.FC = () => {
                         >
                             {isLoading ? '正在登录...' : '登 录'}
                         </Button>
-                        {/* 加载指示器 */}
                         {isLoading && (
                             <CircularProgress
                                 size={24}

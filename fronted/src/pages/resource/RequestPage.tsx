@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Box, Container, Chip, Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+import { Box, Container, Chip } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import {type GridColDef, GridActionsCellItem } from '@mui/x-data-grid';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -8,6 +8,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 // 导入API、状态管理和相关类型
 import { resourceRequestApi } from '../../api';
 import { useAuthStore } from '../../store/authStore';
+// 修正了导入路径，并确保导入了所有需要的类型
 import type { ResourceRequestVO, ResourceRequestQueryDTO, ResourceRequestCreateDTO } from '../../client';
 
 // 导入通用组件和专用表单
@@ -16,12 +17,11 @@ import DataTable from '../../components/common/DataTable';
 import ResourceRequestForm from '../../components/specific/resource/ResourceRequestForm';
 
 /**
- * 资源申请管理页面
+ * 资源申请管理页面 (修正版)
  */
 const RequestPage: React.FC = () => {
     const { enqueueSnackbar } = useSnackbar();
     const user = useAuthStore((state) => state.user);
-    // 假设管理员角色名称为 'ADMIN' 或 'LAB_MANAGER'
     const isAdmin = user?.roles?.some(role => ['ADMIN', 'LAB_MANAGER'].includes(role.roleName));
 
     // --- State Management ---
@@ -38,8 +38,6 @@ const RequestPage: React.FC = () => {
             const queryDTO: ResourceRequestQueryDTO = {
                 pageNum: paginationModel.page + 1,
                 pageSize: paginationModel.pageSize,
-                // 如果不是管理员，可以只查询自己的申请，这需要后端支持
-                // userId: isAdmin ? undefined : user?.id,
             };
             const response = await resourceRequestApi.getRequests(queryDTO);
             if (response.data.code === 200 && response.data.data) {
@@ -53,7 +51,7 @@ const RequestPage: React.FC = () => {
         } finally {
             setIsLoading(false);
         }
-    }, [paginationModel, enqueueSnackbar, isAdmin, user?.id]);
+    }, [paginationModel, enqueueSnackbar]);
 
     useEffect(() => {
         fetchRequests();
@@ -81,7 +79,7 @@ const RequestPage: React.FC = () => {
         }
     };
 
-    const getStatusChip = (status: string) => {
+    const getStatusChip = (status?: string) => {
         switch (status) {
             case 'PENDING': return <Chip label="待审批" color="warning" size="small" />;
             case 'APPROVED': return <Chip label="已批准" color="success" size="small" />;
@@ -91,25 +89,28 @@ const RequestPage: React.FC = () => {
         }
     };
 
-    // --- Table Columns Definition ---
+    // --- Table Columns Definition (已修正) ---
     const columns: GridColDef<ResourceRequestVO>[] = [
         { field: 'id', headerName: 'ID', width: 90 },
-        { field: 'requesterName', headerName: '申请人', flex: 1 },
+        // 修正: 'requesterName' -> 'applicantName'
+        { field: 'applicantName', headerName: '申请人', flex: 1 },
         { field: 'requestType', headerName: '申请类型', flex: 1 },
-        { field: 'resourceId', headerName: '资源ID', flex: 1 },
+        // 新增: 'resourceName'，让信息更清晰
+        { field: 'resourceName', headerName: '申请资源', flex: 1.5 },
         { field: 'status', headerName: '状态', flex: 1, renderCell: (params) => getStatusChip(params.value) },
-        { field: 'createTime', headerName: '申请时间', flex: 1.5, valueFormatter: (params) => new Date(params.value).toLocaleString() },
+        // 修正: 'createTime' -> 'createdAt'
+        { field: 'createdAt', headerName: '申请时间', flex: 1.5, valueFormatter: (params) => params.value ? new Date(params.value).toLocaleString() : '' },
         {
             field: 'actions',
             type: 'actions',
             headerName: '审批操作',
-            width: 150,
+            width: 120,
             cellClassName: 'actions',
             getActions: ({ row }) => {
-                if (isAdmin && row.status === 'PENDING') {
+                if (isAdmin && row.status === 'PENDING' && row.id !== undefined) {
                     return [
-                        <GridActionsCellItem icon={<CheckCircleIcon />} label="Approve" onClick={() => row.id !== undefined && handleApprove(row.id, 'APPROVED')} color="primary" />,
-                        <GridActionsCellItem icon={<CancelIcon />} label="Reject" onClick={() => row.id !== undefined && handleApprove(row.id, 'REJECTED')} color="inherit" />,
+                        <GridActionsCellItem icon={<CheckCircleIcon />} label="Approve" onClick={() => handleApprove(row.id!, 'APPROVED')} color="success" />,
+                        <GridActionsCellItem icon={<CancelIcon />} label="Reject" onClick={() => handleApprove(row.id!, 'REJECTED')} color="error" />,
                     ];
                 }
                 return [];
