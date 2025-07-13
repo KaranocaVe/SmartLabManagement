@@ -25,6 +25,18 @@ public interface PermissionMapper extends BaseMapper<Permission> {
      * @param userId 用户ID
      * @return 该用户的所有权限码字符串列表
      */
+    @org.apache.ibatis.annotations.Select({
+            "SELECT p.permission_code",
+            "FROM permissions p",
+            "LEFT JOIN role_permissions rp ON p.id = rp.permission_id",
+            "LEFT JOIN user_roles ur ON rp.role_id = ur.role_id",
+            "WHERE ur.user_id = #{userId}",
+            "UNION",
+            "SELECT p.permission_code",
+            "FROM permissions p",
+            "LEFT JOIN user_permissions up ON p.id = up.permission_id",
+            "WHERE up.user_id = #{userId}",
+            "AND (up.expires_at IS NULL OR up.expires_at >= NOW())"
+    })
     List<String> findPermissionCodesByUserId(@Param("userId") Long userId);
-
 }

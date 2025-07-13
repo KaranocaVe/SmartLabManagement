@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @SpringBootApplication
 @EnableTransactionManagement // 明确开启声明式事务管理功能
-//@MapperScan("com.labManagement.backend.modules.*.mapper") // 批量扫描所有业务模块下的Mapper接口
+//@MapperScan("com.labmanagement.backend.modules")  // 扫描所有 Mapper 接口
 public class LabPlatformApplication {
 
     public static void main(String[] args) {
