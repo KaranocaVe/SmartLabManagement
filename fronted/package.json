@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "openapi-ts": "openapi-ts"
+    "openapi-generator-cli": "openapi-generator-cli"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
-    "@hey-api/openapi-ts": "^0.78.3",
+    "@openapitools/openapi-generator-cli": "^2.21.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
