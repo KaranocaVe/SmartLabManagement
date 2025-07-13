@@ -86,7 +86,7 @@ const DataTable = <T extends { id: GridRowId }>({
     }, [columns, onEdit, onDelete]);
 
     return (
-        <Box sx={{ height: 650, width: '100%' }}>
+        <Box sx={{ height: 650, width: '100%', display: 'flex', flexDirection: 'column' }}>
             <DataGrid
                 // --- 核心Props ---
                 rows={rows}
@@ -103,7 +103,6 @@ const DataTable = <T extends { id: GridRowId }>({
 
                 // --- 其他配置 ---
                 disableRowSelectionOnClick // 禁用点击行来选中行的行为
-                autoHeight // 根据内容自动调整高度
                 getRowId={(row) => row.id} // 明确指定使用行数据中的 'id' 字段作为唯一标识
                 sx={{
                     // --- 样式覆盖 ---

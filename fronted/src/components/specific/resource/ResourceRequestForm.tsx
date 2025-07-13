@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 
 // 导入相关的API类型
-import type { ResourceRequestCreateDTO } from '../../../client/api';
+import type { ResourceRequestCreateDTO } from '../../../client';
 
 // 定义组件的Props接口
 interface ResourceRequestFormProps {
@@ -83,7 +83,7 @@ const ResourceRequestForm: React.FC<ResourceRequestFormProps> = ({
             <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <DialogContent>
                     <Grid container spacing={2} sx={{ mt: 1 }}>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <FormControl fullWidth>
                                 <InputLabel id="request-type-label">申请类型</InputLabel>
                                 <Controller
@@ -100,25 +100,25 @@ const ResourceRequestForm: React.FC<ResourceRequestFormProps> = ({
                                 />
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('resourceId', { required: '资源ID是必填项' })} label="资源ID" type="number" fullWidth required error={!!errors.resourceId} helperText={errors.resourceId?.message} />
                         </Grid>
                         {requestType === 'MATERIAL' && (
-                            <Grid item xs={12}>
+                            <Grid size={{ xs: 12 }} component="div">
                                 <TextField {...register('quantity')} label="数量" type="number" fullWidth />
                             </Grid>
                         )}
                         {(requestType === 'EQUIPMENT' || requestType === 'LAB_SPACE') && (
                             <>
-                                <Grid item xs={12} sm={6}>
+                                <Grid size={{ xs: 12, sm: 6 }} component="div">
                                     <TextField {...register('startTime')} label="开始时间" type="datetime-local" InputLabelProps={{ shrink: true }} fullWidth />
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid size={{ xs: 12, sm: 6 }} component="div">
                                     <TextField {...register('endTime')} label="结束时间" type="datetime-local" InputLabelProps={{ shrink: true }} fullWidth />
                                 </Grid>
                             </>
                         )}
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('purpose')} label="申请目的" fullWidth multiline rows={3} />
                         </Grid>
                     </Grid>

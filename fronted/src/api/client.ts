@@ -1,77 +1,86 @@
-import axios, { type RawAxiosRequestConfig } from 'axios';
-// 导入Zustand store，我们将在第三批中创建它。
-// 这里我们先假设它存在，并从它那里获取token和logout方法。
+import axios from 'axios';
 import { useAuthStore } from '../store/authStore';
 
-// 创建一个Axios的实例，并进行基础配置
 const apiClient = axios.create({
-    // baseURL 将会由 Vite 的代理在开发环境中处理
-    // 在生产环境中，它会指向部署的同源API
     baseURL: '/api',
-    // 设置请求超时时间为10秒
     timeout: 10000,
 });
 
 // --- 请求拦截器 ---
-// 在每个请求被发送之前，这个函数都会被调用
+// 功能：在每个请求发送前，自动附加认证Token。
 apiClient.interceptors.request.use(
     (config) => {
-        // 从Zustand store的当前状态中获取token
         const token = useAuthStore.getState().token;
-
-        // 如果token存在，则将其添加到请求的 Authorization 头中
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
         }
-
         return config;
     },
     (error) => {
-        // 如果在设置请求时发生错误，则直接拒绝Promise
         return Promise.reject(error);
     }
 );
 
 // --- 响应拦截器 ---
-// 在接收到响应之后，这个函数都会被调用
+// 功能：集中处理所有API响应，包括成功和失败的情况。
 apiClient.interceptors.response.use(
     (response) => {
-        // 对于成功的响应 (状态码在 2xx 范围内), 我们直接返回响应体中的 `data` 部分。
-        // 这样业务代码中就不需要再写 response.data。
-        // 注意：您生成的API客户端似乎会自己处理.data，
-        // 所以我们这里直接返回整个response，让生成器代码处理。
+        // 对于成功的响应，我们直接将其传递下去。
+        // 由OpenAPI生成的代码会处理后续的.data提取。
         return response;
     },
     (error) => {
-        // 对于失败的响应 (状态码超出 2xx 范围)
+        // 在这里，我们集中处理所有类型的API错误。
+        const customError = {
+            message: '发生了一个未知错误，请稍后重试。',
+            status: 500,
+            data: null,
+        };
+
         if (error.response) {
+            // 服务器返回了错误状态码 (非2xx)
             const { status, data } = error.response;
+            customError.status = status;
+            customError.data = data;
 
-            // 我们特别关注 401 Unauthorized 错误，这通常意味着token无效或已过期
             if (status === 401) {
-                // 调用Zustand store中的logout方法，清除本地存储的token和用户信息
+                // --- 关键：处理认证失败 ---
+                customError.message = '认证已过期，请重新登录。';
+                // 触发登出逻辑，并强制刷新页面到登录页
                 useAuthStore.getState().logout();
-                // 使用 window.location.replace 跳转到登录页，这会刷新页面，
-                // 比使用React Router的跳转更彻底，能清理掉所有组件状态。
                 window.location.replace('/login');
-                // 抛出一个错误，中断当前的Promise链
-                return Promise.reject(new Error('Unauthorized: Redirecting to login.'));
+            } else if (data && data.message) {
+                // 如果后端返回了具体的错误信息，则使用它
+                customError.message = data.message;
+            } else {
+                // 否则，根据常见的HTTP状态码提供通用的错误信息
+                switch (status) {
+                    case 400:
+                        customError.message = '请求参数错误。';
+                        break;
+                    case 403:
+                        customError.message = '您没有权限执行此操作。';
+                        break;
+                    case 404:
+                        customError.message = '请求的资源未找到。';
+                        break;
+                    case 500:
+                        customError.message = '服务器内部错误，请联系管理员。';
+                        break;
+                    default:
+                        customError.message = `发生错误 (状态码: ${status})。`;
+                }
             }
-
-            // 对于其他错误，可以根据后端返回的错误信息(data.message)进行全局提示。
-            // 例如使用 notistack (我们将在后续步骤集成)
-            // enqueueSnackbar(data?.message || '服务器发生未知错误', { variant: 'error' });
         } else if (error.request) {
-            // 请求已发出，但没有收到响应 (例如网络断开)
-            console.error('Network Error:', error.request);
-            // enqueueSnackbar('网络连接失败，请检查您的网络', { variant: 'error' });
-        } else {
-            // 在设置请求时触发了一个错误
-            console.error('Request Setup Error:', error.message);
+            // 请求已发出，但没有收到响应（例如网络中断）
+            customError.message = '网络连接失败，请检查您的网络设置。';
         }
 
-        // 将错误继续向下传递，这样具体的API调用点仍然可以通过 .catch() 来捕获并处理它
-        return Promise.reject(error);
+        // 在控制台打印详细的原始错误，方便开发者调试
+        console.error("API Error Intercepted:", error);
+
+        // 将我们包装过的、更友好的错误对象传递给页面的.catch()块
+        return Promise.reject(customError);
     }
 );
 

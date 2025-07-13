@@ -84,7 +84,7 @@ const OverviewPage: React.FC = () => {
             </Typography>
             <Grid container spacing={3}>
                 {/* 活动项目卡片 */}
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }} component="div">
                     <Card>
                         <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
                             <Avatar sx={{ bgcolor: 'primary.main', mr: 2 }}>
@@ -99,7 +99,7 @@ const OverviewPage: React.FC = () => {
                 </Grid>
 
                 {/* 待审批申请卡片 */}
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }} component="div">
                     <Card>
                         <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
                             <Avatar sx={{ bgcolor: 'warning.main', mr: 2 }}>
@@ -114,7 +114,7 @@ const OverviewPage: React.FC = () => {
                 </Grid>
 
                 {/* 低库存物资卡片 */}
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }} component="div">
                     <Card>
                         <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
                             <Avatar sx={{ bgcolor: 'info.main', mr: 2 }}>
@@ -129,7 +129,7 @@ const OverviewPage: React.FC = () => {
                 </Grid>
 
                 {/* 安全事件总数卡片 */}
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }} component="div">
                     <Card>
                         <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
                             <Avatar sx={{ bgcolor: 'error.main', mr: 2 }}>

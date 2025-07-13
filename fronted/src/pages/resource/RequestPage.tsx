@@ -108,8 +108,8 @@ const RequestPage: React.FC = () => {
             getActions: ({ row }) => {
                 if (isAdmin && row.status === 'PENDING') {
                     return [
-                        <GridActionsCellItem icon={<CheckCircleIcon />} label="Approve" onClick={() => handleApprove(row.id, 'APPROVED')} color="success" />,
-                        <GridActionsCellItem icon={<CancelIcon />} label="Reject" onClick={() => handleApprove(row.id, 'REJECTED')} color="error" />,
+                        <GridActionsCellItem icon={<CheckCircleIcon />} label="Approve" onClick={() => row.id !== undefined && handleApprove(row.id, 'APPROVED')} color="primary" />,
+                        <GridActionsCellItem icon={<CancelIcon />} label="Reject" onClick={() => row.id !== undefined && handleApprove(row.id, 'REJECTED')} color="inherit" />,
                     ];
                 }
                 return [];

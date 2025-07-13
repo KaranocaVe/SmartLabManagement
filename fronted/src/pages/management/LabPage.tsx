@@ -62,8 +62,18 @@ const LabPage: React.FC = () => {
         setIsFormOpen(true);
     };
 
-    const handleEdit = (lab: Lab) => {
-        setEditingLab(lab);
+    const handleEdit = (row: { id: string | number; name?: string; location?: string; status?: string; createdAt?: string; updatedAt?: string; managerName?: string }) => {
+        // Convert id to number if possible
+        const id = typeof row.id === 'string' ? Number(row.id) : row.id;
+        setEditingLab({
+            id: id,
+            name: row.name,
+            location: row.location,
+            status: row.status,
+            createdAt: row.createdAt,
+            updatedAt: row.updatedAt,
+            managerName: row.managerName,
+        } as Lab);
         setIsFormOpen(true);
     };
 
@@ -118,7 +128,7 @@ const LabPage: React.FC = () => {
             />
             <Box mt={3}>
                 <DataTable
-                    rows={labs}
+                    rows={labs.map(lab => ({ ...lab, id: lab.id ?? '' }))}
                     columns={columns}
                     loading={isLoading}
                     rowCount={totalRows}

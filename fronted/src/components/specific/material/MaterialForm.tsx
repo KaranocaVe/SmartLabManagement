@@ -84,16 +84,16 @@ const MaterialForm: React.FC<MaterialFormProps> = ({
             <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <DialogContent>
                     <Grid container spacing={2} sx={{ mt: 1 }}>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('name', { required: '物资名称是必填项' })} label="物资名称" fullWidth required error={!!errors.name} helperText={errors.name?.message} />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('specification')} label="规格型号" fullWidth />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }} component="div">
                             <TextField {...register('stock')} label="当前库存" type="number" fullWidth />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }} component="div">
                             <TextField {...register('warningStock')} label="库存预警值" type="number" fullWidth />
                         </Grid>
                     </Grid>

@@ -105,7 +105,7 @@ const EquipmentPage: React.FC = () => {
             />
             <Box mt={3}>
                 <DataTable
-                    rows={equipments}
+                    rows={equipments.filter(e => e.id !== undefined).map(e => ({ ...e, id: e.id as number }))}
                     columns={columns}
                     loading={isLoading}
                     rowCount={totalRows}

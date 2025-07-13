@@ -64,8 +64,9 @@ const SupplierPage: React.FC = () => {
         setIsFormOpen(true);
     };
 
-    const handleEdit = (supplier: Supplier) => {
-        setEditingSupplier(supplier);
+    const handleEdit = (row: { id: GridRowId }) => {
+        const supplier = suppliers.find(s => s.id === row.id);
+        setEditingSupplier(supplier || null);
         setIsFormOpen(true);
     };
 
@@ -123,7 +124,7 @@ const SupplierPage: React.FC = () => {
             />
             <Box mt={3}>
                 <DataTable
-                    rows={suppliers}
+                    rows={suppliers.filter(s => s.id !== undefined) as { id: GridRowId }[]}
                     columns={columns}
                     loading={isLoading}
                     rowCount={totalRows}

@@ -43,7 +43,7 @@ const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
     return (
         <Dialog
             open={open}
-            TransitionComponent={Transition} // 使用自定义的过渡效果
+            slots={{ transition: Transition }} // 使用自定义的过渡效果，推荐方式
             keepMounted
             onClose={onClose}
             aria-labelledby="confirmation-dialog-title"

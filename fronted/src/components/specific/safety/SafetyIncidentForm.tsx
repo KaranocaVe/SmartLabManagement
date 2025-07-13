@@ -69,16 +69,16 @@ const SafetyIncidentForm: React.FC<SafetyIncidentFormProps> = ({
             <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <DialogContent>
                     <Grid container spacing={2} sx={{ mt: 1 }}>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6}} component="div">
                             <TextField {...register('incidentTime', { required: '事发时间是必填项' })} label="事发时间" type="datetime-local" InputLabelProps={{ shrink: true }} fullWidth required error={!!errors.incidentTime} />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6}} component="div">
                             <TextField {...register('labId')} label="相关实验室ID (可选)" type="number" fullWidth />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('description', { required: '事件描述是必填项' })} label="事件描述" fullWidth multiline rows={4} required error={!!errors.description} helperText={errors.description?.message} />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('actionsTaken')} label="已采取措施" fullWidth multiline rows={3} />
                         </Grid>
                     </Grid>

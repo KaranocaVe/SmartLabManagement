@@ -81,7 +81,9 @@ const RolePage: React.FC = () => {
         setSelectedRole(role);
         const newSelection: Record<number, boolean> = {};
         permissions.forEach(p => {
-            newSelection[p.id] = role.permissionIds?.includes(p.id) ?? false;
+            if (typeof p.id !== 'undefined') {
+                newSelection[p.id] = role.permissionIds?.includes(p.id) ?? false;
+            }
         });
         setPermissionSelection(newSelection);
     };
@@ -99,9 +101,10 @@ const RolePage: React.FC = () => {
         try {
             const permissionIds = Object.entries(permissionSelection)
                 .filter(([, checked]) => checked)
-                .map(([id]) => Number(id));
+                .map(([id]) => Number(id))
+                .filter((id): id is number => typeof id === 'number' && !isNaN(id));
 
-            await roleApi.assignPermissionsToRole({ roleId: selectedRole.id, permissionIds });
+            await roleApi.assignPermissionsToRole({ roleId: selectedRole.id as number, permissionIds: permissionIds as number[] });
             enqueueSnackbar('权限保存成功', { variant: 'success' });
             // 刷新角色列表以获取最新权限（如果API支持）
             fetchData();
@@ -132,7 +135,7 @@ const RolePage: React.FC = () => {
             ) : (
                 <Grid container spacing={3} mt={1}>
                     {/* Left Column: Roles List */}
-                    <Grid item xs={12} md={4}>
+                    <Grid size={{ xs: 12, md: 4}} component="div">
                         <Card>
                             <CardContent>
                                 <Typography variant="h6" gutterBottom>角色列表</Typography>
@@ -152,7 +155,7 @@ const RolePage: React.FC = () => {
                     </Grid>
 
                     {/* Right Column: Permission Assignment */}
-                    <Grid item xs={12} md={8}>
+                    <Grid size={{ xs: 12, md: 8}} component="div">
                         <Card>
                             <CardContent>
                                 {selectedRole ? (
@@ -165,12 +168,26 @@ const RolePage: React.FC = () => {
                                                     key={permission.id}
                                                     control={
                                                         <Checkbox
-                                                            checked={permissionSelection[permission.id] || false}
+                                                            checked={permissionSelection[permission.id ?? 0] || false}
                                                             onChange={handlePermissionChange}
-                                                            name={String(permission.id)}
+                                                            name={String(permission.id ?? 0)}
                                                         />
                                                     }
-                                                    label={permission.permissionName || `权限 ${permission.id}`}
+                                                    label={
+                                                        <>
+                                                            <strong>{permission.permissionCode || `权限 ${permission.id}`}</strong>
+                                                            {permission.module && (
+                                                                <span style={{ marginLeft: 8, color: '#888' }}>
+                                                                    [{permission.module}]
+                                                                </span>
+                                                            )}
+                                                            {permission.description && (
+                                                                <span style={{ marginLeft: 8, color: '#aaa' }}>
+                                                                    {permission.description}
+                                                                </span>
+                                                            )}
+                                                        </>
+                                                    }
                                                 />
                                             ))}
                                         </FormGroup>

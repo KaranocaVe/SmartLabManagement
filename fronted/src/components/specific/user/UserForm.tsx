@@ -106,24 +106,24 @@ const UserForm: React.FC<UserFormProps> = ({
             <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <DialogContent>
                     <Grid container spacing={2} sx={{ mt: 1 }}>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('username', { required: '用户名是必填项' })} label="用户名" fullWidth required disabled={isEditMode} error={!!errors.username} helperText={errors.username?.message} />
                         </Grid>
                         {!isEditMode && (
-                            <Grid item xs={12}>
+                            <Grid size={{ xs: 12 }} component="div">
                                 <TextField {...register('password', { required: '密码是必填项' })} label="密码" type="password" fullWidth required error={!!errors.password} helperText={errors.password?.message} />
                             </Grid>
                         )}
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }} component="div">
                             <TextField {...register('realName', { required: '真实姓名是必填项' })} label="真实姓名" fullWidth required error={!!errors.realName} helperText={errors.realName?.message} />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }} component="div">
                             <TextField {...register('phone')} label="电话" fullWidth />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('email')} label="邮箱" type="email" fullWidth />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <FormControl fullWidth>
                                 <InputLabel id="role-select-label">角色</InputLabel>
                                 <Controller

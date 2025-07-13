@@ -59,8 +59,13 @@ const MaterialPage: React.FC = () => {
         setIsFormOpen(true);
     };
 
-    const handleEdit = (material: Material) => {
-        setEditingMaterial(material);
+    const handleEdit = (row: { id: string | number; name?: string; specification?: string; unit?: string; currentStock?: number; lowStockThreshold?: number; storageLocation?: string; createdAt?: string; updatedAt?: string; }) => {
+        // Convert id to number if possible
+        const id = typeof row.id === 'string' ? Number(row.id) : row.id;
+        setEditingMaterial({
+            ...row,
+            id: id as number | undefined,
+        } as Material);
         setIsFormOpen(true);
     };
 
@@ -85,14 +90,16 @@ const MaterialPage: React.FC = () => {
         { field: 'id', headerName: 'ID', width: 90 },
         { field: 'name', headerName: '物资名称', flex: 2 },
         { field: 'specification', headerName: '规格型号', flex: 2 },
-        { field: 'stock', headerName: '当前库存', flex: 1 },
-        { field: 'warningStock', headerName: '库存预警值', flex: 1 },
+        { field: 'unit', headerName: '单位', flex: 1 },
+        { field: 'currentStock', headerName: '当前库存', flex: 1 },
+        { field: 'lowStockThreshold', headerName: '库存预警值', flex: 1 },
+        { field: 'storageLocation', headerName: '存放位置', flex: 2 },
         {
             field: 'status',
             headerName: '库存状态',
             flex: 1,
             renderCell: (params) => {
-                const isLowStock = params.row.stock <= params.row.warningStock;
+                const isLowStock = (params.row.currentStock ?? 0) <= (params.row.lowStockThreshold ?? 0);
                 return (
                     <Chip
                         label={isLowStock ? '库存不足' : '充足'}
@@ -102,6 +109,8 @@ const MaterialPage: React.FC = () => {
                 );
             },
         },
+        { field: 'createdAt', headerName: '创建时间', flex: 2 },
+        { field: 'updatedAt', headerName: '更新时间', flex: 2 },
     ];
 
     return (
@@ -113,7 +122,10 @@ const MaterialPage: React.FC = () => {
             />
             <Box mt={3}>
                 <DataTable
-                    rows={materials}
+                    rows={materials.map((m, idx) => ({
+                        ...m,
+                        id: m.id !== undefined ? m.id : `row-${idx}`,
+                    }))}
                     columns={columns}
                     loading={isLoading}
                     rowCount={totalRows}

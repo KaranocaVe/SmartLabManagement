@@ -59,10 +59,10 @@ const RoleForm: React.FC<RoleFormProps> = ({
             <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <DialogContent>
                     <Grid container spacing={2} sx={{ mt: 1 }}>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('roleName', { required: '角色名称是必填项' })} label="角色名称" fullWidth required error={!!errors.roleName} helperText={errors.roleName?.message} />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('description')} label="描述" fullWidth multiline rows={3} />
                         </Grid>
                     </Grid>

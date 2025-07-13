@@ -62,9 +62,12 @@ const UserPage: React.FC = () => {
         setIsFormOpen(true);
     };
 
-    const handleEdit = (user: UserVO) => {
-        setEditingUser(user);
-        setIsFormOpen(true);
+    const handleEdit = (row: { id: GridRowId }) => {
+        const user = users.find(u => u.id === row.id);
+        if (user) {
+            setEditingUser(user);
+            setIsFormOpen(true);
+        }
     };
 
     const handleDelete = (id: GridRowId) => {
@@ -115,7 +118,7 @@ const UserPage: React.FC = () => {
             renderCell: (params) => (
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                     {params.row.roles?.map((role) => (
-                        <Chip key={role.id} label={role.roleName} size="small" />
+                        <Chip key={role} label={role} size="small" />
                     ))}
                 </Box>
             ),
@@ -143,7 +146,10 @@ const UserPage: React.FC = () => {
             />
             <Box mt={3}>
                 <DataTable
-                    rows={users}
+                    rows={users.map(user => ({
+                        ...user,
+                        id: user.id !== undefined ? user.id : `user-${Math.random()}`,
+                    }))}
                     columns={columns}
                     loading={isLoading}
                     rowCount={totalRows}

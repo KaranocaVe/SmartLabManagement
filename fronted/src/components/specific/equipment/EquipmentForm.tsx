@@ -7,8 +7,8 @@ import {
     DialogContent,
     DialogTitle,
     TextField,
-    Grid,
 } from '@mui/material';
+import Grid from '@mui/material/Grid';
 
 // 导入设备相关的API类型
 import type { Equipment, EquipmentCreateDTO, EquipmentUpdateDTO } from '../../../client';
@@ -91,19 +91,19 @@ const EquipmentForm: React.FC<EquipmentFormProps> = ({
             <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <DialogContent>
                     <Grid container spacing={2} sx={{ mt: 1 }}>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6}} component="div">
                             <TextField {...register('name', { required: '设备名称是必填项' })} label="设备名称" fullWidth required error={!!errors.name} helperText={errors.name?.message} />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6}} component="div">
                             <TextField {...register('assetNumber', { required: '资产编号是必填项' })} label="资产编号" fullWidth required error={!!errors.assetNumber} helperText={errors.assetNumber?.message} />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6}} component="div">
                             <TextField {...register('model')} label="设备型号" fullWidth />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6}} component="div">
                             <TextField {...register('purchaseDate')} label="采购日期" type="date" InputLabelProps={{ shrink: true }} fullWidth />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }} component="div">
                             <TextField {...register('maintenanceCycleDays')} label="维护周期（天）" type="number" fullWidth />
                         </Grid>
                     </Grid>

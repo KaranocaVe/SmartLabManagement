@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {type JSX} from 'react';
 import { Box, Container, CssBaseline } from '@mui/material';
 
 // 定义 AuthLayout 组件的 props 类型
@@ -11,7 +11,7 @@ interface AuthLayoutProps {
  * @param {AuthLayoutProps} props - 组件的 props
  * @returns {JSX.Element}
  */
-const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
+const AuthLayout: React.FC<AuthLayoutProps> = ({ children }: AuthLayoutProps): JSX.Element => {
     return (
         // 使用 Box 作为根容器，并设置其占据整个视口的高度
         <Box

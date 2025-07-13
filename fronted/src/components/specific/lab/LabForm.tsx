@@ -75,13 +75,13 @@ const LabForm: React.FC<LabFormProps> = ({
             <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <DialogContent>
                     <Grid container spacing={2} sx={{ mt: 1 }}>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12}} component="div">
                             <TextField {...register('name', { required: '实验室名称是必填项' })} label="实验室名称" fullWidth required error={!!errors.name} helperText={errors.name?.message} />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6}} component="div">
                             <TextField {...register('location')} label="位置" fullWidth />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6}} component="div">
                             <TextField {...register('managerName')} label="负责人" fullWidth />
                         </Grid>
                     </Grid>
