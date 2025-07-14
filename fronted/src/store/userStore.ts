@@ -7,9 +7,15 @@ interface UserState {
 }
 
 const useUserStore = create<UserState>((set) => ({
-  username: null, // 初始值为 null
-  setUsername: (username) => set({ username }), // 设置用户名
-  clearUsername: () => set({ username: null }), // 清除用户名
+  username: localStorage.getItem("username"), // 从 localStorage 初始化用户名
+  setUsername: (username) => {
+    localStorage.setItem("username", username); // 存储到 localStorage
+    set({ username });
+  },
+  clearUsername: () => {
+    localStorage.removeItem("username"); // 从 localStorage 移除
+    set({ username: null });
+  },
 }));
 
 export default useUserStore;

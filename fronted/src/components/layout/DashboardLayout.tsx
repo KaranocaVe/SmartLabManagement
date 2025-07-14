@@ -75,9 +75,10 @@ function LogOutButton() {
   const handleLogout = async () => {
     try {
       useAuthStore.getState().logout(); // 调用 store 中的登出方法
+      useUserStore.getState().clearUsername(); // 清除用户名
+
       // 重定向到登录页面
       navigate("/login");
-
       console.log("用户已登出");
     } catch (error) {
       console.error("登出失败", error);
