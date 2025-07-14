@@ -152,7 +152,10 @@ const ProjectListPage: React.FC = () => {
                   <CardActions>
                     <Button
                       size="small"
-                      onClick={() => handleViewDetails(project.id)}
+                      onClick={() =>
+                        project.id !== undefined &&
+                        handleViewDetails(project.id)
+                      }
                     >
                       查看详情
                     </Button>
