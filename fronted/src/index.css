@@ -8,24 +8,35 @@
 @tailwind utilities;
 
 html, body, #root {
-  margin: 0 !important; /* 强制移除所有外边距 */
-  padding: 0 !important; /* 强制移除所有内边距 */
-  height: 100%; /* 确保html, body, #root占满高度 */
-  /* 这是最重要的：隐藏所有水平方向的溢出滚动条 */
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100%;
   overflow-x: hidden !important;
+  /* 移除或注释掉这里的背景图片设置 */
+  /* background-image: url('...'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
 }
 
 body {
-  /* 如果您希望整个body有默认背景，可以在这里设置 */
-  /* 但对于登录页，我们让AuthLayout来负责背景 */
-  /* @apply bg-gradient-to-br from-[#e0eafc] to-[#cfdef3]; */ /* 暂时注释或移除此行 */
   @apply min-h-screen; /* 确保body最小高度为视口高度 */
   overflow-y: auto !important; /* 允许垂直滚动条，如果内容溢出 */
+
+  /* ======= 美化背景：渐变背景 ======= */
+  @apply bg-gradient-to-br from-blue-300 via-purple-300 to-pink-300;
+  /* 这是一个从左上到右下，包含蓝色、紫色和粉色的渐变。你可以调整颜色和方向 */
+  /* 更多渐变示例： */
+  /* @apply bg-gradient-to-r from-cyan-500 to-blue-500; */
+  /* @apply bg-gradient-to-tl from-green-400 to-blue-500; */
+  /* @apply bg-gradient-to-b from-gray-900 to-gray-600; */
 }
 
 /* 毛玻璃模糊层 */
 #frosted-glass-bg {
   @apply fixed inset-0 backdrop-blur-md bg-white/30 z-[-1];
+  /* 对于渐变背景，你可能需要调整 bg-white/30 或 bg-black/10 来获得最佳效果 */
 }
 
 /* ---------------------------------------------------- */
