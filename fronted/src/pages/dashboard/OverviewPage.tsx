@@ -43,8 +43,16 @@ function GridCard({
 }) {
   return status === undefined ? (
     <Grid size={{ xs: 12, sm: 6, md: 3 }} component="div">
-      <Card>
-        <CardContent sx={{ display: "flex", alignItems: "center" }}>
+      <Card sx={{ height: "100%", margin: 0, padding: 0 }}>
+        <CardContent
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between", // 水平分布
+            height: "100%", // 填充整个卡片
+            padding: 0, // 移除默认 padding
+          }}
+        >
           <Avatar sx={{ bgcolor: "error.main", mr: 2 }}>
             {<WarningAmberIcon />}
           </Avatar>
@@ -66,7 +74,19 @@ function GridCard({
             <Typography variant="h5" component="div">
               {status}
             </Typography>
-            <Typography color="text.secondary">{title}</Typography>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitLineClamp: 1, // 限制为 1 行
+                WebkitBoxOrient: "vertical",
+              }}
+            >
+              {title}
+            </Typography>
           </Box>
         </CardContent>
       </Card>
@@ -130,7 +150,7 @@ const OverviewPage: React.FC = () => {
 
   return (
     <Container maxWidth={false}>
-      <Typography variant="h4" sx={{ mb: 4, fontWeight: "bold" }}>
+      <Typography variant="h5" sx={{ mb: 4, fontWeight: "bold" }} padding={1}>
         仪表盘
       </Typography>
       <Grid container spacing={2}>
