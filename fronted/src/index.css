@@ -10,6 +10,7 @@ body {
   @apply overflow-hidden;
   margin: 0;
   padding: 0;
+  overflow: auto;
 }
 
 /* 毛玻璃模糊层 */
