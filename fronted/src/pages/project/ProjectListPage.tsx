@@ -17,11 +17,7 @@ import { useSnackbar } from "notistack";
 
 // 导入API和相关类型
 import { projectApi } from "../../api";
-import type {
-  ProjectVO,
-  PageRequestDTO,
-  ProjectCreateDTO,
-} from "../../client";
+import type { ProjectVO, PageRequestDTO, ProjectCreateDTO } from "../../client";
 import { ROUTES } from "../../router/paths";
 
 // 导入通用组件和项目表单

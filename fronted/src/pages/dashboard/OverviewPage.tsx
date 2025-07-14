@@ -101,7 +101,32 @@ const OverviewPage: React.FC = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [stats, setStats] = useState<Stats | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  const cardConfigs = [
+    {
+      bgColor: "primary.main",
+      title: "活动项目",
+      statusKey: "activeProjects",
+      icon: <AccountTreeIcon />,
+    },
+    {
+      bgColor: "secondary.main",
+      title: "待审批申请",
+      statusKey: "pendingRequests",
+      icon: <PendingActionsIcon />,
+    },
+    {
+      bgColor: "info.main",
+      title: "低库存物资",
+      statusKey: "lowStockMaterials",
+      icon: <ScienceIcon />,
+    },
+    {
+      bgColor: "error.main",
+      title: "安全事件总数",
+      statusKey: "totalIncidents",
+      icon: <WarningAmberIcon />,
+    },
+  ];
   useEffect(() => {
     const fetchStats = async () => {
       try {
@@ -154,35 +179,15 @@ const OverviewPage: React.FC = () => {
         仪表盘
       </Typography>
       <Grid container spacing={2}>
-        <GridCard
-          bgColor="primary.main"
-          title="活动项目"
-          status={stats?.activeProjects}
-          icon={<AccountTreeIcon />}
-        />
-        {/* 待审批申请卡片 */}
-        <GridCard
-          bgColor="secondary.main"
-          title="待审批申请"
-          status={stats?.pendingRequests}
-          icon={<PendingActionsIcon />}
-        />
-
-        {/* 低库存物资卡片 */}
-        <GridCard
-          bgColor="info.main"
-          title="低库存物资"
-          status={stats?.lowStockMaterials}
-          icon={<ScienceIcon />}
-        />
-
-        {/* 安全事件总数卡片 */}
-        <GridCard
-          bgColor="error.main"
-          title="安全事件总数"
-          status={stats?.totalIncidents}
-          icon={<WarningAmberIcon />}
-        />
+        {cardConfigs.map(({ bgColor, title, statusKey, icon }) => (
+          <GridCard
+            key={title}
+            bgColor={bgColor}
+            title={title}
+            status={stats?.[statusKey]}
+            icon={icon}
+          />
+        ))}
       </Grid>
     </Container>
   );
