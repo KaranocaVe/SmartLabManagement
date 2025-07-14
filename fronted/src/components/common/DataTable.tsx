@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Tooltip } from "@mui/material";
 import {
   DataGrid,
   type GridColDef,
@@ -81,7 +81,11 @@ const DataTable = <T extends { id: GridRowId }>({
     if (onEdit || onDelete) {
       return [...columns, actionCol];
     }
-    return columns;
+    return columns.map((col) => ({
+      ...col,
+      flex: 1, // 动态分配列宽
+      minWidth: 100, // 设置最小宽度
+    }));
   }, [columns, onEdit, onDelete]);
 
   return (
@@ -95,7 +99,14 @@ const DataTable = <T extends { id: GridRowId }>({
     >
       <DataGrid
         rows={rows}
-        columns={memoizedColumns}
+        columns={memoizedColumns.map((col) => ({
+          ...col,
+          renderHeader: (params) => (
+            <Tooltip title={params.colDef.headerName || ""}>
+              <span>{params.colDef.headerName}</span>
+            </Tooltip>
+          ),
+        }))}
         loading={loading}
         pagination
         paginationMode="server"
@@ -105,11 +116,11 @@ const DataTable = <T extends { id: GridRowId }>({
         onPaginationModelChange={onPaginationModelChange}
         disableRowSelectionOnClick
         getRowId={(row) => row.id}
-        rowHeight={40} // 设置行高为 40px
-        sortingOrder={["asc", "desc"]} // 仅允许升序和降序
+        rowHeight={40}
         localeText={{
           columnMenuSortAsc: "升序",
           columnMenuSortDesc: "降序",
+          columnMenuUnsort: "取消排序",
           columnHeaderSortIconLabel: "排序",
           columnMenuFilter: "筛选",
           columnMenuHideColumn: "隐藏列",
@@ -125,12 +136,6 @@ const DataTable = <T extends { id: GridRowId }>({
             lineHeight: "1.5rem",
             "&:hover": {
               cursor: "pointer",
-            },
-            "& .MuiDataGrid-columnHeaderTitle": {
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-              maxWidth: "100%",
             },
           },
           "& .MuiDataGrid-cell": {
