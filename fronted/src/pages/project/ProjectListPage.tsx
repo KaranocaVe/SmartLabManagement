@@ -21,7 +21,7 @@ import type {
   ProjectVO,
   PageRequestDTO,
   ProjectCreateDTO,
-} from "../../client/api";
+} from "../../client";
 import { ROUTES } from "../../router/paths";
 
 // 导入通用组件和项目表单

@@ -18,7 +18,7 @@ import { useSnackbar } from 'notistack';
 
 // 导入API和相关类型
 import { projectApi } from '../../../../api';
-import type { ProjectVO, ProjectMember } from '../../../../client';
+import type { ProjectVO, ProjectMemberVO,AddProjectMemberDTO } from '../../../../client';
 // 导入我们之前创建的通用组件
 import ConfirmationDialog from '../../../../components/common/ConfirmationDialog';
 // import AddMemberDialog from './AddMemberDialog'; // 假设我们有一个用于添加成员的对话框组件
@@ -34,9 +34,9 @@ const OverviewTab: React.FC = () => {
 
     // --- State Management ---
     // 使用本地 state 来管理成员列表，以便在增删后能即时更新UI
-    const [members, setMembers] = useState<ProjectMember[]>(project.members || []);
+    const [members, setMembers] = useState<ProjectMemberVO[]>(project.members || []);
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
-    const [deletingMember, setDeletingMember] = useState<ProjectMember | null>(null);
+    const [deletingMember, setDeletingMember] = useState<ProjectMemberVO | null>(null);
 
     // --- Event Handlers ---
     const handleOpenAddMemberDialog = () => {
@@ -44,7 +44,7 @@ const OverviewTab: React.FC = () => {
         // TODO: 打开添加成员的对话框
     };
 
-    const handleOpenDeleteDialog = (member: ProjectMember) => {
+    const handleOpenDeleteDialog = (member: ProjectMemberVO) => {
         setDeletingMember(member);
         setIsConfirmOpen(true);
     };

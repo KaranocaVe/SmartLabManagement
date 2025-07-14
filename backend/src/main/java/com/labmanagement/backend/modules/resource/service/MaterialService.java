@@ -1,7 +1,9 @@
 package com.labmanagement.backend.modules.resource.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.labmanagement.backend.modules.resource.dto.MaterialCreateDTO;
 import com.labmanagement.backend.modules.resource.dto.MaterialStockAdjustDTO;
+import com.labmanagement.backend.modules.resource.dto.MaterialUpdateDTO;
 import com.labmanagement.backend.modules.resource.entity.Material;
 import com.labmanagement.backend.modules.resource.entity.ResourceRequest;
 
@@ -13,6 +15,20 @@ import com.labmanagement.backend.modules.resource.entity.ResourceRequest;
  * @since 2025-07-11
  */
 public interface MaterialService extends IService<Material> {
+
+    /**
+     * 创建新的物资
+     * @param createDTO 物资创建信息
+     * @return 创建后的物资实体
+     */
+    Material createMaterial(MaterialCreateDTO createDTO);
+
+    /**
+     * 更新物资信息
+     * @param updateDTO 物资更新信息
+     * @return 更新后的物资实体
+     */
+    Material updateMaterial(MaterialUpdateDTO updateDTO);
 
     /**
      * Fulfills a material request by deducting stock.

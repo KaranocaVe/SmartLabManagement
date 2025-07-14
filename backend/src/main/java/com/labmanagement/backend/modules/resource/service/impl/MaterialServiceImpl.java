@@ -4,13 +4,17 @@ package com.labmanagement.backend.modules.resource.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.labmanagement.backend.common.enums.ResponseCode;
 import com.labmanagement.backend.common.exception.BusinessException;
+import com.labmanagement.backend.common.utils.BeanCopyUtil;
+import com.labmanagement.backend.modules.resource.dto.MaterialCreateDTO;
 import com.labmanagement.backend.modules.resource.dto.MaterialStockAdjustDTO;
+import com.labmanagement.backend.modules.resource.dto.MaterialUpdateDTO;
 import com.labmanagement.backend.modules.resource.entity.Material;
 import com.labmanagement.backend.modules.resource.entity.MaterialStockMovement;
 import com.labmanagement.backend.modules.resource.entity.ResourceRequest;
 import com.labmanagement.backend.modules.resource.mapper.MaterialMapper;
 import com.labmanagement.backend.modules.resource.service.MaterialService;
 import com.labmanagement.backend.modules.resource.service.MaterialStockMovementService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +32,29 @@ public class MaterialServiceImpl extends ServiceImpl<MaterialMapper, Material> i
 
     @Autowired
     private MaterialStockMovementService movementService;
+
+    @Override
+    @Transactional
+    public Material createMaterial(MaterialCreateDTO createDTO) {
+        Material material = BeanCopyUtil.copyProperties(createDTO, Material.class);
+        // 新物资的初始库存为0
+        material.setCurrentStock(BigDecimal.ZERO);
+        this.save(material);
+        return material;
+    }
+
+    @Override
+    @Transactional
+    public Material updateMaterial(MaterialUpdateDTO updateDTO) {
+        Material material = this.getById(updateDTO.getId());
+        if (material == null) {
+            throw new BusinessException(ResponseCode.NOT_FOUND.getCode(), "要更新的物资不存在");
+        }
+        // 使用 BeanUtils.copyProperties 将 DTO 中的非空属性覆盖到实体上
+        BeanUtils.copyProperties(updateDTO, material);
+        this.updateById(material);
+        return material;
+    }
 
     @Override
     @Transactional

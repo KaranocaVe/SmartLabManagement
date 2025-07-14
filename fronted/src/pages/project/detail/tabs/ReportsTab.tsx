@@ -19,8 +19,8 @@ import AddIcon from '@mui/icons-material/Add';
 import { useSnackbar } from 'notistack';
 
 // 导入API和相关类型
-// import { experimentReportApi } from '../../../../api';
-import type { ProjectVO, ExperimentReportVO, ReportVersion } from '../../../../client';
+import { experimentReportApi } from '../../../../api';
+import type { ProjectVO, ExperimentReportVO, ReportVersionCreateDTO,ExperimentReportCreateDTO } from '../../../../client';
 // import ReportForm from './ReportForm'; // 理想情况下，表单会是一个独立组件
 
 /**

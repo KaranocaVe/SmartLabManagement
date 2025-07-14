@@ -18,7 +18,7 @@ import { useSnackbar } from 'notistack';
 
 // 导入API和相关类型
 import { experimentRecordApi } from '../../../../api';
-import type { ProjectVO, ExperimentRecord, PageRequestDTO } from '../../../../client';
+import type { ProjectVO, ExperimentRecord, PageRequestDTO,ExperimentRecordCreateDTO } from '../../../../client';
 // import RecordForm from './RecordForm'; // 理想情况下，表单会是一个独立组件
 
 /**

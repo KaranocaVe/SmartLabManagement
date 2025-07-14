@@ -4,8 +4,11 @@ package com.labmanagement.backend.modules.resource.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.labmanagement.backend.common.annotation.AuditLog;
 import com.labmanagement.backend.common.dto.PageRequestDTO;
+import com.labmanagement.backend.common.exception.BusinessException;
 import com.labmanagement.backend.common.vo.ApiResponse;
+import com.labmanagement.backend.modules.resource.dto.MaterialCreateDTO;
 import com.labmanagement.backend.modules.resource.dto.MaterialStockAdjustDTO;
+import com.labmanagement.backend.modules.resource.dto.MaterialUpdateDTO;
 import com.labmanagement.backend.modules.resource.entity.Material;
 import com.labmanagement.backend.modules.resource.service.MaterialService;
 import com.labmanagement.backend.modules.system.entity.User;
@@ -33,12 +36,9 @@ public class MaterialController {
 
     /**
      * 分页查询物资列表
-     *
-     * @param pageRequestDTO 分页请求参数
-     * @return 分页的物资列表
      */
     @GetMapping
-    @PreAuthorize("isAuthenticated()") // 任何认证用户都可以查看物资列表
+    @PreAuthorize("isAuthenticated()")
     public ApiResponse<IPage<Material>> getMaterialPage(@Valid PageRequestDTO pageRequestDTO) {
         IPage<Material> page = materialService.page(new com.baomidou.mybatisplus.extension.plugins.pagination.Page<>(pageRequestDTO.getPageNum(), pageRequestDTO.getPageSize()));
         return ApiResponse.success(page);
@@ -46,40 +46,32 @@ public class MaterialController {
 
     /**
      * 创建新的物资信息
-     *
-     * @param material 物资实体
-     * @return 创建后的物资实体
      */
     @PostMapping
     @PreAuthorize("hasAuthority('material:manage')")
     @AuditLog(description = "创建新的物资")
-    public ApiResponse<Material> createMaterial(@Valid @RequestBody Material material) {
-        materialService.save(material);
-        return ApiResponse.success(material);
+    public ApiResponse<Material> createMaterial(@Valid @RequestBody MaterialCreateDTO createDTO) {
+        Material createdMaterial = materialService.createMaterial(createDTO);
+        return ApiResponse.success(createdMaterial);
     }
 
     /**
      * 更新物资信息
-     *
-     * @param id       物资ID
-     * @param material 包含更新信息的物资实体
-     * @return 更新后的物资实体
      */
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('material:manage')")
     @AuditLog(description = "更新物资信息")
-    public ApiResponse<Material> updateMaterial(@PathVariable Long id, @Valid @RequestBody Material material) {
-        material.setId(id);
-        materialService.updateById(material);
-        return ApiResponse.success(material);
+    public ApiResponse<Material> updateMaterial(@PathVariable Long id, @Valid @RequestBody MaterialUpdateDTO updateDTO) {
+        // 确保路径ID与请求体ID一致
+        if (!id.equals(updateDTO.getId())) {
+            throw new BusinessException(400, "路径ID与请求体ID不匹配");
+        }
+        Material updatedMaterial = materialService.updateMaterial(updateDTO);
+        return ApiResponse.success(updatedMaterial);
     }
 
     /**
      * 调整物资库存（入库或盘点）
-     *
-     * @param adjustDTO   库存调整信息
-     * @param currentUser 当前操作员
-     * @return 操作成功响应
      */
     @PostMapping("/stock-adjustment")
     @PreAuthorize("hasAuthority('material:manage')")

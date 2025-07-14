@@ -22,7 +22,7 @@ import ResourceRequestForm from '../../components/specific/resource/ResourceRequ
 const RequestPage: React.FC = () => {
     const { enqueueSnackbar } = useSnackbar();
     const user = useAuthStore((state) => state.user);
-    const isAdmin = user?.roles?.some(role => ['ADMIN', 'LAB_MANAGER'].includes(role.roleName));
+    const isAdmin = user?.roles?.some(role => ['ADMIN', 'LAB_MANAGER'].includes(role));
 
     // --- State Management ---
     const [requests, setRequests] = useState<ResourceRequestVO[]>([]);

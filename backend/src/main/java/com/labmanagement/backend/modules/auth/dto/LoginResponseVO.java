@@ -8,16 +8,19 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 /**
- * 用户登录成功后的响应视图对象
+ * 用户登录成功后的响应视图对象 (增强版)
+ * <p>
+ * 包含了前端初始化界面所需的所有核心用户信息。
+ * </p>
  *
  * @author Gemini
- * @since 2025-07-12
+ * @since 2025-07-13
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class LoginResponseVO implements Serializable {
 
     @Serial
@@ -33,7 +36,38 @@ public class LoginResponseVO implements Serializable {
      */
     private String tokenType = SystemConstants.JWT_TOKEN_PREFIX.trim();
 
-    public LoginResponseVO(String accessToken) {
-        this.accessToken = accessToken;
-    }
+    /**
+     * 用户ID
+     */
+    private Long userId;
+
+    /**
+     * 用户名
+     */
+    private String username;
+
+    /**
+     * 用户真实姓名
+     */
+    private String realName;
+
+    /**
+     * 用户拥有的角色列表 (角色名称)
+     */
+    private List<String> roles;
+
+    /**
+     * 用户拥有的权限码列表
+     */
+    private List<String> permissions;
+
+    /**
+     * 用户email
+     */
+    private String email;
+
+    /**
+     * 用户手机号码
+     */
+    private String phone;
 }
