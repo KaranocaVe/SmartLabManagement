@@ -29,8 +29,10 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import GppGoodIcon from "@mui/icons-material/GppGood";
 import { useAuthStore } from "../../store/authStore";
 // 导入路由常量
+
 import { ROUTES } from "../../router/paths";
 import LogoutIcon from "@mui/icons-material/Logout";
+import useUserStore from "../../store/userStore"; // 引入 userStore
 // 定义侧边栏的固定宽度
 const drawerWidth = 240;
 
@@ -104,7 +106,7 @@ const DashboardLayout: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
+  const username = useUserStore((state) => state.username); // 获取用户名
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -166,7 +168,13 @@ const DashboardLayout: React.FC = () => {
               智能实验室管理平台
             </Typography>
           </Box>
-          <LogOutButton /> {/* 放在最右边 */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            {/* 显示用户名 */}
+            <Typography variant="body1" noWrap>
+              {username ? `欢迎, ${username}` : "未登录"}
+            </Typography>
+            <LogOutButton /> {/* 放在最右边 */}
+          </Box>
         </Toolbar>
       </AppBar>
 
