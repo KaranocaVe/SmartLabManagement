@@ -79,7 +79,7 @@ const ProjectDetailPage: React.FC = () => {
     }, [location.pathname, id]);
 
     // --- Event Handlers ---
-    const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
+    const handleTabChange = (_: React.SyntheticEvent, newValue: string) => {
         setCurrentTab(newValue);
         // 导航到对应的子路由，例如 /projects/123/tasks
         const basePath = ROUTES.PROJECTS.DETAILS.replace(':id', id!);

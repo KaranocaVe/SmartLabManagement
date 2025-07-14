@@ -21,7 +21,8 @@ import { useSnackbar } from 'notistack';
 // 导入API和相关类型
 import { experimentReportApi } from '../../../../api';
 import type { ProjectVO, ExperimentReportVO, ReportVersionCreateDTO,ExperimentReportCreateDTO } from '../../../../client';
-// import ReportForm from './ReportForm'; // 理想情况下，表单会是一个独立组件
+import ReportForm from './ReportForm'; // 理想情况下，表单会是一个独立组件
+import VersionForm from './VersionForm';
 
 /**
  * 实验报告标签页
@@ -34,7 +35,9 @@ const ReportsTab: React.FC = () => {
 
     // --- State Management ---
     const [reports, setReports] = useState<ExperimentReportVO[]>([]);
-    // const [isFormOpen, setIsFormOpen] = useState(false);
+    const [isFormOpen, setIsFormOpen] = useState(false);
+    const [isVersionFormOpen, setIsVersionFormOpen] = useState(false);
+    const [currentReportId, setCurrentReportId] = useState<number | null>(null);
 
     // 从项目数据初始化报告列表
     useEffect(() => {
@@ -47,13 +50,57 @@ const ReportsTab: React.FC = () => {
 
     // --- Event Handlers ---
     const handleOpenCreateReportForm = () => {
-        enqueueSnackbar('创建新报告功能待实现', { variant: 'info' });
-        // setIsFormOpen(true);
+        setIsFormOpen(true);
     };
 
     const handleOpenNewVersionForm = (reportId: number) => {
-        enqueueSnackbar(`为报告 ${reportId} 创建新版本功能待实现`, { variant: 'info' });
-        // Logic to open a form dialog for creating a new version
+        setCurrentReportId(reportId);
+        setIsVersionFormOpen(true);
+    };
+
+    const handleCloseForm = () => {
+        setIsFormOpen(false);
+    };
+    const handleCloseVersionForm = () => {
+        setIsVersionFormOpen(false);
+        setCurrentReportId(null);
+    };
+
+    const handleCreateReport = async (dto: ExperimentReportCreateDTO) => {
+        try {
+            const response = await experimentReportApi.createReport(dto);
+            if (response.data.code === 200 && response.data.data) {
+                setReports(prev => [...prev, response.data.data]);
+                enqueueSnackbar('报告创建成功', { variant: 'success' });
+            } else {
+                throw new Error(response.data.message || '创建失败');
+            }
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                enqueueSnackbar(error.message || '创建失败', { variant: 'error' });
+            } else {
+                enqueueSnackbar('创建失败', { variant: 'error' });
+            }
+        }
+    };
+
+    const handleCreateVersion = async (dto: ReportVersionCreateDTO) => {
+        if (!currentReportId) return;
+        try {
+            const response = await experimentReportApi.createReportVersion(currentReportId, dto);
+            if (response.data.code === 200 && response.data.data) {
+                setReports(prev => prev.map(r => r.id === currentReportId ? { ...r, versions: [...(r.versions || []), response.data.data] } : r));
+                enqueueSnackbar('新版本创建成功', { variant: 'success' });
+            } else {
+                throw new Error(response.data.message || '创建失败');
+            }
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                enqueueSnackbar(error.message || '创建失败', { variant: 'error' });
+            } else {
+                enqueueSnackbar('创建失败', { variant: 'error' });
+            }
+        }
     };
 
     return (
@@ -112,6 +159,17 @@ const ReportsTab: React.FC = () => {
             </CardContent>
 
             {/* TODO: Add ReportForm Dialog here */}
+            <ReportForm
+                open={isFormOpen}
+                onClose={handleCloseForm}
+                projectId={project.id}
+                onCreate={handleCreateReport}
+            />
+            <VersionForm
+                open={isVersionFormOpen}
+                onClose={handleCloseVersionForm}
+                onCreate={handleCreateVersion}
+            />
         </Card>
     );
 };

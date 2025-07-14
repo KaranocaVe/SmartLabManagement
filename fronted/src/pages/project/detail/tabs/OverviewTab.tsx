@@ -18,10 +18,11 @@ import { useSnackbar } from 'notistack';
 
 // 导入API和相关类型
 import { projectApi } from '../../../../api';
-import type { ProjectVO, ProjectMemberVO,AddProjectMemberDTO } from '../../../../client';
+import type { ProjectVO, ProjectMemberVO } from '../../../../client';
 // 导入我们之前创建的通用组件
 import ConfirmationDialog from '../../../../components/common/ConfirmationDialog';
-// import AddMemberDialog from './AddMemberDialog'; // 假设我们有一个用于添加成员的对话框组件
+import AddMemberDialog from './AddMemberDialog';
+
 
 /**
  * 项目概览标签页
@@ -37,11 +38,17 @@ const OverviewTab: React.FC = () => {
     const [members, setMembers] = useState<ProjectMemberVO[]>(project.members || []);
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
     const [deletingMember, setDeletingMember] = useState<ProjectMemberVO | null>(null);
+    const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
 
     // --- Event Handlers ---
     const handleOpenAddMemberDialog = () => {
-        enqueueSnackbar('添加成员功能待实现', { variant: 'info' });
-        // TODO: 打开添加成员的对话框
+        setIsAddDialogOpen(true);
+    };
+    const handleCloseAddMemberDialog = () => {
+        setIsAddDialogOpen(false);
+    };
+    const handleAddMember = (newMember: ProjectMemberVO) => {
+        setMembers(prev => [...prev, newMember]);
     };
 
     const handleOpenDeleteDialog = (member: ProjectMemberVO) => {
@@ -51,13 +58,21 @@ const OverviewTab: React.FC = () => {
 
     const handleConfirmDelete = async () => {
         if (!deletingMember) return;
+        if (typeof project.id !== 'number') {
+            enqueueSnackbar('项目ID无效，无法移除成员', { variant: 'error' });
+            return;
+        }
         try {
             await projectApi.removeMemberFromProject(project.id, deletingMember.userId);
             // 从本地 state 中移除该成员，以即时更新UI
             setMembers(prevMembers => prevMembers.filter(m => m.userId !== deletingMember.userId));
             enqueueSnackbar('成员移除成功', { variant: 'success' });
-        } catch (error: any) {
-            enqueueSnackbar(error.message || '移除失败', { variant: 'error' });
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                enqueueSnackbar(error.message || '移除失败', { variant: 'error' });
+            } else {
+                enqueueSnackbar('移除失败', { variant: 'error' });
+            }
         } finally {
             setDeletingMember(null);
         }
@@ -123,6 +138,14 @@ const OverviewTab: React.FC = () => {
                     </CardContent>
                 </Card>
             </Grid>
+
+            {/* 添加成员弹窗 */}
+            <AddMemberDialog
+                open={isAddDialogOpen}
+                onClose={handleCloseAddMemberDialog}
+                projectId={project.id}
+                onAdd={handleAddMember}
+            />
 
             {/* Confirmation Dialog for deleting a member */}
             <ConfirmationDialog

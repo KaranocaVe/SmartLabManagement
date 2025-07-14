@@ -35,6 +35,8 @@ import Avatar from "@mui/material/Avatar"; // 引入 Avatar 组件
 import { ROUTES } from "../../router/paths";
 import LogoutIcon from "@mui/icons-material/Logout";
 import useUserStore from "../../store/userStore"; // 引入 userStore
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 // 定义侧边栏的固定宽度
 const drawerWidth = 240;
 
@@ -276,24 +278,25 @@ const DashboardLayout: React.FC = () => {
                 {userInfo.username ? userInfo.username.charAt(0).toUpperCase() : "?"}
               </Avatar>
                 <Popover
-                open={open}
-                anchorEl={anchorEl}
-                onClose={handleAvatarMouseLeave}
-                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-                transformOrigin={{ vertical: "top", horizontal: "left" }}
-                sx={{ pointerEvents: "none" }}
-                PaperProps={{
+                  open={open}
+                  anchorEl={anchorEl}
+                  onClose={handleAvatarMouseLeave}
+                  anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                  transformOrigin={{ vertical: "top", horizontal: "left" }}
+                  sx={{ pointerEvents: "none" }}
+                  PaperProps={{
                   sx: {
-                  pointerEvents: "auto",
-                  p: 2,
-                  minWidth: 260,
-                  borderRadius: 2,
-                  boxShadow: 4,
-                  background: "rgba(255,255,255,0.95)",
-                  backdropFilter: "blur(6px)",
+                    pointerEvents: "auto",
+                    p: 2,
+                    minWidth: 260,
+                    maxWidth: 340, // 限制最大宽度
+                    borderRadius: 2,
+                    boxShadow: 4,
+                    background: "rgba(255,255,255,0.95)",
+                    backdropFilter: "blur(6px)",
                   },
-                }}
-                disableRestoreFocus
+                  }}
+                  disableRestoreFocus
                 >
                 <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                   <Avatar sx={{ bgcolor: "primary.main", width: 40, height: 40, mr: 2 }}>
@@ -346,9 +349,16 @@ const DashboardLayout: React.FC = () => {
                     secondary={
                     userInfo.permissions && userInfo.permissions.length > 0
                       ? (
-                      <Box component="span" sx={{ whiteSpace: "pre-line", wordBreak: "break-all", fontSize: "0.85rem", color: "text.secondary" }}>
-                        {userInfo.permissions.join("\n")}
-                      </Box>
+                        <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ mt: 0.5 }}>
+                          {userInfo.permissions.map((perm, idx) => (
+                            <Chip
+                              key={perm + idx}
+                              label={perm}
+                              size="small"
+                              sx={{ mb: 0.5, maxWidth: 180, fontSize: '0.85rem', bgcolor: 'grey.100', color: 'primary.main' }}
+                            />
+                          ))}
+                        </Stack>
                       )
                       : "-"
                     }
