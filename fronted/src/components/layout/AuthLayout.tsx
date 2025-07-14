@@ -1,6 +1,7 @@
 import React, {type JSX} from 'react';
 import { Box, Container, CssBaseline } from '@mui/material';
 
+
 interface AuthLayoutProps {
     children: React.ReactNode;
 }

@@ -34,7 +34,8 @@ import RiskAssessmentsTab from '../pages/project/detail/tabs/RiskAssessmentsTab'
 // Safety
 import IncidentPage from '../pages/safety/IncidentPage';
 // Other
-import NotFoundPage from '../pages/NotFoundPage'; // 导入真实的404页面
+import NotFoundPage from '../pages/NotFoundPage';
+import LogPage from "../pages/audit/LogPage.tsx"; // 导入真实的404页面
 
 
 /**
@@ -87,6 +88,9 @@ const router = createBrowserRouter([
 
             // --- 安全管理 ---
             { path: ROUTES.SAFETY.INCIDENTS, element: <IncidentPage /> },
+
+            // 添加日志审计页面的路由
+            { path: ROUTES.AUDIT.LOGS, element: <LogPage /> },
         ],
     },
     {
