@@ -99,7 +99,7 @@ const RequestPage: React.FC = () => {
         { field: 'resourceName', headerName: '申请资源', flex: 1.5 },
         { field: 'status', headerName: '状态', flex: 1, renderCell: (params) => getStatusChip(params.value) },
         // 修正: 'createTime' -> 'createdAt'
-        { field: 'createdAt', headerName: '申请时间', flex: 1.5, valueFormatter: (params) => params.value ? new Date(params.value).toLocaleString() : '' },
+{ field: 'createdAt', headerName: '申请时间', flex: 1.5, valueFormatter: (params) => params.value ? new Date(params.value as string).toLocaleString() : '' },
         {
             field: 'actions',
             type: 'actions',
