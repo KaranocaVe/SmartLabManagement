@@ -1,19 +1,31 @@
-@import "tailwindcss";
+/* src/index.css */
 
-@tailwind base;
-@tailwind components;
+/* 确保这是最先导入的，用于重置浏览器默认样式 */
+@import "tailwindcss/preflight";
+
+/* 其他 Tailwind CSS 导入 */
+@import "tailwindcss";
 @tailwind utilities;
 
+html, body, #root {
+  margin: 0 !important; /* 强制移除所有外边距 */
+  padding: 0 !important; /* 强制移除所有内边距 */
+  height: 100%; /* 确保html, body, #root占满高度 */
+  /* 这是最重要的：隐藏所有水平方向的溢出滚动条 */
+  overflow-x: hidden !important;
+}
+
 body {
-  @apply bg-gradient-to-br from-[#e0eafc] to-[#cfdef3];
-  @apply min-h-screen;
-  @apply overflow-hidden;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
+  /* 如果您希望整个body有默认背景，可以在这里设置 */
+  /* 但对于登录页，我们让AuthLayout来负责背景 */
+  /* @apply bg-gradient-to-br from-[#e0eafc] to-[#cfdef3]; */ /* 暂时注释或移除此行 */
+  @apply min-h-screen; /* 确保body最小高度为视口高度 */
+  overflow-y: auto !important; /* 允许垂直滚动条，如果内容溢出 */
 }
 
 /* 毛玻璃模糊层 */
 #frosted-glass-bg {
   @apply fixed inset-0 backdrop-blur-md bg-white/30 z-[-1];
 }
+
+/* ---------------------------------------------------- */

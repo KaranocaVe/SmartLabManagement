@@ -135,7 +135,7 @@ const TasksTab: React.FC = () => {
                                                 </Typography>
                                                 <Box component="span" sx={{ display: 'block', mt: 1 }}>
                                                     <Chip label={`状态: ${task.status}`} size="small" sx={{ mr: 1 }} />
-                                                    <Chip label={`截止日期: ${task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'N/A'}`} size="small" />
+                                                    <Chip label={`截止日期: ${task.dueDate as string }`} size="small" />
                                                 </Box>
                                             </>
                                         }

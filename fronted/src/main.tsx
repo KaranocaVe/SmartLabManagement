@@ -1,8 +1,14 @@
-// src/main.tsx
+// src/index.tsx
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './index.css'; // 确保全局样式被引入
+import './index.css'; // 确保这一行在所有其他组件或库样式之前
+import App from './App';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-    <App />
+const root = ReactDOM.createRoot(
+    document.getElementById('root') as HTMLElement
+);
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
 );
