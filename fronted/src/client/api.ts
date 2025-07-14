@@ -151,6 +151,31 @@ export interface ApiResponseExperimentReportVO {
 /**
  * 
  * @export
+ * @interface ApiResponseIPageAuditLogVO
+ */
+export interface ApiResponseIPageAuditLogVO {
+    /**
+     * 
+     * @type {number}
+     * @memberof ApiResponseIPageAuditLogVO
+     */
+    'code'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ApiResponseIPageAuditLogVO
+     */
+    'message'?: string;
+    /**
+     * 
+     * @type {IPageAuditLogVO}
+     * @memberof ApiResponseIPageAuditLogVO
+     */
+    'data'?: IPageAuditLogVO;
+}
+/**
+ * 
+ * @export
  * @interface ApiResponseIPageEquipment
  */
 export interface ApiResponseIPageEquipment {
@@ -894,6 +919,116 @@ export interface AttachmentVO {
 /**
  * 
  * @export
+ * @interface AuditLogQueryDTO
+ */
+export interface AuditLogQueryDTO {
+    /**
+     * 
+     * @type {number}
+     * @memberof AuditLogQueryDTO
+     */
+    'pageNum'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AuditLogQueryDTO
+     */
+    'pageSize'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AuditLogQueryDTO
+     */
+    'userId'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLogQueryDTO
+     */
+    'action'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLogQueryDTO
+     */
+    'targetType'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLogQueryDTO
+     */
+    'startTime'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLogQueryDTO
+     */
+    'endTime'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface AuditLogVO
+ */
+export interface AuditLogVO {
+    /**
+     * 
+     * @type {number}
+     * @memberof AuditLogVO
+     */
+    'id'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AuditLogVO
+     */
+    'userId'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLogVO
+     */
+    'userName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLogVO
+     */
+    'action'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLogVO
+     */
+    'targetType'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof AuditLogVO
+     */
+    'targetId'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLogVO
+     */
+    'details'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLogVO
+     */
+    'ipAddress'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLogVO
+     */
+    'createdAt'?: string;
+}
+/**
+ * 
+ * @export
  * @interface Equipment
  */
 export interface Equipment {
@@ -1016,6 +1151,67 @@ export interface EquipmentCreateDTO {
      * 
      * @type {number}
      * @memberof EquipmentCreateDTO
+     */
+    'maintenanceCycleDays'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface EquipmentUpdateDTO
+ */
+export interface EquipmentUpdateDTO {
+    /**
+     * 
+     * @type {number}
+     * @memberof EquipmentUpdateDTO
+     */
+    'id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof EquipmentUpdateDTO
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EquipmentUpdateDTO
+     */
+    'assetNumber'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EquipmentUpdateDTO
+     */
+    'model'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof EquipmentUpdateDTO
+     */
+    'labId'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof EquipmentUpdateDTO
+     */
+    'supplierId'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof EquipmentUpdateDTO
+     */
+    'purchaseDate'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EquipmentUpdateDTO
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof EquipmentUpdateDTO
      */
     'maintenanceCycleDays'?: number;
 }
@@ -1206,6 +1402,44 @@ export interface ExperimentReportVO {
 /**
  * 
  * @export
+ * @interface IPageAuditLogVO
+ */
+export interface IPageAuditLogVO {
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageAuditLogVO
+     */
+    'size'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageAuditLogVO
+     */
+    'total'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageAuditLogVO
+     * @deprecated
+     */
+    'pages'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageAuditLogVO
+     */
+    'current'?: number;
+    /**
+     * 
+     * @type {Array<AuditLogVO>}
+     * @memberof IPageAuditLogVO
+     */
+    'records'?: Array<AuditLogVO>;
+}
+/**
+ * 
+ * @export
  * @interface IPageEquipment
  */
 export interface IPageEquipment {
@@ -1220,18 +1454,6 @@ export interface IPageEquipment {
      * @type {number}
      * @memberof IPageEquipment
      */
-    'current'?: number;
-    /**
-     * 
-     * @type {Array<Equipment>}
-     * @memberof IPageEquipment
-     */
-    'records'?: Array<Equipment>;
-    /**
-     * 
-     * @type {number}
-     * @memberof IPageEquipment
-     */
     'total'?: number;
     /**
      * 
@@ -1240,6 +1462,18 @@ export interface IPageEquipment {
      * @deprecated
      */
     'pages'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageEquipment
+     */
+    'current'?: number;
+    /**
+     * 
+     * @type {Array<Equipment>}
+     * @memberof IPageEquipment
+     */
+    'records'?: Array<Equipment>;
 }
 /**
  * 
@@ -1258,18 +1492,6 @@ export interface IPageExperimentRecord {
      * @type {number}
      * @memberof IPageExperimentRecord
      */
-    'current'?: number;
-    /**
-     * 
-     * @type {Array<ExperimentRecord>}
-     * @memberof IPageExperimentRecord
-     */
-    'records'?: Array<ExperimentRecord>;
-    /**
-     * 
-     * @type {number}
-     * @memberof IPageExperimentRecord
-     */
     'total'?: number;
     /**
      * 
@@ -1278,6 +1500,18 @@ export interface IPageExperimentRecord {
      * @deprecated
      */
     'pages'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageExperimentRecord
+     */
+    'current'?: number;
+    /**
+     * 
+     * @type {Array<ExperimentRecord>}
+     * @memberof IPageExperimentRecord
+     */
+    'records'?: Array<ExperimentRecord>;
 }
 /**
  * 
@@ -1296,18 +1530,6 @@ export interface IPageLab {
      * @type {number}
      * @memberof IPageLab
      */
-    'current'?: number;
-    /**
-     * 
-     * @type {Array<Lab>}
-     * @memberof IPageLab
-     */
-    'records'?: Array<Lab>;
-    /**
-     * 
-     * @type {number}
-     * @memberof IPageLab
-     */
     'total'?: number;
     /**
      * 
@@ -1316,6 +1538,18 @@ export interface IPageLab {
      * @deprecated
      */
     'pages'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageLab
+     */
+    'current'?: number;
+    /**
+     * 
+     * @type {Array<Lab>}
+     * @memberof IPageLab
+     */
+    'records'?: Array<Lab>;
 }
 /**
  * 
@@ -1334,18 +1568,6 @@ export interface IPageMaterial {
      * @type {number}
      * @memberof IPageMaterial
      */
-    'current'?: number;
-    /**
-     * 
-     * @type {Array<Material>}
-     * @memberof IPageMaterial
-     */
-    'records'?: Array<Material>;
-    /**
-     * 
-     * @type {number}
-     * @memberof IPageMaterial
-     */
     'total'?: number;
     /**
      * 
@@ -1354,6 +1576,18 @@ export interface IPageMaterial {
      * @deprecated
      */
     'pages'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageMaterial
+     */
+    'current'?: number;
+    /**
+     * 
+     * @type {Array<Material>}
+     * @memberof IPageMaterial
+     */
+    'records'?: Array<Material>;
 }
 /**
  * 
@@ -1372,18 +1606,6 @@ export interface IPageProjectVO {
      * @type {number}
      * @memberof IPageProjectVO
      */
-    'current'?: number;
-    /**
-     * 
-     * @type {Array<ProjectVO>}
-     * @memberof IPageProjectVO
-     */
-    'records'?: Array<ProjectVO>;
-    /**
-     * 
-     * @type {number}
-     * @memberof IPageProjectVO
-     */
     'total'?: number;
     /**
      * 
@@ -1392,6 +1614,18 @@ export interface IPageProjectVO {
      * @deprecated
      */
     'pages'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageProjectVO
+     */
+    'current'?: number;
+    /**
+     * 
+     * @type {Array<ProjectVO>}
+     * @memberof IPageProjectVO
+     */
+    'records'?: Array<ProjectVO>;
 }
 /**
  * 
@@ -1410,18 +1644,6 @@ export interface IPageResourceRequestVO {
      * @type {number}
      * @memberof IPageResourceRequestVO
      */
-    'current'?: number;
-    /**
-     * 
-     * @type {Array<ResourceRequestVO>}
-     * @memberof IPageResourceRequestVO
-     */
-    'records'?: Array<ResourceRequestVO>;
-    /**
-     * 
-     * @type {number}
-     * @memberof IPageResourceRequestVO
-     */
     'total'?: number;
     /**
      * 
@@ -1430,6 +1652,18 @@ export interface IPageResourceRequestVO {
      * @deprecated
      */
     'pages'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageResourceRequestVO
+     */
+    'current'?: number;
+    /**
+     * 
+     * @type {Array<ResourceRequestVO>}
+     * @memberof IPageResourceRequestVO
+     */
+    'records'?: Array<ResourceRequestVO>;
 }
 /**
  * 
@@ -1448,18 +1682,6 @@ export interface IPageSafetyIncidentVO {
      * @type {number}
      * @memberof IPageSafetyIncidentVO
      */
-    'current'?: number;
-    /**
-     * 
-     * @type {Array<SafetyIncidentVO>}
-     * @memberof IPageSafetyIncidentVO
-     */
-    'records'?: Array<SafetyIncidentVO>;
-    /**
-     * 
-     * @type {number}
-     * @memberof IPageSafetyIncidentVO
-     */
     'total'?: number;
     /**
      * 
@@ -1468,6 +1690,18 @@ export interface IPageSafetyIncidentVO {
      * @deprecated
      */
     'pages'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageSafetyIncidentVO
+     */
+    'current'?: number;
+    /**
+     * 
+     * @type {Array<SafetyIncidentVO>}
+     * @memberof IPageSafetyIncidentVO
+     */
+    'records'?: Array<SafetyIncidentVO>;
 }
 /**
  * 
@@ -1486,18 +1720,6 @@ export interface IPageSupplier {
      * @type {number}
      * @memberof IPageSupplier
      */
-    'current'?: number;
-    /**
-     * 
-     * @type {Array<Supplier>}
-     * @memberof IPageSupplier
-     */
-    'records'?: Array<Supplier>;
-    /**
-     * 
-     * @type {number}
-     * @memberof IPageSupplier
-     */
     'total'?: number;
     /**
      * 
@@ -1506,6 +1728,18 @@ export interface IPageSupplier {
      * @deprecated
      */
     'pages'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageSupplier
+     */
+    'current'?: number;
+    /**
+     * 
+     * @type {Array<Supplier>}
+     * @memberof IPageSupplier
+     */
+    'records'?: Array<Supplier>;
 }
 /**
  * 
@@ -1524,18 +1758,6 @@ export interface IPageUserVO {
      * @type {number}
      * @memberof IPageUserVO
      */
-    'current'?: number;
-    /**
-     * 
-     * @type {Array<UserVO>}
-     * @memberof IPageUserVO
-     */
-    'records'?: Array<UserVO>;
-    /**
-     * 
-     * @type {number}
-     * @memberof IPageUserVO
-     */
     'total'?: number;
     /**
      * 
@@ -1544,6 +1766,18 @@ export interface IPageUserVO {
      * @deprecated
      */
     'pages'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof IPageUserVO
+     */
+    'current'?: number;
+    /**
+     * 
+     * @type {Array<UserVO>}
+     * @memberof IPageUserVO
+     */
+    'records'?: Array<UserVO>;
 }
 /**
  * 
@@ -1625,6 +1859,48 @@ export interface LoginResponseVO {
      * @memberof LoginResponseVO
      */
     'tokenType'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof LoginResponseVO
+     */
+    'userId'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof LoginResponseVO
+     */
+    'username'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LoginResponseVO
+     */
+    'realName'?: string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof LoginResponseVO
+     */
+    'roles'?: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof LoginResponseVO
+     */
+    'permissions'?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof LoginResponseVO
+     */
+    'email'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LoginResponseVO
+     */
+    'phone'?: string;
 }
 /**
  * 
@@ -1690,6 +1966,43 @@ export interface Material {
 /**
  * 
  * @export
+ * @interface MaterialCreateDTO
+ */
+export interface MaterialCreateDTO {
+    /**
+     * 
+     * @type {string}
+     * @memberof MaterialCreateDTO
+     */
+    'name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MaterialCreateDTO
+     */
+    'specification'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MaterialCreateDTO
+     */
+    'unit': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof MaterialCreateDTO
+     */
+    'lowStockThreshold': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof MaterialCreateDTO
+     */
+    'storageLocation'?: string;
+}
+/**
+ * 
+ * @export
  * @interface MaterialStockAdjustDTO
  */
 export interface MaterialStockAdjustDTO {
@@ -1717,6 +2030,49 @@ export interface MaterialStockAdjustDTO {
      * @memberof MaterialStockAdjustDTO
      */
     'reason'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface MaterialUpdateDTO
+ */
+export interface MaterialUpdateDTO {
+    /**
+     * 
+     * @type {number}
+     * @memberof MaterialUpdateDTO
+     */
+    'id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof MaterialUpdateDTO
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MaterialUpdateDTO
+     */
+    'specification'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MaterialUpdateDTO
+     */
+    'unit'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof MaterialUpdateDTO
+     */
+    'lowStockThreshold'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof MaterialUpdateDTO
+     */
+    'storageLocation'?: string;
 }
 /**
  * 
@@ -3136,15 +3492,15 @@ export const EquipmentControllerApiAxiosParamCreator = function (configuration?:
         /**
          * 
          * @param {number} id 
-         * @param {Equipment} equipment 
+         * @param {EquipmentUpdateDTO} equipmentUpdateDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateEquipment: async (id: number, equipment: Equipment, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateEquipment: async (id: number, equipmentUpdateDTO: EquipmentUpdateDTO, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateEquipment', 'id', id)
-            // verify required parameter 'equipment' is not null or undefined
-            assertParamExists('updateEquipment', 'equipment', equipment)
+            // verify required parameter 'equipmentUpdateDTO' is not null or undefined
+            assertParamExists('updateEquipment', 'equipmentUpdateDTO', equipmentUpdateDTO)
             const localVarPath = `/api/v1/equipment/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3169,7 +3525,7 @@ export const EquipmentControllerApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(equipment, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(equipmentUpdateDTO, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3238,12 +3594,12 @@ export const EquipmentControllerApiFp = function(configuration?: Configuration) 
         /**
          * 
          * @param {number} id 
-         * @param {Equipment} equipment 
+         * @param {EquipmentUpdateDTO} equipmentUpdateDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateEquipment(id: number, equipment: Equipment, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApiResponseEquipment>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEquipment(id, equipment, options);
+        async updateEquipment(id: number, equipmentUpdateDTO: EquipmentUpdateDTO, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApiResponseEquipment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEquipment(id, equipmentUpdateDTO, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EquipmentControllerApi.updateEquipment']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3298,12 +3654,12 @@ export const EquipmentControllerApiFactory = function (configuration?: Configura
         /**
          * 
          * @param {number} id 
-         * @param {Equipment} equipment 
+         * @param {EquipmentUpdateDTO} equipmentUpdateDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateEquipment(id: number, equipment: Equipment, options?: RawAxiosRequestConfig): AxiosPromise<ApiResponseEquipment> {
-            return localVarFp.updateEquipment(id, equipment, options).then((request) => request(axios, basePath));
+        updateEquipment(id: number, equipmentUpdateDTO: EquipmentUpdateDTO, options?: RawAxiosRequestConfig): AxiosPromise<ApiResponseEquipment> {
+            return localVarFp.updateEquipment(id, equipmentUpdateDTO, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3363,13 +3719,13 @@ export class EquipmentControllerApi extends BaseAPI {
     /**
      * 
      * @param {number} id 
-     * @param {Equipment} equipment 
+     * @param {EquipmentUpdateDTO} equipmentUpdateDTO 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EquipmentControllerApi
      */
-    public updateEquipment(id: number, equipment: Equipment, options?: RawAxiosRequestConfig) {
-        return EquipmentControllerApiFp(this.configuration).updateEquipment(id, equipment, options).then((request) => request(this.axios, this.basePath));
+    public updateEquipment(id: number, equipmentUpdateDTO: EquipmentUpdateDTO, options?: RawAxiosRequestConfig) {
+        return EquipmentControllerApiFp(this.configuration).updateEquipment(id, equipmentUpdateDTO, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -4293,6 +4649,119 @@ export class LabControllerApi extends BaseAPI {
 
 
 /**
+ * LogControllerApi - axios parameter creator
+ * @export
+ */
+export const LogControllerApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {AuditLogQueryDTO} queryDTO 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuditLogs: async (queryDTO: AuditLogQueryDTO, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'queryDTO' is not null or undefined
+            assertParamExists('getAuditLogs', 'queryDTO', queryDTO)
+            const localVarPath = `/api/v1/logs/audit`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (queryDTO !== undefined) {
+                for (const [key, value] of Object.entries(queryDTO)) {
+                    localVarQueryParameter[key] = value;
+                }
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * LogControllerApi - functional programming interface
+ * @export
+ */
+export const LogControllerApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = LogControllerApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @param {AuditLogQueryDTO} queryDTO 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAuditLogs(queryDTO: AuditLogQueryDTO, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApiResponseIPageAuditLogVO>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuditLogs(queryDTO, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LogControllerApi.getAuditLogs']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * LogControllerApi - factory interface
+ * @export
+ */
+export const LogControllerApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = LogControllerApiFp(configuration)
+    return {
+        /**
+         * 
+         * @param {AuditLogQueryDTO} queryDTO 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuditLogs(queryDTO: AuditLogQueryDTO, options?: RawAxiosRequestConfig): AxiosPromise<ApiResponseIPageAuditLogVO> {
+            return localVarFp.getAuditLogs(queryDTO, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * LogControllerApi - object-oriented interface
+ * @export
+ * @class LogControllerApi
+ * @extends {BaseAPI}
+ */
+export class LogControllerApi extends BaseAPI {
+    /**
+     * 
+     * @param {AuditLogQueryDTO} queryDTO 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof LogControllerApi
+     */
+    public getAuditLogs(queryDTO: AuditLogQueryDTO, options?: RawAxiosRequestConfig) {
+        return LogControllerApiFp(this.configuration).getAuditLogs(queryDTO, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
  * MaterialControllerApi - axios parameter creator
  * @export
  */
@@ -4339,13 +4808,13 @@ export const MaterialControllerApiAxiosParamCreator = function (configuration?: 
         },
         /**
          * 
-         * @param {Material} material 
+         * @param {MaterialCreateDTO} materialCreateDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMaterial: async (material: Material, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'material' is not null or undefined
-            assertParamExists('createMaterial', 'material', material)
+        createMaterial: async (materialCreateDTO: MaterialCreateDTO, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'materialCreateDTO' is not null or undefined
+            assertParamExists('createMaterial', 'materialCreateDTO', materialCreateDTO)
             const localVarPath = `/api/v1/materials`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4369,7 +4838,7 @@ export const MaterialControllerApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(material, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(materialCreateDTO, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -4421,15 +4890,15 @@ export const MaterialControllerApiAxiosParamCreator = function (configuration?: 
         /**
          * 
          * @param {number} id 
-         * @param {Material} material 
+         * @param {MaterialUpdateDTO} materialUpdateDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateMaterial: async (id: number, material: Material, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateMaterial: async (id: number, materialUpdateDTO: MaterialUpdateDTO, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateMaterial', 'id', id)
-            // verify required parameter 'material' is not null or undefined
-            assertParamExists('updateMaterial', 'material', material)
+            // verify required parameter 'materialUpdateDTO' is not null or undefined
+            assertParamExists('updateMaterial', 'materialUpdateDTO', materialUpdateDTO)
             const localVarPath = `/api/v1/materials/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -4454,7 +4923,7 @@ export const MaterialControllerApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(material, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(materialUpdateDTO, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -4485,12 +4954,12 @@ export const MaterialControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {Material} material 
+         * @param {MaterialCreateDTO} materialCreateDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createMaterial(material: Material, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApiResponseMaterial>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createMaterial(material, options);
+        async createMaterial(materialCreateDTO: MaterialCreateDTO, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApiResponseMaterial>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMaterial(materialCreateDTO, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MaterialControllerApi.createMaterial']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -4510,12 +4979,12 @@ export const MaterialControllerApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {number} id 
-         * @param {Material} material 
+         * @param {MaterialUpdateDTO} materialUpdateDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMaterial(id: number, material: Material, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApiResponseMaterial>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMaterial(id, material, options);
+        async updateMaterial(id: number, materialUpdateDTO: MaterialUpdateDTO, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApiResponseMaterial>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMaterial(id, materialUpdateDTO, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MaterialControllerApi.updateMaterial']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -4541,12 +5010,12 @@ export const MaterialControllerApiFactory = function (configuration?: Configurat
         },
         /**
          * 
-         * @param {Material} material 
+         * @param {MaterialCreateDTO} materialCreateDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMaterial(material: Material, options?: RawAxiosRequestConfig): AxiosPromise<ApiResponseMaterial> {
-            return localVarFp.createMaterial(material, options).then((request) => request(axios, basePath));
+        createMaterial(materialCreateDTO: MaterialCreateDTO, options?: RawAxiosRequestConfig): AxiosPromise<ApiResponseMaterial> {
+            return localVarFp.createMaterial(materialCreateDTO, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -4560,12 +5029,12 @@ export const MaterialControllerApiFactory = function (configuration?: Configurat
         /**
          * 
          * @param {number} id 
-         * @param {Material} material 
+         * @param {MaterialUpdateDTO} materialUpdateDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateMaterial(id: number, material: Material, options?: RawAxiosRequestConfig): AxiosPromise<ApiResponseMaterial> {
-            return localVarFp.updateMaterial(id, material, options).then((request) => request(axios, basePath));
+        updateMaterial(id: number, materialUpdateDTO: MaterialUpdateDTO, options?: RawAxiosRequestConfig): AxiosPromise<ApiResponseMaterial> {
+            return localVarFp.updateMaterial(id, materialUpdateDTO, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -4590,13 +5059,13 @@ export class MaterialControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {Material} material 
+     * @param {MaterialCreateDTO} materialCreateDTO 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MaterialControllerApi
      */
-    public createMaterial(material: Material, options?: RawAxiosRequestConfig) {
-        return MaterialControllerApiFp(this.configuration).createMaterial(material, options).then((request) => request(this.axios, this.basePath));
+    public createMaterial(materialCreateDTO: MaterialCreateDTO, options?: RawAxiosRequestConfig) {
+        return MaterialControllerApiFp(this.configuration).createMaterial(materialCreateDTO, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4613,13 +5082,13 @@ export class MaterialControllerApi extends BaseAPI {
     /**
      * 
      * @param {number} id 
-     * @param {Material} material 
+     * @param {MaterialUpdateDTO} materialUpdateDTO 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MaterialControllerApi
      */
-    public updateMaterial(id: number, material: Material, options?: RawAxiosRequestConfig) {
-        return MaterialControllerApiFp(this.configuration).updateMaterial(id, material, options).then((request) => request(this.axios, this.basePath));
+    public updateMaterial(id: number, materialUpdateDTO: MaterialUpdateDTO, options?: RawAxiosRequestConfig) {
+        return MaterialControllerApiFp(this.configuration).updateMaterial(id, materialUpdateDTO, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -7535,3 +8004,6 @@ export class UserControllerApi extends BaseAPI {
         return UserControllerApiFp(this.configuration).updateUser(id, userUpdateDTO, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
+
+
