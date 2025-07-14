@@ -48,7 +48,7 @@ const LoginPage: React.FC = () => {
         const { accessToken } = response.data.data;
 
         // 存储用户名
-        setUsername(data.username);
+        useUserStore.getState().setUsername(data.username);
 
         // 存储 token 并跳转
         loginAction(accessToken, null);
