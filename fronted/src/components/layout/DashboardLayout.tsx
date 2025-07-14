@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   AppBar,
@@ -13,6 +13,7 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
+  Tooltip,
   Typography,
   Divider,
 } from "@mui/material";
@@ -33,6 +34,7 @@ import Avatar from "@mui/material/Avatar"; // 引入 Avatar 组件
 import { ROUTES } from "../../router/paths";
 import LogoutIcon from "@mui/icons-material/Logout";
 import useUserStore from "../../store/userStore"; // 引入 userStore
+import { useEffect } from "react";
 // 定义侧边栏的固定宽度
 const drawerWidth = 240;
 
@@ -75,7 +77,7 @@ function LogOutButton() {
   const handleLogout = async () => {
     try {
       useAuthStore.getState().logout(); // 调用 store 中的登出方法
-      useUserStore.getState().clearUsername(); // 清除用户名
+      useUserStore.getState().clearUserData(); // 清除用户数据
 
       // 重定向到登录页面
       navigate("/login");
@@ -116,7 +118,24 @@ const DashboardLayout: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const username = useUserStore((state) => state.username); // 获取用户名
+  const { username, realName, roles, permissions, email, phone } =
+    useUserStore.getState();
+
+  const userInfoTooltip = useMemo(() => {
+    return (
+      <Box>
+        <Typography variant="body1" fontWeight="bold">
+          {realName || "未设置姓名"}
+        </Typography>
+        <Typography variant="body2">用户名: {username || "未登录"}</Typography>
+        <Typography variant="body2">邮箱: {email || "未设置邮箱"}</Typography>
+        <Typography variant="body2">电话: {phone || "未设置电话"}</Typography>
+        <Typography variant="body2">
+          职责: {roles.length > 0 ? roles.join(", ") : "无职责"}
+        </Typography>
+      </Box>
+    );
+  }, [username, realName, email, phone]);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -227,14 +246,11 @@ const DashboardLayout: React.FC = () => {
             </Typography>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <Avatar sx={{ bgcolor: "primary.main", width: 32, height: 32 }}>
-              {username ? username.charAt(0).toUpperCase() : "?"}
-            </Avatar>
-            <Typography variant="body1" noWrap sx={{ color: "inherit" }}>
-              {" "}
-              {/* 继承父级颜色 */}
-              {username ? `欢迎, ${username}` : "未登录"}
-            </Typography>
+            <Tooltip title={userInfoTooltip} arrow>
+              <Avatar sx={{ bgcolor: "primary.main", width: 32, height: 32 }}>
+                {username ? username.charAt(0).toUpperCase() : "?"}
+              </Avatar>
+            </Tooltip>
             <LogOutButton />
           </Box>
         </Toolbar>

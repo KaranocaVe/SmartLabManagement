@@ -29,7 +29,7 @@ const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const { login: loginAction } = useAuthStore();
-  const setUsername = useUserStore((state) => state.setUsername); // 获取 setUsername 方法
+  const { setUserData } = useUserStore.getState(); // 获取 setUserData 方法
 
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -45,13 +45,19 @@ const LoginPage: React.FC = () => {
     try {
       const response = await authApi.login(data);
       if (response.data.code === 200 && response.data.data?.accessToken) {
-        const { accessToken } = response.data.data;
+        const userData = response.data.data;
 
-        // 存储用户名
-        useUserStore.getState().setUsername(data.username);
+        // 存储用户数据
+        setUserData({
+          ...userData,
+        });
 
         // 存储 token 并跳转
-        loginAction(accessToken, null);
+        if (userData.accessToken) {
+          loginAction(userData.accessToken, null);
+        } else {
+          throw new Error("Access token is missing");
+        }
         enqueueSnackbar("登录成功，欢迎回来！", { variant: "success" });
         navigate(ROUTES.DASHBOARD, { replace: true });
       } else {
