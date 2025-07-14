@@ -27,6 +27,7 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import BusinessIcon from "@mui/icons-material/Business";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import GppGoodIcon from "@mui/icons-material/GppGood";
+import HistoryIcon from '@mui/icons-material/History';
 import { useAuthStore } from "../../store/authStore";
 // 导入路由常量
 import Avatar from "@mui/material/Avatar"; // 引入 Avatar 组件
@@ -63,6 +64,7 @@ const navConfig = [
   },
   { isDivider: true },
   { text: "安全事件", path: ROUTES.SAFETY.INCIDENTS, icon: <GppGoodIcon /> },
+    { text: "日志审计", path: ROUTES.AUDIT.LOGS, icon: <HistoryIcon /> }, // 日志审计
 ];
 
 /**

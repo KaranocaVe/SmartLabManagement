@@ -18,6 +18,7 @@ import {
     SafetyIncidentControllerApiFactory,
     SupplierControllerApiFactory,
     UserControllerApiFactory,
+    LogControllerApiFactory
 } from '../client';
 
 // --- 修正点 ---
@@ -45,3 +46,4 @@ export const roleApi = RoleControllerApiFactory(configuration, basePath, axiosIn
 export const safetyIncidentApi = SafetyIncidentControllerApiFactory(configuration, basePath, axiosInstance);
 export const supplierApi = SupplierControllerApiFactory(configuration, basePath, axiosInstance);
 export const userApi = UserControllerApiFactory(configuration, basePath, axiosInstance);
+export const logApi = LogControllerApiFactory(configuration, basePath, axiosInstance);
