@@ -116,47 +116,55 @@ const ProjectListPage: React.FC = () => {
         <>
           <Grid container spacing={3} sx={{ mt: 1 }}>
             {projects.map((project) => (
-              <Grid
-                key={project.id}
-                size={{ xs: 12, sm: 6, md: 4 }}
-                component="div"
-              >
+              <Grid key={project.id} size={{ xs: 12, sm: 6, md: 4 }} component="div">
                 <Card
                   sx={{
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
+                    borderRadius: 3,
+                    boxShadow: 4,
+                    transition: "box-shadow 0.3s, transform 0.2s",
+                    background: "linear-gradient(135deg, #e3f2fd 0%, #fff 100%)",
+                    '&:hover': {
+                      boxShadow: 8,
+                      transform: 'translateY(-4px) scale(1.02)',
+                    },
                   }}
                 >
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h5" component="h2" sx={{ fontWeight: 700, letterSpacing: 1 }}>
                       {project.name}
                     </Typography>
                     <Box sx={{ mb: 1 }}>
                       <Chip
                         label={`负责人: ${project.projectLeadName || "N/A"}`}
                         size="small"
+                        color="primary"
+                        sx={{ fontWeight: 500 }}
                       />
                     </Box>
                     <Typography
                       variant="body2"
                       color="text.secondary"
                       sx={{
-                        height: 60,
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        display: "-webkit-box",
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: "vertical",
+                        // 只在卡片列表页限制高度，详情页不限制
+                        fontSize: 15,
+                        lineHeight: 1.6,
+                        whiteSpace: 'pre-line',
+                        wordBreak: 'break-word',
+                        mb: 1,
                       }}
                     >
                       {project.description || "暂无描述"}
                     </Typography>
                   </CardContent>
-                  <CardActions>
+                  <CardActions sx={{ justifyContent: "flex-end", px: 2, pb: 2 }}>
                     <Button
                       size="small"
-                      onClick={() => handleViewDetails(project.id)}
+                      variant="outlined"
+                      onClick={() => handleViewDetails(project.id ?? 0)}
+                      sx={{ borderRadius: 2, fontWeight: 500 }}
                     >
                       查看详情
                     </Button>

@@ -5,7 +5,6 @@ import {
     Container,
     Typography,
     Card,
-    CardContent,
     Grid,
     TextField,
     Button,
@@ -52,8 +51,9 @@ const LogPage: React.FC = () => {
             };
             // 清理空的过滤条件
             Object.keys(queryDTO).forEach(key => {
-                if (queryDTO[key] === '' || queryDTO[key] === null || queryDTO[key] === undefined) {
-                    delete queryDTO[key];
+                const typedKey = key as keyof AuditLogQueryDTO;
+                if (queryDTO[typedKey] === '' || queryDTO[typedKey] === null || queryDTO[typedKey] === undefined) {
+                    delete queryDTO[typedKey];
                 }
             });
 
@@ -93,7 +93,7 @@ const LogPage: React.FC = () => {
         { field: 'targetType', headerName: '目标类型', flex: 1 },
         { field: 'targetId', headerName: '目标ID', flex: 1 },
         { field: 'ipAddress', headerName: 'IP地址', flex: 1 },
-        { field: 'createdAt', headerName: '操作时间', flex: 1.5, valueFormatter: (params) => params.value ? new Date(params.value).toLocaleString() : '' },
+        { field: 'createdAt', headerName: '操作时间', flex: 1.5},
     ];
 
     return (
@@ -109,22 +109,22 @@ const LogPage: React.FC = () => {
                 <AccordionDetails>
                     <Box component="form" onSubmit={handleSubmit(handleFilterSubmit)} noValidate>
                         <Grid container spacing={2}>
-                            <Grid item xs={12} sm={6} md={3}>
+                            <Grid size={{ xs: 12, sm: 6, md: 3 }} component="div">
                                 <TextField {...register('userId')} label="用户ID" fullWidth size="small" />
                             </Grid>
-                            <Grid item xs={12} sm={6} md={3}>
+                            <Grid size={{ xs: 12, sm: 6, md: 3 }} component="div">
                                 <TextField {...register('action')} label="动作" fullWidth size="small" />
                             </Grid>
-                            <Grid item xs={12} sm={6} md={3}>
+                            <Grid size={{ xs: 12, sm: 6, md: 3 }} component="div">
                                 <TextField {...register('targetType')} label="目标类型" fullWidth size="small" />
                             </Grid>
-                            <Grid item xs={12} sm={6} md={3}>
+                            <Grid size={{ xs: 12, sm: 6, md: 3 }} component="div">
                                 <TextField {...register('startTime')} label="开始时间" type="datetime-local" InputLabelProps={{ shrink: true }} fullWidth size="small" />
                             </Grid>
-                            <Grid item xs={12} sm={6} md={3}>
+                            <Grid size={{ xs: 12, sm: 6, md: 3 }} component="div">
                                 <TextField {...register('endTime')} label="结束时间" type="datetime-local" InputLabelProps={{ shrink: true }} fullWidth size="small" />
                             </Grid>
-                            <Grid item xs={12} sx={{ display: 'flex', gap: 2 }}>
+                            <Grid size={{ xs: 12 }} component="div" sx={{ display: 'flex', gap: 2 }}>
                                 <Button type="submit" variant="contained">查询</Button>
                                 <Button variant="outlined" onClick={handleResetFilters}>重置</Button>
                             </Grid>
@@ -135,7 +135,10 @@ const LogPage: React.FC = () => {
 
             <Card>
                 <DataTable
-                    rows={logs}
+                    rows={logs.map(log => ({
+                        ...log,
+                        id: log.id !== undefined ? log.id : `row-${Math.random()}`
+                    }))}
                     columns={columns}
                     loading={isLoading}
                     rowCount={totalRows}

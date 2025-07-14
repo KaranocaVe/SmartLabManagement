@@ -87,14 +87,18 @@ const DataTable = <T extends { id: GridRowId }>({
       minWidth: 100, // 设置最小宽度
     }));
   }, [columns, onEdit, onDelete]);
-
+  
   return (
     <Box
       sx={{
-        height: 650,
+        height: "auto",
         width: "100%",
         display: "flex",
         flexDirection: "column",
+        background: "linear-gradient(135deg, #f5fafd 0%, #fff 100%)",
+        borderRadius: 3,
+        boxShadow: 2,
+        p: 2,
       }}
     >
       <DataGrid
@@ -102,8 +106,8 @@ const DataTable = <T extends { id: GridRowId }>({
         columns={memoizedColumns.map((col) => ({
           ...col,
           renderHeader: (params) => (
-            <Tooltip title={params.colDef.headerName || ""}>
-              <span>{params.colDef.headerName}</span>
+            <Tooltip title={params.colDef.headerName || ""} arrow>
+              <span style={{ fontWeight: 600, fontSize: "1rem", color: "#1976d2" }}>{params.colDef.headerName}</span>
             </Tooltip>
           ),
         }))}
@@ -116,7 +120,7 @@ const DataTable = <T extends { id: GridRowId }>({
         onPaginationModelChange={onPaginationModelChange}
         disableRowSelectionOnClick
         getRowId={(row) => row.id}
-        rowHeight={40}
+        rowHeight={44}
         localeText={{
           columnMenuSortAsc: "升序",
           columnMenuSortDesc: "降序",
@@ -129,18 +133,39 @@ const DataTable = <T extends { id: GridRowId }>({
         }}
         sx={{
           border: "none",
-          "& .MuiDataGrid-columnHeader": {
-            backgroundColor: "#f5f5f5",
+          background: "transparent",
+          '& .MuiDataGrid-columnHeader': {
+            background: "#f5f5f5", // 改为纯色浅灰
             fontWeight: "bold",
-            fontSize: "0.875rem",
+            fontSize: "1rem",
             lineHeight: "1.5rem",
-            "&:hover": {
+            color: "#1976d2",
+            borderBottom: "1px solid #e0e0e0",
+            '&:hover': {
               cursor: "pointer",
+              background: "#e3f2fd",
             },
           },
-          "& .MuiDataGrid-cell": {
-            fontSize: "0.875rem",
-            padding: "4px 8px",
+          '& .MuiDataGrid-cell': {
+            fontSize: "0.95rem",
+            padding: "6px 12px",
+            background: "rgba(255,255,255,0.7)",
+            borderBottom: "1px solid #f0f0f0",
+            display: 'flex',
+            alignItems: 'center', // 竖直居中
+          },
+          '& .MuiDataGrid-row': {
+            transition: "background 0.2s",
+            '&:hover': {
+              background: "#f5fafd",
+            },
+          },
+          '& .MuiDataGrid-footerContainer': {
+            background: "#f5fafd",
+            borderTop: "1px solid #e0e0e0",
+          },
+          '& .MuiDataGrid-toolbarContainer': {
+            background: "#f5fafd",
           },
         }}
       />

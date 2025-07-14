@@ -15,6 +15,7 @@ import {
   Toolbar,
   Typography,
   Divider,
+  Popover,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 // 导入所有需要的图标
@@ -37,34 +38,37 @@ import useUserStore from "../../store/userStore"; // 引入 userStore
 // 定义侧边栏的固定宽度
 const drawerWidth = 240;
 
-// 定义导航菜单的配置
+// 定义导航菜单的配置，并为每个条目增加 requiredPermission 字段
 const navConfig = [
-  { text: "仪表盘", path: ROUTES.DASHBOARD, icon: <DashboardIcon /> },
-  { text: "项目管理", path: ROUTES.PROJECTS.LIST, icon: <AccountTreeIcon /> },
+  { text: "仪表盘", path: ROUTES.DASHBOARD, icon: <DashboardIcon />, requiredPermission: null },
+  { text: "项目管理", path: ROUTES.PROJECTS.LIST, icon: <AccountTreeIcon />, requiredPermission: "project:view:all" },
   { isDivider: true },
-  { text: "设备管理", path: ROUTES.RESOURCES.EQUIPMENT, icon: <ScienceIcon /> },
+  { text: "设备管理", path: ROUTES.RESOURCES.EQUIPMENT, icon: <ScienceIcon />, requiredPermission: "equipment:manage" },
   {
     text: "物资管理",
     path: ROUTES.RESOURCES.MATERIALS,
     icon: <StorefrontIcon />,
+    requiredPermission: "material:manage"
   },
   {
     text: "资源申请",
     path: ROUTES.RESOURCES.REQUESTS,
     icon: <AssignmentIcon />,
+    requiredPermission: "resource:request"
   },
   { isDivider: true },
-  { text: "用户管理", path: ROUTES.MANAGEMENT.USERS, icon: <PeopleIcon /> },
-  { text: "角色管理", path: ROUTES.MANAGEMENT.ROLES, icon: <VpnKeyIcon /> },
-  { text: "实验室管理", path: ROUTES.MANAGEMENT.LABS, icon: <BusinessIcon /> },
+  { text: "用户管理", path: ROUTES.MANAGEMENT.USERS, icon: <PeopleIcon />, requiredPermission: "user:view" },
+  { text: "角色管理", path: ROUTES.MANAGEMENT.ROLES, icon: <VpnKeyIcon />, requiredPermission: "role:manage" },
+  { text: "实验室管理", path: ROUTES.MANAGEMENT.LABS, icon: <BusinessIcon />, requiredPermission: "lab:manage" },
   {
     text: "供应商管理",
     path: ROUTES.MANAGEMENT.SUPPLIERS,
     icon: <StorefrontIcon />,
+    requiredPermission: "supplier:manage"
   },
   { isDivider: true },
-  { text: "安全事件", path: ROUTES.SAFETY.INCIDENTS, icon: <GppGoodIcon /> },
-    { text: "日志审计", path: ROUTES.AUDIT.LOGS, icon: <HistoryIcon /> }, // 日志审计
+  { text: "安全事件", path: ROUTES.SAFETY.INCIDENTS, icon: <GppGoodIcon />, requiredPermission: "safety:log_incident" },
+  { text: "日志审计", path: ROUTES.AUDIT.LOGS, icon: <HistoryIcon />, requiredPermission: null }, // 日志审计所有人可见
 ];
 
 /**
@@ -118,55 +122,89 @@ const DashboardLayout: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const username = useUserStore((state) => state.username); // 获取用户名
+  const userInfo = useUserStore(); // 获取所有用户信息
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const handleAvatarMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleAvatarMouseLeave = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   // 侧边栏的实际内容
   const drawerContent = (
-    <div>
+    <div style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
       {/* 为了毛玻璃效果，Toolbar 不再需要独立的背景色 */}
       <Toolbar />
-      <Box sx={{ overflow: "auto", height: "calc(100vh - 64px)" }}>
+      <Box sx={{ overflow: "auto", height: "calc(100vh - 64px - 80px)" }}>
         <List>
-          {navConfig.map((item, index) =>
-            item.isDivider ? (
-              <Divider
-                key={`divider-${index}`}
-                sx={{ my: 1, borderColor: "rgba(0, 0, 0, 0.1)" }}
-              /> // 分割线颜色调整为更柔和的深色
-            ) : (
-              <ListItem key={item.text} disablePadding>
-                <ListItemButton
-                  selected={location.pathname === item.path}
-                  onClick={() => navigate(item.path!)}
-                  sx={{
-                    "&.Mui-selected": {
-                      backgroundColor: "rgba(0, 123, 255, 0.7)", // 选中项的半透明背景
-                      color: "#FFFFFF", // 选中项文字保持白色，对比鲜明
-                      "&:hover": {
-                        backgroundColor: "rgba(0, 123, 255, 0.8)", // 选中项悬停颜色
+          {navConfig.map((item, index) => {
+            // 分割线直接显示
+            if (item.isDivider) {
+              return (
+                <Divider
+                  key={`divider-${index}`}
+                  sx={{ my: 1, borderColor: "rgba(0, 0, 0, 0.1)" }}
+                />
+              );
+            }
+            // 权限校验：无 requiredPermission 或用户拥有该权限才显示
+            if (!item.requiredPermission || (userInfo.permissions && userInfo.permissions.includes(item.requiredPermission))) {
+              return (
+                <ListItem key={item.text} disablePadding>
+                  <ListItemButton
+                    selected={location.pathname === item.path}
+                    onClick={() => navigate(item.path!)}
+                    sx={{
+                      "&.Mui-selected": {
+                        backgroundColor: "rgba(0, 123, 255, 0.7)",
+                        color: "#FFFFFF",
+                        "&:hover": {
+                          backgroundColor: "rgba(0, 123, 255, 0.8)",
+                        },
                       },
-                    },
-                    "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.05)", // 非选中项悬停颜色，略微变暗
-                      color: "#333333", // 悬停时文字颜色
-                    },
-                    color: "#333333", // 非选中项文字颜色改为深色，确保可见性
-                    paddingY: "12px",
-                    paddingX: "24px",
-                  }}
-                >
-                  <ListItemIcon sx={{ color: "inherit" }}>
-                    {item.icon}
-                  </ListItemIcon>
-                  <ListItemText primary={item.text} sx={{ fontWeight: 500 }} />
-                </ListItemButton>
-              </ListItem>
-            )
-          )}
+                      "&:hover": {
+                        backgroundColor: "rgba(0, 0, 0, 0.05)",
+                        color: "#333333",
+                      },
+                      color: "#333333",
+                      paddingY: "12px",
+                      paddingX: "24px",
+                    }}
+                  >
+                    <ListItemIcon sx={{ color: "inherit" }}>
+                      {item.icon}
+                    </ListItemIcon>
+                    <ListItemText primary={item.text} sx={{ fontWeight: 500 }} />
+                  </ListItemButton>
+                </ListItem>
+              );
+            }
+            // 没有权限则不显示
+            return null;
+          })}
         </List>
+      </Box>
+      {/* 侧边栏底部 foot 区域 */}
+      <Box sx={{
+        mt: 'auto',
+        py: 2,
+        px: 2,
+        textAlign: 'center',
+        fontSize: '0.85rem',
+        color: 'text.secondary',
+        borderTop: '1px solid rgba(0,0,0,0.08)',
+        background: 'rgba(255,255,255,0.85)',
+        backdropFilter: 'blur(4px)',
+      }}>
+        SmartLabManagement v3.0.0<br />
+        © 2025 KaranocaVe<br />
+        保留所有权利
       </Box>
     </div>
   );
@@ -229,14 +267,111 @@ const DashboardLayout: React.FC = () => {
             </Typography>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <Avatar sx={{ bgcolor: "primary.main", width: 32, height: 32 }}>
-              {username ? username.charAt(0).toUpperCase() : "?"}
-            </Avatar>
-            <Typography variant="body1" noWrap sx={{ color: "inherit" }}>
-              {" "}
-              {/* 继承父级颜色 */}
-              {username ? `欢迎, ${username}` : "未登录"}
-            </Typography>
+            <Box
+              onMouseEnter={handleAvatarMouseEnter}
+              onMouseLeave={handleAvatarMouseLeave}
+              sx={{ display: "flex", alignItems: "center" }}
+            >
+              <Avatar sx={{ bgcolor: "primary.main", width: 32, height: 32 }}>
+                {userInfo.username ? userInfo.username.charAt(0).toUpperCase() : "?"}
+              </Avatar>
+                <Popover
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleAvatarMouseLeave}
+                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                transformOrigin={{ vertical: "top", horizontal: "left" }}
+                sx={{ pointerEvents: "none" }}
+                PaperProps={{
+                  sx: {
+                  pointerEvents: "auto",
+                  p: 2,
+                  minWidth: 260,
+                  borderRadius: 2,
+                  boxShadow: 4,
+                  background: "rgba(255,255,255,0.95)",
+                  backdropFilter: "blur(6px)",
+                  },
+                }}
+                disableRestoreFocus
+                >
+                <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                  <Avatar sx={{ bgcolor: "primary.main", width: 40, height: 40, mr: 2 }}>
+                  {userInfo.username ? userInfo.username.charAt(0).toUpperCase() : "?"}
+                  </Avatar>
+                  <Box>
+                  <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
+                    {userInfo.realName ?? userInfo.username ?? "-"}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {userInfo.email ?? "-"}
+                  </Typography>
+                  </Box>
+                </Box>
+                <Divider sx={{ mb: 1 }} />
+                <List dense sx={{ p: 0 }}>
+                  <ListItem sx={{ py: 0.5 }}>
+                  <ListItemText
+                    primary={<span style={{ fontWeight: 500 }}>用户名</span>}
+                    secondary={userInfo.username ?? "-"}
+                  />
+                  </ListItem>
+                  <ListItem sx={{ py: 0.5 }}>
+                  <ListItemText
+                    primary={<span style={{ fontWeight: 500 }}>真实姓名</span>}
+                    secondary={userInfo.realName ?? "-"}
+                  />
+                  </ListItem>
+                  <ListItem sx={{ py: 0.5 }}>
+                  <ListItemText
+                    primary={<span style={{ fontWeight: 500 }}>用户ID</span>}
+                    secondary={userInfo.userId ?? "-"}
+                  />
+                  </ListItem>
+                  <ListItem sx={{ py: 0.5 }}>
+                  <ListItemText
+                    primary={<span style={{ fontWeight: 500 }}>手机号</span>}
+                    secondary={userInfo.phone ?? "-"}
+                  />
+                  </ListItem>
+                  <ListItem sx={{ py: 0.5 }}>
+                  <ListItemText
+                    primary={<span style={{ fontWeight: 500 }}>角色</span>}
+                    secondary={userInfo.roles?.join(", ") ?? "-"}
+                  />
+                  </ListItem>
+                  <ListItem sx={{ py: 0.5 }}>
+                  <ListItemText
+                    primary={<span style={{ fontWeight: 500 }}>权限</span>}
+                    secondary={
+                    userInfo.permissions && userInfo.permissions.length > 0
+                      ? (
+                      <Box component="span" sx={{ whiteSpace: "pre-line", wordBreak: "break-all", fontSize: "0.85rem", color: "text.secondary" }}>
+                        {userInfo.permissions.join("\n")}
+                      </Box>
+                      )
+                      : "-"
+                    }
+                  />
+                  </ListItem>
+                  <ListItem sx={{ py: 0.5 }}>
+                  <ListItemText
+                    primary={<span style={{ fontWeight: 500 }}>Token类型</span>}
+                    secondary={userInfo.tokenType ?? "-"}
+                  />
+                  </ListItem>
+                  <ListItem sx={{ py: 0.5 }}>
+                  <ListItemText
+                    primary={<span style={{ fontWeight: 500 }}>AccessToken</span>}
+                    secondary={userInfo.accessToken ? userInfo.accessToken.slice(0, 8) + "..." : "-"}
+                  />
+                  </ListItem>
+                </List>
+                </Popover>
+              <Typography variant="body1" noWrap sx={{ color: "inherit", ml: 1 }}>
+                {userInfo.username ? `欢迎, ${userInfo.username}` : "未登录"}
+              </Typography>
+            </Box>
             <LogOutButton />
           </Box>
         </Toolbar>

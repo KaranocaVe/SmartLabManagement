@@ -25,7 +25,7 @@ import type { ProjectVO, ProjectTask, ProjectTaskCreateDTO, ProjectTaskUpdateDTO
 // TODO : 需要实现任务创建和更新的API调用
 // 导入通用组件
 import ConfirmationDialog from '../../../../components/common/ConfirmationDialog';
-// import TaskForm from './TaskForm'; // 理想情况下，表单会是一个独立组件
+import TaskForm from './TaskForm'; // 理想情况下，表单会是一个独立组件
 
 /**
  * 项目任务管理标签页
@@ -40,8 +40,8 @@ const TasksTab: React.FC = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
     const [deletingTaskId, setDeletingTaskId] = useState<number | null>(null);
-    // const [isFormOpen, setIsFormOpen] = useState(false); // 用于控制表单弹窗
-    // const [editingTask, setEditingTask] = useState<ProjectTask | null>(null);
+    const [isFormOpen, setIsFormOpen] = useState(false); // 控制表单弹窗
+    const [editingTask, setEditingTask] = useState<ProjectTask | null>(null);
 
     // --- Data Fetching ---
     const fetchTasks = useCallback(async () => {
@@ -66,15 +66,56 @@ const TasksTab: React.FC = () => {
 
     // --- Event Handlers ---
     const handleOpenCreateForm = () => {
-        enqueueSnackbar('创建任务功能待实现', { variant: 'info' });
-        // setEditingTask(null);
-        // setIsFormOpen(true);
+        setIsFormOpen(true);
+    };
+    const handleOpenEditForm = (task: ProjectTask) => {
+        setEditingTask(task);
+        setIsFormOpen(true);
     };
 
-    const handleOpenEditForm = (task: ProjectTask) => {
-        enqueueSnackbar('编辑任务功能待实现', { variant: 'info' });
-        // setEditingTask(task);
-        // setIsFormOpen(true);
+    const handleCloseForm = () => {
+        setIsFormOpen(false);
+        setEditingTask(null);
+    };
+
+    const handleCreateTask = async (dto: ProjectTaskCreateDTO) => {
+        try {
+            const response = await projectTaskApi.createTask(dto);
+            if (response.data.code === 200 && response.data.data) {
+                setTasks(prev => response.data.data ? [...prev, response.data.data] : prev);
+                enqueueSnackbar('任务创建成功', { variant: 'success' });
+                setIsFormOpen(false);
+            } else {
+                throw new Error(response.data.message || '创建失败');
+            }
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                enqueueSnackbar(error.message || '创建失败', { variant: 'error' });
+            } else {
+                enqueueSnackbar('创建失败', { variant: 'error' });
+            }
+        }
+    };
+
+    const handleUpdateTask = async (dto: ProjectTaskUpdateDTO) => {
+        if (!editingTask || typeof editingTask.id !== 'number') return;
+        try {
+            const response = await projectTaskApi.updateTask(editingTask.id, dto);
+            if (response.data.code === 200 && response.data.data) {
+                setTasks(prev => prev.map(t => t.id === editingTask.id ? response.data.data : t));
+                enqueueSnackbar('任务更新成功', { variant: 'success' });
+                setIsFormOpen(false);
+                setEditingTask(null);
+            } else {
+                throw new Error(response.data.message || '更新失败');
+            }
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                enqueueSnackbar(error.message || '更新失败', { variant: 'error' });
+            } else {
+                enqueueSnackbar('更新失败', { variant: 'error' });
+            }
+        }
     };
 
     const handleOpenDeleteDialog = (id: number) => {
@@ -88,8 +129,12 @@ const TasksTab: React.FC = () => {
             await projectTaskApi.deleteTask(deletingTaskId);
             setTasks(prevTasks => prevTasks.filter(t => t.id !== deletingTaskId));
             enqueueSnackbar('任务删除成功', { variant: 'success' });
-        } catch (error: any) {
-            enqueueSnackbar(error.message || '删除失败', { variant: 'error' });
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                enqueueSnackbar(error.message || '删除失败', { variant: 'error' });
+            } else {
+                enqueueSnackbar('删除失败', { variant: 'error' });
+            }
         } finally {
             setDeletingTaskId(null);
         }
@@ -120,7 +165,7 @@ const TasksTab: React.FC = () => {
                                             <IconButton edge="end" aria-label="edit" onClick={() => handleOpenEditForm(task)}>
                                                 <EditIcon />
                                             </IconButton>
-                                            <IconButton edge="end" aria-label="delete" sx={{ ml: 1 }} onClick={() => handleOpenDeleteDialog(task.id)}>
+                                            <IconButton edge="end" aria-label="delete" sx={{ ml: 1 }} onClick={() => typeof task.id === 'number' && handleOpenDeleteDialog(task.id)}>
                                                 <DeleteIcon />
                                             </IconButton>
                                         </>
@@ -162,6 +207,14 @@ const TasksTab: React.FC = () => {
             />
 
             {/* TODO: Add TaskForm Dialog here */}
+            <TaskForm
+                open={isFormOpen}
+                onClose={handleCloseForm}
+                projectId={typeof project.id === 'number' ? project.id : 0}
+                onCreate={handleCreateTask}
+                onUpdate={handleUpdateTask}
+                editingTask={editingTask}
+            />
         </Card>
     );
 };

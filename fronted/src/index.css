@@ -11,7 +11,7 @@ html, body, #root {
   margin: 0 !important;
   padding: 0 !important;
   height: 100%;
-  overflow-x: hidden !important;
+  /* overflow-x: hidden !important; */
   /* 移除或注释掉这里的背景图片设置 */
   /* background-image: url('...'); */
   /* background-size: cover; */

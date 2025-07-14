@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useAuthStore } from '../store/authStore';
+import { ResponseCode } from './responseCodes';
 
 const apiClient = axios.create({
     baseURL: '/',
@@ -26,7 +27,7 @@ apiClient.interceptors.request.use(
     }
 );
 
-// --- 响应拦截器 (保持不变) ---
+// --- 响应拦截器 ---
 apiClient.interceptors.response.use(
     (response) => {
         return response;
@@ -43,7 +44,58 @@ apiClient.interceptors.response.use(
             customError.status = status;
             customError.data = data;
 
-            if (status === 401) {
+            // 优先处理后端自定义 code
+            if (data && typeof data.code === 'number') {
+                switch (data.code) {
+                    case ResponseCode.UNAUTHENTICATED:
+                        customError.message = '用户未认证或认证已过期。';
+                        useAuthStore.getState().logout();
+                        window.location.replace('/login');
+                        break;
+                    case ResponseCode.UNAUTHORIZED:
+                        customError.message = '权限不足。';
+                        break;
+                    case ResponseCode.INVALID_CREDENTIALS:
+                        customError.message = '用户名或密码错误。';
+                        break;
+                    case ResponseCode.USER_ACCOUNT_LOCKED:
+                        customError.message = '用户账户已被锁定。';
+                        break;
+                    case ResponseCode.USER_ACCOUNT_DISABLED:
+                        customError.message = '用户账户已被禁用。';
+                        break;
+                    case ResponseCode.USERNAME_ALREADY_EXISTS:
+                        customError.message = '用户名已存在。';
+                        break;
+                    case ResponseCode.EMAIL_ALREADY_EXISTS:
+                        customError.message = '电子邮箱已存在。';
+                        break;
+                    case ResponseCode.ROLE_NOT_FOUND:
+                        customError.message = '指定的角色不存在。';
+                        break;
+                    case ResponseCode.PROJECT_LEAD_NOT_FOUND:
+                        customError.message = '指定的项目负责人不存在。';
+                        break;
+                    case ResponseCode.INSUFFICIENT_STOCK:
+                        customError.message = '物资库存不足。';
+                        break;
+                    case ResponseCode.VALIDATION_ERROR:
+                        customError.message = '参数校验失败。';
+                        break;
+                    case ResponseCode.NOT_FOUND:
+                        customError.message = '资源未找到。';
+                        break;
+                    case ResponseCode.FAILURE:
+                        customError.message = '操作失败。';
+                        break;
+                    default:
+                        if (data.message) {
+                            customError.message = data.message;
+                        } else {
+                            customError.message = `发生错误 (状态码: ${data.code})。`;
+                        }
+                }
+            } else if (status === 401) {
                 customError.message = '认证已过期，请重新登录。';
                 useAuthStore.getState().logout();
                 window.location.replace('/login');
