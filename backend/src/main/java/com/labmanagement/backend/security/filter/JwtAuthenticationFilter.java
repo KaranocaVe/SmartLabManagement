@@ -7,10 +7,12 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -33,23 +35,38 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Autowired
+    private UserDetailsService userDetailsService;
+
     @Override
-    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain)
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        // 1. 从请求中解析出 JWT
         String jwt = resolveToken(request);
+        String username = null;
 
-        // 2. 验证 JWT 是否存在且有效
+        // 1. 从 Token 中解析出用户名
         if (StringUtils.hasText(jwt) && jwtUtil.validateToken(jwt)) {
-            // 3. 如果有效，从中获取认证信息
-            Authentication authentication = jwtUtil.getAuthentication(jwt);
-            // 4. 将认证信息设置到 Spring Security 的上下文中
-            //    这样，后续的安全检查（如 @PreAuthorize）就可以基于这个上下文进行。
+            username = jwtUtil.getUsernameFromToken(jwt);
+        }
+
+        // 2. 如果用户名存在，且当前安全上下文中没有认证信息
+        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            // 3. 调用 UserDetailsService 加载用户详情 (这里会返回我们自己的 User 实体)
+            UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+
+            // 4. 创建认证令牌，此时 Principal 就是我们完整的 User 实体
+            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                    userDetails,
+                    null,
+                    userDetails.getAuthorities()
+            );
+            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+            // 5. 将认证信息设置到安全上下文中
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
 
-        // 5. 放行请求，让它继续在过滤器链中传递
         filterChain.doFilter(request, response);
     }
 
@@ -60,15 +77,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
      * @return 解析出的 JWT 字符串，如果不存在则返回 null
      */
     private String resolveToken(HttpServletRequest request) {
-        // 从 "Authorization" 请求头中获取令牌
         String bearerToken = request.getHeader(SystemConstants.JWT_HEADER_NAME);
-
-        // 检查令牌是否存在，并且是否以 "Bearer " 开头
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith(SystemConstants.JWT_TOKEN_PREFIX)) {
-            // 截取并返回真正的 JWT 部分
             return bearerToken.substring(SystemConstants.JWT_TOKEN_PREFIX.length());
         }
-
         return null;
     }
 }

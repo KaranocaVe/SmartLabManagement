@@ -78,6 +78,10 @@ public class JwtUtil {
                 .compact();
     }
 
+    public String getUsernameFromToken(String token) {
+        return Jwts.parser().setSigningKey(key).build().parseSignedClaims(token).getPayload().getSubject();
+    }
+
     /**
      * 从 JWT 中解析出认证信息
      *
@@ -86,9 +90,6 @@ public class JwtUtil {
      */
     public Authentication getAuthentication(String token) {
         // 解析 JWT 的 claims
-//        Claims claims = Jwts.parserBuilder()
-//
-//
         Claims claims = Jwts.parser().setSigningKey(key)
                 .build().parseSignedClaims(token).getPayload();
 
@@ -121,4 +122,5 @@ public class JwtUtil {
         }
         return false;
     }
+
 }
