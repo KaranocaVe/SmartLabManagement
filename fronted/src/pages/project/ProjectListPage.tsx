@@ -21,6 +21,7 @@ import type {
   ProjectVO,
   PageRequestDTO,
   ProjectCreateDTO,
+  ProjectUpdateDTO,
 } from "../../client";
 import { ROUTES } from "../../router/paths";
 
@@ -88,15 +89,22 @@ const ProjectListPage: React.FC = () => {
     navigate(ROUTES.PROJECTS.DETAILS.replace(":id", String(id)));
   };
 
-  const handleFormSubmit = async (data: ProjectCreateDTO) => {
-    try {
-      await projectApi.createProject(data);
-      enqueueSnackbar("项目创建成功", { variant: "success" });
-      setIsFormOpen(false);
-      fetchProjects(1); // 创建成功后，回到第一页并刷新
-      setPage(1);
-    } catch (error: any) {
-      enqueueSnackbar(error.message || "创建失败", { variant: "error" });
+  const handleFormSubmit = async (
+    data: ProjectCreateDTO | ProjectUpdateDTO
+  ) => {
+    if ("name" in data) {
+      // 处理创建逻辑
+      try {
+        await projectApi.createProject(data as ProjectCreateDTO);
+        enqueueSnackbar("项目创建成功", { variant: "success" });
+        setIsFormOpen(false);
+        fetchProjects(1); // 创建成功后，回到第一页并刷新
+        setPage(1);
+      } catch (error: unknown) {
+        enqueueSnackbar((error as Error).message || "创建失败", {
+          variant: "error",
+        });
+      }
     }
   };
 
@@ -116,7 +124,11 @@ const ProjectListPage: React.FC = () => {
         <>
           <Grid container spacing={3} sx={{ mt: 1 }}>
             {projects.map((project) => (
-              <Grid key={project.id} size={{ xs: 12, sm: 6, md: 4 }} component="div">
+              <Grid
+                key={project.id}
+                size={{ xs: 12, sm: 6, md: 4 }}
+                component="div"
+              >
                 <Card
                   sx={{
                     height: "100%",
@@ -125,15 +137,21 @@ const ProjectListPage: React.FC = () => {
                     borderRadius: 3,
                     boxShadow: 4,
                     transition: "box-shadow 0.3s, transform 0.2s",
-                    background: "linear-gradient(135deg, #e3f2fd 0%, #fff 100%)",
-                    '&:hover': {
+                    background:
+                      "linear-gradient(135deg, #e3f2fd 0%, #fff 100%)",
+                    "&:hover": {
                       boxShadow: 8,
-                      transform: 'translateY(-4px) scale(1.02)',
+                      transform: "translateY(-4px) scale(1.02)",
                     },
                   }}
                 >
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2" sx={{ fontWeight: 700, letterSpacing: 1 }}>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      sx={{ fontWeight: 700, letterSpacing: 1 }}
+                    >
                       {project.name}
                     </Typography>
                     <Box sx={{ mb: 1 }}>
@@ -151,15 +169,17 @@ const ProjectListPage: React.FC = () => {
                         // 只在卡片列表页限制高度，详情页不限制
                         fontSize: 15,
                         lineHeight: 1.6,
-                        whiteSpace: 'pre-line',
-                        wordBreak: 'break-word',
+                        whiteSpace: "pre-line",
+                        wordBreak: "break-word",
                         mb: 1,
                       }}
                     >
                       {project.description || "暂无描述"}
                     </Typography>
                   </CardContent>
-                  <CardActions sx={{ justifyContent: "flex-end", px: 2, pb: 2 }}>
+                  <CardActions
+                    sx={{ justifyContent: "flex-end", px: 2, pb: 2 }}
+                  >
                     <Button
                       size="small"
                       variant="outlined"

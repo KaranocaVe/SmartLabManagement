@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.labmanagement.backend.common.annotation.AuditLog;
 import com.labmanagement.backend.common.dto.PageRequestDTO;
+import com.labmanagement.backend.common.exception.BusinessException;
 import com.labmanagement.backend.common.vo.ApiResponse;
 import com.labmanagement.backend.modules.project.dto.AddProjectMemberDTO;
 import com.labmanagement.backend.modules.project.dto.ProjectCreateDTO;
@@ -16,7 +17,8 @@ import com.labmanagement.backend.modules.project.entity.ProjectMember;
 import com.labmanagement.backend.modules.project.service.ProjectMemberService;
 import com.labmanagement.backend.modules.project.service.ProjectService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,11 +35,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/projects")
 public class ProjectController {
 
-    @Autowired
-    private ProjectService projectService;
+    private static final Logger log = LoggerFactory.getLogger(ProjectController.class);
 
-    @Autowired
-    private ProjectMemberService projectMemberService;
+    private final ProjectService projectService;
+    private final ProjectMemberService projectMemberService;
+
+    public ProjectController(ProjectService projectService, ProjectMemberService projectMemberService) {
+        this.projectService = projectService;
+        this.projectMemberService = projectMemberService;
+    }
 
     /**
      * 创建新项目
@@ -68,9 +74,15 @@ public class ProjectController {
      */
     @GetMapping("/{id}")
     @PreAuthorize("isAuthenticated()")
-    public ApiResponse<ProjectVO> getProjectById(@PathVariable Long id) {
-        ProjectVO projectDetails = projectService.getProjectDetails(id);
-        return ApiResponse.success(projectDetails);
+    public ApiResponse<ProjectVO> getProjectById(@PathVariable("id") Long id) {
+        try {
+            ProjectVO projectDetails = projectService.getProjectDetails(id);
+            return ApiResponse.success(projectDetails);
+        } catch (BusinessException ex) {
+            // 仅保留异常日志
+            log.error("业务异常: {}", ex.getMessage(), ex);
+            return ApiResponse.error(ex.getCode(), ex.getMessage());
+        }
     }
 
     /**

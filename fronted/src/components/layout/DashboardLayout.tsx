@@ -28,49 +28,89 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import BusinessIcon from "@mui/icons-material/Business";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import GppGoodIcon from "@mui/icons-material/GppGood";
-import HistoryIcon from '@mui/icons-material/History';
+import HistoryIcon from "@mui/icons-material/History";
 import { useAuthStore } from "../../store/authStore";
 // 导入路由常量
 import Avatar from "@mui/material/Avatar"; // 引入 Avatar 组件
 import { ROUTES } from "../../router/paths";
 import LogoutIcon from "@mui/icons-material/Logout";
 import useUserStore from "../../store/userStore"; // 引入 userStore
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
 // 定义侧边栏的固定宽度
 const drawerWidth = 240;
 
 // 定义导航菜单的配置，并为每个条目增加 requiredPermission 字段
 const navConfig = [
-  { text: "仪表盘", path: ROUTES.DASHBOARD, icon: <DashboardIcon />, requiredPermission: null },
-  { text: "项目管理", path: ROUTES.PROJECTS.LIST, icon: <AccountTreeIcon />, requiredPermission: "project:view:all" },
+  {
+    text: "仪表盘",
+    path: ROUTES.DASHBOARD,
+    icon: <DashboardIcon />,
+    requiredPermission: null,
+  },
+  {
+    text: "项目管理",
+    path: ROUTES.PROJECTS.LIST,
+    icon: <AccountTreeIcon />,
+    requiredPermission: "project:view:all",
+  },
   { isDivider: true },
-  { text: "设备管理", path: ROUTES.RESOURCES.EQUIPMENT, icon: <ScienceIcon />, requiredPermission: "equipment:manage" },
+  {
+    text: "设备管理",
+    path: ROUTES.RESOURCES.EQUIPMENT,
+    icon: <ScienceIcon />,
+    requiredPermission: "equipment:manage",
+  },
   {
     text: "物资管理",
     path: ROUTES.RESOURCES.MATERIALS,
     icon: <StorefrontIcon />,
-    requiredPermission: "material:manage"
+    requiredPermission: "material:manage",
   },
   {
     text: "资源申请",
     path: ROUTES.RESOURCES.REQUESTS,
     icon: <AssignmentIcon />,
-    requiredPermission: "resource:request"
+    requiredPermission: "resource:request",
   },
   { isDivider: true },
-  { text: "用户管理", path: ROUTES.MANAGEMENT.USERS, icon: <PeopleIcon />, requiredPermission: "user:view" },
-  { text: "角色管理", path: ROUTES.MANAGEMENT.ROLES, icon: <VpnKeyIcon />, requiredPermission: "role:manage" },
-  { text: "实验室管理", path: ROUTES.MANAGEMENT.LABS, icon: <BusinessIcon />, requiredPermission: "lab:manage" },
+  {
+    text: "用户管理",
+    path: ROUTES.MANAGEMENT.USERS,
+    icon: <PeopleIcon />,
+    requiredPermission: "user:view",
+  },
+  {
+    text: "角色管理",
+    path: ROUTES.MANAGEMENT.ROLES,
+    icon: <VpnKeyIcon />,
+    requiredPermission: "role:manage",
+  },
+  {
+    text: "实验室管理",
+    path: ROUTES.MANAGEMENT.LABS,
+    icon: <BusinessIcon />,
+    requiredPermission: "lab:manage",
+  },
   {
     text: "供应商管理",
     path: ROUTES.MANAGEMENT.SUPPLIERS,
     icon: <StorefrontIcon />,
-    requiredPermission: "supplier:manage"
+    requiredPermission: "supplier:manage",
   },
   { isDivider: true },
-  { text: "安全事件", path: ROUTES.SAFETY.INCIDENTS, icon: <GppGoodIcon />, requiredPermission: "safety:log_incident" },
-  { text: "日志审计", path: ROUTES.AUDIT.LOGS, icon: <HistoryIcon />, requiredPermission: null }, // 日志审计所有人可见
+  {
+    text: "安全事件",
+    path: ROUTES.SAFETY.INCIDENTS,
+    icon: <GppGoodIcon />,
+    requiredPermission: "safety:log_incident",
+  },
+  {
+    text: "日志审计",
+    path: ROUTES.AUDIT.LOGS,
+    icon: <HistoryIcon />,
+    requiredPermission: null,
+  }, // 日志审计所有人可见
 ];
 
 /**
@@ -140,7 +180,7 @@ const DashboardLayout: React.FC = () => {
 
   // 侧边栏的实际内容
   const drawerContent = (
-    <div style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
+    <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
       {/* 为了毛玻璃效果，Toolbar 不再需要独立的背景色 */}
       <Toolbar />
       <Box sx={{ overflow: "auto", height: "calc(100vh - 64px - 80px)" }}>
@@ -156,7 +196,11 @@ const DashboardLayout: React.FC = () => {
               );
             }
             // 权限校验：无 requiredPermission 或用户拥有该权限才显示
-            if (!item.requiredPermission || (userInfo.permissions && userInfo.permissions.includes(item.requiredPermission))) {
+            if (
+              !item.requiredPermission ||
+              (userInfo.permissions &&
+                userInfo.permissions.includes(item.requiredPermission))
+            ) {
               return (
                 <ListItem key={item.text} disablePadding>
                   <ListItemButton
@@ -182,7 +226,10 @@ const DashboardLayout: React.FC = () => {
                     <ListItemIcon sx={{ color: "inherit" }}>
                       {item.icon}
                     </ListItemIcon>
-                    <ListItemText primary={item.text} sx={{ fontWeight: 500 }} />
+                    <ListItemText
+                      primary={item.text}
+                      sx={{ fontWeight: 500 }}
+                    />
                   </ListItemButton>
                 </ListItem>
               );
@@ -193,19 +240,23 @@ const DashboardLayout: React.FC = () => {
         </List>
       </Box>
       {/* 侧边栏底部 foot 区域 */}
-      <Box sx={{
-        mt: 'auto',
-        py: 2,
-        px: 2,
-        textAlign: 'center',
-        fontSize: '0.85rem',
-        color: 'text.secondary',
-        borderTop: '1px solid rgba(0,0,0,0.08)',
-        background: 'rgba(255,255,255,0.85)',
-        backdropFilter: 'blur(4px)',
-      }}>
-        SmartLabManagement v3.0.0<br />
-        © 2025 KaranocaVe<br />
+      <Box
+        sx={{
+          mt: "auto",
+          py: 2,
+          px: 2,
+          textAlign: "center",
+          fontSize: "0.85rem",
+          color: "text.secondary",
+          borderTop: "1px solid rgba(0,0,0,0.08)",
+          background: "rgba(255,255,255,0.85)",
+          backdropFilter: "blur(4px)",
+        }}
+      >
+        SmartLabManagement v3.0.0
+        <br />
+        © 2025 KaranocaVe
+        <br />
         保留所有权利
       </Box>
     </div>
@@ -275,16 +326,18 @@ const DashboardLayout: React.FC = () => {
               sx={{ display: "flex", alignItems: "center" }}
             >
               <Avatar sx={{ bgcolor: "primary.main", width: 32, height: 32 }}>
-                {userInfo.username ? userInfo.username.charAt(0).toUpperCase() : "?"}
+                {userInfo.username
+                  ? userInfo.username.charAt(0).toUpperCase()
+                  : "?"}
               </Avatar>
-                <Popover
-                  open={open}
-                  anchorEl={anchorEl}
-                  onClose={handleAvatarMouseLeave}
-                  anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-                  transformOrigin={{ vertical: "top", horizontal: "left" }}
-                  sx={{ pointerEvents: "none" }}
-                  PaperProps={{
+              <Popover
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleAvatarMouseLeave}
+                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                transformOrigin={{ vertical: "top", horizontal: "left" }}
+                sx={{ pointerEvents: "none" }}
+                PaperProps={{
                   sx: {
                     pointerEvents: "auto",
                     p: 2,
@@ -295,90 +348,127 @@ const DashboardLayout: React.FC = () => {
                     background: "rgba(255,255,255,0.95)",
                     backdropFilter: "blur(6px)",
                   },
-                  }}
-                  disableRestoreFocus
-                >
+                }}
+                disableRestoreFocus
+              >
                 <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                  <Avatar sx={{ bgcolor: "primary.main", width: 40, height: 40, mr: 2 }}>
-                  {userInfo.username ? userInfo.username.charAt(0).toUpperCase() : "?"}
+                  <Avatar
+                    sx={{
+                      bgcolor: "primary.main",
+                      width: 40,
+                      height: 40,
+                      mr: 2,
+                    }}
+                  >
+                    {userInfo.username
+                      ? userInfo.username.charAt(0).toUpperCase()
+                      : "?"}
                   </Avatar>
                   <Box>
-                  <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-                    {userInfo.realName ?? userInfo.username ?? "-"}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {userInfo.email ?? "-"}
-                  </Typography>
+                    <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
+                      {userInfo.realName ?? userInfo.username ?? "-"}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {userInfo.email ?? "-"}
+                    </Typography>
                   </Box>
                 </Box>
                 <Divider sx={{ mb: 1 }} />
                 <List dense sx={{ p: 0 }}>
                   <ListItem sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={<span style={{ fontWeight: 500 }}>用户名</span>}
-                    secondary={userInfo.username ?? "-"}
-                  />
+                    <ListItemText
+                      primary={<span style={{ fontWeight: 500 }}>用户名</span>}
+                      secondary={userInfo.username ?? "-"}
+                    />
                   </ListItem>
                   <ListItem sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={<span style={{ fontWeight: 500 }}>真实姓名</span>}
-                    secondary={userInfo.realName ?? "-"}
-                  />
+                    <ListItemText
+                      primary={
+                        <span style={{ fontWeight: 500 }}>真实姓名</span>
+                      }
+                      secondary={userInfo.realName ?? "-"}
+                    />
                   </ListItem>
                   <ListItem sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={<span style={{ fontWeight: 500 }}>用户ID</span>}
-                    secondary={userInfo.userId ?? "-"}
-                  />
+                    <ListItemText
+                      primary={<span style={{ fontWeight: 500 }}>用户ID</span>}
+                      secondary={userInfo.userId ?? "-"}
+                    />
                   </ListItem>
                   <ListItem sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={<span style={{ fontWeight: 500 }}>手机号</span>}
-                    secondary={userInfo.phone ?? "-"}
-                  />
+                    <ListItemText
+                      primary={<span style={{ fontWeight: 500 }}>手机号</span>}
+                      secondary={userInfo.phone ?? "-"}
+                    />
                   </ListItem>
                   <ListItem sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={<span style={{ fontWeight: 500 }}>角色</span>}
-                    secondary={userInfo.roles?.join(", ") ?? "-"}
-                  />
+                    <ListItemText
+                      primary={<span style={{ fontWeight: 500 }}>角色</span>}
+                      secondary={userInfo.roles?.join(", ") ?? "-"}
+                    />
                   </ListItem>
                   <ListItem sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={<span style={{ fontWeight: 500 }}>权限</span>}
-                    secondary={
-                    userInfo.permissions && userInfo.permissions.length > 0
-                      ? (
-                        <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ mt: 0.5 }}>
-                          {userInfo.permissions.map((perm, idx) => (
-                            <Chip
-                              key={perm + idx}
-                              label={perm}
-                              size="small"
-                              sx={{ mb: 0.5, maxWidth: 180, fontSize: '0.85rem', bgcolor: 'grey.100', color: 'primary.main' }}
-                            />
-                          ))}
-                        </Stack>
-                      )
-                      : "-"
-                    }
-                  />
+                    <ListItemText
+                      primary={<span style={{ fontWeight: 500 }}>权限</span>}
+                      secondary={
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          component="span"
+                        >
+                          {/* 权限列表 */}
+                          <Stack
+                            direction="row"
+                            spacing={0.5}
+                            sx={{ mt: 0.5 }}
+                            flexWrap="wrap"
+                          >
+                            {userInfo.permissions.map((perm, idx) => (
+                              <Chip
+                                key={perm + idx}
+                                label={perm}
+                                size="small"
+                                sx={{
+                                  mb: 0.5,
+                                  maxWidth: 180,
+                                  fontSize: "0.85rem",
+                                  bgcolor: "grey.100",
+                                  color: "primary.main",
+                                }}
+                              />
+                            ))}
+                          </Stack>
+                        </Typography>
+                      }
+                    />
                   </ListItem>
                   <ListItem sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={<span style={{ fontWeight: 500 }}>Token类型</span>}
-                    secondary={userInfo.tokenType ?? "-"}
-                  />
+                    <ListItemText
+                      primary={
+                        <span style={{ fontWeight: 500 }}>Token类型</span>
+                      }
+                      secondary={userInfo.tokenType ?? "-"}
+                    />
                   </ListItem>
                   <ListItem sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={<span style={{ fontWeight: 500 }}>AccessToken</span>}
-                    secondary={userInfo.accessToken ? userInfo.accessToken.slice(0, 8) + "..." : "-"}
-                  />
+                    <ListItemText
+                      primary={
+                        <span style={{ fontWeight: 500 }}>AccessToken</span>
+                      }
+                      secondary={
+                        userInfo.accessToken
+                          ? userInfo.accessToken.slice(0, 8) + "..."
+                          : "-"
+                      }
+                    />
                   </ListItem>
                 </List>
-                </Popover>
-              <Typography variant="body1" noWrap sx={{ color: "inherit", ml: 1 }}>
+              </Popover>
+              <Typography
+                variant="body1"
+                noWrap
+                sx={{ color: "inherit", ml: 1 }}
+              >
                 {userInfo.username ? `欢迎, ${userInfo.username}` : "未登录"}
               </Typography>
             </Box>

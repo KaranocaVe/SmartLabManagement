@@ -1,9 +1,5 @@
 package com.labmanagement.backend.common.handler;
 
-import com.labmanagement.backend.common.enums.ResponseCode;
-import com.labmanagement.backend.common.exception.BusinessException;
-import com.labmanagement.backend.common.vo.ApiResponse;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -14,6 +10,13 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.labmanagement.backend.common.enums.ResponseCode;
+import com.labmanagement.backend.common.exception.BusinessException;
+import com.labmanagement.backend.common.exception.DatabaseException;
+import com.labmanagement.backend.common.vo.ApiResponse;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 全局异常处理器 (增强版)
@@ -39,7 +42,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(AuthenticationException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public ApiResponse<?> handleAuthenticationException(AuthenticationException ex) {
+    public ApiResponse<Object> handleAuthenticationException(AuthenticationException ex) {
         log.warn("认证失败: {}", ex.getMessage());
         return switch (ex) {
             case BadCredentialsException badCredentialsException -> ApiResponse.error(ResponseCode.INVALID_CREDENTIALS);
@@ -56,8 +59,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(BusinessException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiResponse<?> handleBusinessException(BusinessException ex) {
-        log.warn("业务异常: {}", ex.getMessage());
+    public ApiResponse<Object> handleBusinessException(BusinessException ex) {
+        log.error("业务异常拦截: code={}, message={}, stack:", ex.getCode(), ex.getMessage(), ex);
         return ApiResponse.error(ex.getCode(), ex.getMessage());
     }
 
@@ -66,7 +69,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiResponse<?> handleValidationExceptions(MethodArgumentNotValidException ex) {
+    public ApiResponse<Object> handleValidationExceptions(MethodArgumentNotValidException ex) {
         String message = ex.getBindingResult().getAllErrors().get(0).getDefaultMessage();
         log.warn("参数校验失败: {}", message);
         return ApiResponse.error(ResponseCode.VALIDATION_ERROR.getCode(), message);
@@ -77,7 +80,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
-    public ApiResponse<?> handleAccessDeniedException(AccessDeniedException ex) {
+    public ApiResponse<Object> handleAccessDeniedException(AccessDeniedException ex) {
         log.warn("权限不足: {}", ex.getMessage());
         return ApiResponse.error(ResponseCode.UNAUTHORIZED);
     }
@@ -87,8 +90,17 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ApiResponse<?> handleGlobalException(Exception ex) {
-        log.error("系统内部发生未知异常!", ex);
-        return ApiResponse.error(ResponseCode.FAILURE);
+    public ApiResponse<Object> handleGlobalException(Exception ex) {
+        log.error("系统内部发生未知异常! message={}, stack=", ex.getMessage(), ex);
+        return ApiResponse.error(ResponseCode.FAILURE.getCode(), ex.getMessage());
+    }
+
+    // 如果需要扩展，可以在此处添加新的异常处理逻辑
+    // 例如：处理自定义的数据库异常
+    @ExceptionHandler(DatabaseException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ApiResponse<Object> handleDatabaseException(DatabaseException ex) {
+        log.error("数据库异常: {}", ex.getMessage());
+        return ApiResponse.error(ResponseCode.DATABASE_ERROR.getCode(), ex.getMessage());
     }
 }

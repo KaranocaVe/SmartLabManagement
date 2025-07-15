@@ -31,7 +31,10 @@ public enum ResponseCode {
     EMAIL_ALREADY_EXISTS(2002, "电子邮箱已存在"),
     ROLE_NOT_FOUND(2003, "指定的角色不存在"),
     PROJECT_LEAD_NOT_FOUND(2004, "指定的项目负责人不存在"),
-    INSUFFICIENT_STOCK(2005, "物资库存不足");
+    INSUFFICIENT_STOCK(2005, "物资库存不足"),
+
+    // --- 数据库错误 (3000-3999) ---
+    DATABASE_ERROR(3001, "数据库操作异常");
 
 
     private final int code;
