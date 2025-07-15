@@ -11,6 +11,6 @@ public class ProjectMemberVO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     private Long userId;
-    private String realName;
+    private String memberName; // 将 realName 修改为 memberName 以保持一致性
     private String roleInProject;
 }
