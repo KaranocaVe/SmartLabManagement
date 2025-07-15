@@ -1,0 +1,25 @@
+"filename", "language", "TypeScript", "TypeScript JSX", "PostCSS", "comment", "blank", "total"
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/api/client.ts", "TypeScript", 51, 0, 0, 1, 0, 52
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/api/responseCodes.ts", "TypeScript", 16, 0, 0, 2, 3, 21
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/client/base.ts", "TypeScript", 6, 0, 0, 0, 0, 6
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/client/index.ts", "TypeScript", 0, 0, 0, 0, -2, -2
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/common/DataTable.tsx", "TypeScript JSX", 0, 25, 0, 0, 0, 25
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/common/ErrorBoundaryProps.tsx", "TypeScript JSX", 0, 44, 0, 2, 9, 55
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/layout/DashboardLayout.tsx", "TypeScript JSX", 0, 141, 0, 3, 1, 145
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/index.css", "PostCSS", 0, 0, -1, 1, 0, 0
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/main.tsx", "TypeScript JSX", 0, 3, 0, 0, 0, 3
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/audit/LogPage.tsx", "TypeScript JSX", 0, 3, 0, 0, 0, 3
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/auth/LoginPage.tsx", "TypeScript JSX", 0, 253, 0, 8, 0, 261
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/dashboard/OverviewPage.tsx", "TypeScript JSX", 0, 48, 0, 2, 0, 50
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/ProjectListPage.tsx", "TypeScript JSX", 0, 7, 0, 1, 0, 8
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/AddMemberDialog.tsx", "TypeScript JSX", 0, 108, 0, 2, 9, 119
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/OverviewTab.tsx", "TypeScript JSX", 0, 22, 0, -1, 2, 23
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/RecordForm.tsx", "TypeScript JSX", 0, 96, 0, 1, 8, 105
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/RecordsTab.tsx", "TypeScript JSX", 0, 28, 0, -3, 0, 25
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/ReportForm.tsx", "TypeScript JSX", 0, 91, 0, 0, 8, 99
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/ReportsTab.tsx", "TypeScript JSX", 0, 59, 0, -4, 3, 58
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/TaskForm.tsx", "TypeScript JSX", 0, 150, 0, 0, 9, 159
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/TasksTab.tsx", "TypeScript JSX", 0, 58, 0, -7, 2, 53
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/VersionForm.tsx", "TypeScript JSX", 0, 75, 0, 0, 7, 82
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/store/userStore.ts", "TypeScript", 71, 0, 0, 3, 2, 76
+"Total", "-", 144, 1211, -1, 11, 61, 1426
