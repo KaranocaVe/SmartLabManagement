@@ -1,7 +1,3 @@
-INSERT INTO `role_permissions` (`role_id`, `permission_id`)
-SELECT 1, p.id FROM `permissions` p;
-
-
 -- 确保用户存在
 CREATE USER IF NOT EXISTS 'labUser'@'%' IDENTIFIED BY 'labPass';
 
