@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.*;
  * 核心职责: 管理项目本身，包括项目的增删改查和成员管理。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController

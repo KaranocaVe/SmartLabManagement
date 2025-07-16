@@ -30,7 +30,7 @@ import java.util.Map;
  * 核心职责: 拦截所有带有 @AuditLog 注解的方法，并自动记录操作日志。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Aspect

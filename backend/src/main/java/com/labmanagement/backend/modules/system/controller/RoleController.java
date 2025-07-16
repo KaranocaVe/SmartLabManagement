@@ -19,7 +19,7 @@ import java.util.List;
  * 角色管理控制器
  * 提供对角色的增、删、改、查接口，以及为角色分配权限的接口。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController

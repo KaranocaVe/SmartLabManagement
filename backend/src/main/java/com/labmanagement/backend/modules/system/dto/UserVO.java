@@ -12,7 +12,7 @@ import java.util.List;
  * 向前端返回用户信息时使用的视图对象
  * (View Object)，隐藏了密码等敏感信息。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

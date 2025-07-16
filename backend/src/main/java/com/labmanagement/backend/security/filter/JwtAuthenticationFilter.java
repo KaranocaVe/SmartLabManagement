@@ -26,7 +26,7 @@ import java.io.IOException;
  * 它的核心职责是检查请求头中是否存在有效的 JWT，如果存在，就解析它并为该请求建立安全上下文。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Component

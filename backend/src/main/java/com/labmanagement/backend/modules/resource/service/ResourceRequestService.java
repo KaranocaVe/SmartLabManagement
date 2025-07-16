@@ -14,7 +14,7 @@ import com.labmanagement.backend.modules.system.entity.User;
  * Service for orchestrating the entire resource request process.
  * 作为资源申请流程的总入口，负责整个流程的驱动和事务控制。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 public interface ResourceRequestService extends IService<ResourceRequest> {

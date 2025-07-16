@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * 权限表 Mapper 接口
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Mapper

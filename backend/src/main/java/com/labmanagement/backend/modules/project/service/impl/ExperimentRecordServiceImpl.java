@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 /**
  * Implementation of ExperimentRecordService.
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Service

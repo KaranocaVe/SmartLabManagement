@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /**
  * 智能实验室运行及管理平台 - 主启动类
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @SpringBootApplication

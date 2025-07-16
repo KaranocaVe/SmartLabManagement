@@ -28,7 +28,7 @@ import java.util.stream.Stream;
  * JWT 工具类
  * 封装 JWT 的生成、解析和验证逻辑。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Slf4j

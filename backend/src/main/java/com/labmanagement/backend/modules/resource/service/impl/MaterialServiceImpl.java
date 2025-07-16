@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 /**
  * Implementation of MaterialService.
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Service

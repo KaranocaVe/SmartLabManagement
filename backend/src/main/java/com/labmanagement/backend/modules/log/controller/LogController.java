@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 核心职责: 提供审计日志的分页条件查询接口。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-13
  */
 @RestController

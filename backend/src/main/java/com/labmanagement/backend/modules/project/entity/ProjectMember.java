@@ -13,7 +13,7 @@ import java.io.Serializable;
 /**
  * 项目与成员的关联表实体类
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

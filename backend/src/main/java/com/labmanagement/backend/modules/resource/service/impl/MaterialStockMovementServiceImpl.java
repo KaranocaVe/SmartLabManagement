@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 /**
  * Implementation of MaterialStockMovementService.
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Service

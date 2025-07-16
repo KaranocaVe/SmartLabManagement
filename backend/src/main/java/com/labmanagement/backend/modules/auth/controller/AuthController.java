@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
      * 负责处理用户的登录认证请求，并返回包含完整用户信息的响应。
      * </p>
      *
-     * @author Gemini
+     * @author Ge
      * @since 2025-07-13
      */
     @RestController

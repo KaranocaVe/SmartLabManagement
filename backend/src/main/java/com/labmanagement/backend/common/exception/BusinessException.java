@@ -8,7 +8,7 @@ import lombok.Getter;
  * 自定义业务异常类
  * 用于在业务处理中主动抛出预期内的错误。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Getter

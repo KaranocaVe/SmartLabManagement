@@ -13,7 +13,7 @@ import java.io.Serializable;
  * 用户-角色关联表实体类
  * 描述：链接 users 和 roles 的多对多关系。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  * 管理“场地”主数据。提供场地的增、删、改、查等基础接口。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController

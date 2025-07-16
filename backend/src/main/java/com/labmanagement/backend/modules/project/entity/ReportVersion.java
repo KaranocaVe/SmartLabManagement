@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 /**
  * 报告版本历史表实体类
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Data

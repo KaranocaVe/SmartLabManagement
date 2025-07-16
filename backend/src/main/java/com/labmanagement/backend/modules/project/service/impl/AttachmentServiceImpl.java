@@ -19,7 +19,7 @@ import java.util.UUID;
 /**
  * Implementation of AttachmentService.
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Service

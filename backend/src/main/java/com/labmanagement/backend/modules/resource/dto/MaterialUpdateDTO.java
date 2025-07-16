@@ -13,7 +13,7 @@ import java.math.BigDecimal;
  * DTO for updating an existing material's information.
  * 用于更新现有物资的基础信息。注意：库存量不在此处更新。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-13
  */
 @Data

@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  * AOP 切面会拦截带有此注解的方法，并自动记录日志。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Target(ElementType.METHOD) // 此注解只能用于方法上

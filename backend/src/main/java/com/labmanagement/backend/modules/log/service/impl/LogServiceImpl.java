@@ -20,7 +20,7 @@ import org.springframework.util.StringUtils;
 /**
  * Implementation of LogService.
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Service

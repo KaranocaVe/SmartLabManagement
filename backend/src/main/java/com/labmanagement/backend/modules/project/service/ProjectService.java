@@ -12,7 +12,7 @@ import com.labmanagement.backend.modules.project.entity.Project;
  * Service for Project, acting as the main entry point for project-related business logic.
  * 作为项目模块的业务总入口，负责项目的创建、信息更新、成员管理、状态流转等复杂流程。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 public interface ProjectService extends IService<Project> {

@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  * DTO for creating a new material.
  * 用于创建新物资时，封装其基础信息。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-13
  */
 @Data

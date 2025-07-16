@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
  * Service for Attachments.
  * 封装文件上传、保存记录到 `attachments` 表的逻辑。这是一个相对独立的通用服务。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 public interface AttachmentService extends IService<Attachment> {
