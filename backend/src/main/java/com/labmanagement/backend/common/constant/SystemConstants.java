@@ -4,7 +4,7 @@ package com.labmanagement.backend.common.constant;
 /**
  * 系统级常量定义
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 public final class SystemConstants {

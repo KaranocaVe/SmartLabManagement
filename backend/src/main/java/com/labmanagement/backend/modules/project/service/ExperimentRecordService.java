@@ -8,7 +8,7 @@ import com.labmanagement.backend.modules.project.entity.ExperimentRecord;
  * Service for ExperimentRecord.
  * 封装创建、查询实验记录的业务逻辑，可能会关联附件。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 public interface ExperimentRecordService extends IService<ExperimentRecord> {

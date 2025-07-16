@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * DTO for updating an existing equipment's information.
  * 用于更新现有设备的基础信息。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-13
  */
 @Data

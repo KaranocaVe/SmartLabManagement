@@ -11,7 +11,7 @@ import com.labmanagement.backend.modules.resource.entity.ResourceRequest;
  * Service for Material, handling core business logic like stock management.
  * 封装所有与“物资”相关的核心业务，特别是库存管理。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 public interface MaterialService extends IService<Material> {

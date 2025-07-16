@@ -7,7 +7,7 @@ import com.labmanagement.backend.modules.resource.entity.MaterialStockMovement;
  * Service for MaterialStockMovement.
  * 封装对 `material_stock_movements` 流水表的原子操作。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 public interface MaterialStockMovementService extends IService<MaterialStockMovement> {

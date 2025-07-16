@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 /**
  * Implementation of SafetyIncidentService.
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Service

@@ -9,7 +9,7 @@ import com.labmanagement.backend.modules.safety.entity.RiskAssessment;
  * Service for RiskAssessment.
  * 封装创建和查询风险评估的业务逻辑。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 public interface RiskAssessmentService extends IService<RiskAssessment> {

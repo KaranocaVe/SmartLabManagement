@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
  * 核心职责: 管理实验报告的创建、版本更新和查询。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-13
  */
 @RestController

@@ -2,7 +2,6 @@ package com.labmanagement.backend.modules.auth.dto;
 
 
 import com.labmanagement.backend.common.constant.SystemConstants;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +15,7 @@ import java.util.List;
  * 包含了前端初始化界面所需的所有核心用户信息。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-13
  */
 @Data

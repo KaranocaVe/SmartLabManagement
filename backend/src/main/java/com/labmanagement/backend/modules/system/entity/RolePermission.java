@@ -13,7 +13,7 @@ import java.io.Serializable;
  * 角色-权限关联表实体类
  * 描述：链接 roles 和 permissions 的多对多关系。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

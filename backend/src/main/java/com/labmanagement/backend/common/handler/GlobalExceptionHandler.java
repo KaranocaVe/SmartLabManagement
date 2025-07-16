@@ -1,5 +1,10 @@
 package com.labmanagement.backend.common.handler;
 
+import com.labmanagement.backend.common.enums.ResponseCode;
+import com.labmanagement.backend.common.exception.BusinessException;
+import com.labmanagement.backend.common.exception.DatabaseException;
+import com.labmanagement.backend.common.vo.ApiResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -11,20 +16,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.labmanagement.backend.common.enums.ResponseCode;
-import com.labmanagement.backend.common.exception.BusinessException;
-import com.labmanagement.backend.common.exception.DatabaseException;
-import com.labmanagement.backend.common.vo.ApiResponse;
-
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 全局异常处理器 (增强版)
  * <p>
  * 核心职责: 捕获 Controller 层抛出的所有异常，并将其转换为统一的 API 响应格式。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-13
  */
 @Slf4j

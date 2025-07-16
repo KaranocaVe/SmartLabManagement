@@ -13,7 +13,7 @@ import java.io.Serializable;
  * 角色表实体类
  * 描述：定义用户的一组权限集合，如管理员、教师等。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

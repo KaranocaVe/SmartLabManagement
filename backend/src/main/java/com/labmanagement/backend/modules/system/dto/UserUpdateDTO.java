@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * 更新用户信息时使用的数据传输对象
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

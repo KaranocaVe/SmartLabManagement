@@ -7,7 +7,7 @@ import org.springframework.beans.BeanUtils;
  * Bean属性拷贝工具类
  * 封装Spring的BeanUtils，提供便捷的转换方法。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 public final class BeanCopyUtil {

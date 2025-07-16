@@ -13,7 +13,7 @@ import java.io.Serializable;
  * 封装了所有分页查询的通用参数。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

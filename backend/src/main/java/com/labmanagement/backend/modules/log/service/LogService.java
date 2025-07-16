@@ -10,7 +10,7 @@ import com.labmanagement.backend.modules.log.entity.AuditLog;
  * Service for logging and auditing.
  * 封装查询审计日志的业务逻辑，并提供一个内部方法用于保存新的审计日志记录。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 public interface LogService extends IService<AuditLog> {

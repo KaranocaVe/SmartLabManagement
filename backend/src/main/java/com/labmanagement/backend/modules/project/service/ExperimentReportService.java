@@ -9,7 +9,7 @@ import com.labmanagement.backend.modules.project.entity.ExperimentReport;
  * Service for ExperimentReport.
  * 封装实验报告及其版本管理的逻辑。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 public interface ExperimentReportService extends IService<ExperimentReport> {

@@ -24,7 +24,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * 这是整个安全体系的总装配与配置中心。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Configuration

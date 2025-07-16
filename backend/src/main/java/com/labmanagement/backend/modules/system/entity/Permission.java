@@ -13,7 +13,7 @@ import java.io.Serializable;
  * 权限表实体类
  * 描述：定义系统中最小粒度的操作权限，是权限控制的原子。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

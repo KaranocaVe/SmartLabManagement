@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /**
  * MyBatis-Plus 核心配置文件
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Configuration

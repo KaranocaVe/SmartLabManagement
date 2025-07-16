@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  * 负责自动填充实体类中的公共字段，如 'createdAt' 和 'updatedAt'。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Slf4j

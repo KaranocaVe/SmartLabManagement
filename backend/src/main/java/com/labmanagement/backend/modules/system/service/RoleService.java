@@ -8,7 +8,7 @@ import com.labmanagement.backend.modules.system.entity.Role;
 /**
  * 角色管理 服务类
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 public interface RoleService extends IService<Role> {

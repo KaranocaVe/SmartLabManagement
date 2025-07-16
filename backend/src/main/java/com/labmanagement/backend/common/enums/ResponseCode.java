@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * API 响应状态码枚举
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Getter

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
  * 用户管理控制器
  * 提供对用户的增、删、改、查等全套 RESTful 接口。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController

@@ -9,7 +9,7 @@ import com.labmanagement.backend.modules.safety.entity.SafetyIncident;
  * Service for SafetyIncident.
  * 封装记录和查询安全事故的业务逻辑。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 public interface SafetyIncidentService extends IService<SafetyIncident> {

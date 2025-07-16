@@ -67,7 +67,7 @@ const IncidentPage: React.FC = () => {
     const columns: GridColDef<SafetyIncidentVO>[] = [
         { field: 'id', headerName: 'ID', width: 90 },
         { field: 'labName', headerName: '相关实验室', flex: 1 },
-        { field: 'incidentTime', headerName: '事发时间', flex: 1.5, valueFormatter: (params) => new Date(params.value).toLocaleString() },
+        { field: 'incidentTime', headerName: '事发时间', flex: 1.5},
         { field: 'description', headerName: '事件描述', flex: 2 },
         { field: 'actionsTaken', headerName: '已采取措施', flex: 2 },
         { field: 'reporterName', headerName: '报告人', flex: 1 },

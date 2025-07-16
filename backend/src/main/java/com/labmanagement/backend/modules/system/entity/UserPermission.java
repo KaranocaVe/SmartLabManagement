@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  * 用户-权限特别授权表实体类
  * 描述：授予用户独立的临时或特殊权限。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

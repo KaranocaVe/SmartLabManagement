@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * 创建新角色时使用的数据传输对象
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

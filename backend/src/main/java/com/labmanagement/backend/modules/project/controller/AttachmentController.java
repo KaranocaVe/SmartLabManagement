@@ -23,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
  * 核心职责: 管理附件的上传和关联。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController

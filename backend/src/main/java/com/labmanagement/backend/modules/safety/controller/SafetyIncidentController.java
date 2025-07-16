@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * 安全事故记录控制器
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController

@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 为角色分配权限时使用的数据传输对象
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

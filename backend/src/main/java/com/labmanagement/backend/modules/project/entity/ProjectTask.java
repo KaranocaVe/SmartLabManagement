@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 /**
  * 实验项目任务分解表实体类
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

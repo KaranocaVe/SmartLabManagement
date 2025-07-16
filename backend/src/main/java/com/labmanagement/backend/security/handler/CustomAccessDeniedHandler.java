@@ -20,7 +20,7 @@ import java.io.IOException;
  * 我们重写此行为，使其返回一个标准的 JSON 错误响应，而不是默认的403错误页。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Component

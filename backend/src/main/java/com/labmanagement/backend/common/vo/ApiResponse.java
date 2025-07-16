@@ -11,7 +11,7 @@ import java.io.Serializable;
  * 全局统一API响应体结构
  *
  * @param <T> 响应数据的类型
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

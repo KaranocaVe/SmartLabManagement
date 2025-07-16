@@ -15,7 +15,7 @@ import java.util.List;
  * 权限管理控制器
  * 提供查询所有权限列表的接口，通常用于前端权限配置页面展示。
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController

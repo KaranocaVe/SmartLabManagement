@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 /**
  * Implementation of RiskAssessmentService.
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Service

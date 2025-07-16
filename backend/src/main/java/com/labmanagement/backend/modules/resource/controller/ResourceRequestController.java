@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
  * 提供资源申请、审批、查询申请列表等接口。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController

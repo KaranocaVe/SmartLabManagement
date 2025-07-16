@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
  * 管理“物资”主数据。提供物资信息管理、库存调整等接口。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController

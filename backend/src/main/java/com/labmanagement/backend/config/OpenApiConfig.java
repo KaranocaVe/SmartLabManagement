@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  * 用于生成交互式的 API 文档，方便前后端联调。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Configuration

@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * 用户登录请求的数据传输对象
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @Data

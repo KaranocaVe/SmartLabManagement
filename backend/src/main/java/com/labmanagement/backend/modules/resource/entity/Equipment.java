@@ -1,10 +1,6 @@
 package com.labmanagement.backend.modules.resource.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.io.Serial;
@@ -15,7 +11,7 @@ import java.time.LocalDateTime;
 /**
  * 设备信息表实体类
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

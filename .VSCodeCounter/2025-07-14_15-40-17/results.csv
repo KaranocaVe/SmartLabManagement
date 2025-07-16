@@ -1,0 +1,274 @@
+"filename", "language", "JSON", "HTML", "TypeScript", "TypeScript JSX", "XML", "SVG", "PostCSS", "Markdown", "CSV", "JSON with Comments", "JavaScript", "MS SQL", "Gradle", "Batch", "Java Properties", "Python", "Java", "YAML", "comment", "blank", "total"
+"/Users/karanocave/Code/SmartLabManagement/Database/.idea/dataSources.xml", "XML", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12
+"/Users/karanocave/Code/SmartLabManagement/Database/.idea/inspectionProfiles/Project_Default.xml", "XML", 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22
+"/Users/karanocave/Code/SmartLabManagement/Database/.idea/sqldialects.xml", "XML", 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9
+"/Users/karanocave/Code/SmartLabManagement/Database/.idea/vcs.xml", "XML", 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6
+"/Users/karanocave/Code/SmartLabManagement/Database/Initialize.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 314, 0, 0, 0, 0, 0, 0, 65, 53, 432
+"/Users/karanocave/Code/SmartLabManagement/Database/RandomData/.idea/RandomData.iml", "XML", 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10
+"/Users/karanocave/Code/SmartLabManagement/Database/RandomData/.idea/dataSources.xml", "XML", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12
+"/Users/karanocave/Code/SmartLabManagement/Database/RandomData/.idea/inspectionProfiles/Project_Default.xml", "XML", 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22
+"/Users/karanocave/Code/SmartLabManagement/Database/RandomData/.idea/inspectionProfiles/profiles_settings.xml", "XML", 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6
+"/Users/karanocave/Code/SmartLabManagement/Database/RandomData/.idea/misc.xml", "XML", 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6
+"/Users/karanocave/Code/SmartLabManagement/Database/RandomData/.idea/modules.xml", "XML", 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8
+"/Users/karanocave/Code/SmartLabManagement/Database/RandomData/.idea/sqldialects.xml", "XML", 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7
+"/Users/karanocave/Code/SmartLabManagement/Database/RandomData/.idea/vcs.xml", "XML", 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6
+"/Users/karanocave/Code/SmartLabManagement/Database/RandomData/insert.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 251, 0, 0, 20, 48, 319
+"/Users/karanocave/Code/SmartLabManagement/Database/after.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 3, 5, 14
+"/Users/karanocave/Code/SmartLabManagement/Database/info.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 159, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 189
+"/Users/karanocave/Code/SmartLabManagement/Database/right.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 0, 0, 0, 0, 0, 25, 19, 78
+"/Users/karanocave/Code/SmartLabManagement/backend/build.gradle", "Gradle", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 7, 52
+"/Users/karanocave/Code/SmartLabManagement/backend/compose.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 13, 5, 34
+"/Users/karanocave/Code/SmartLabManagement/backend/gradlew.bat", "Batch", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 32, 22, 95
+"/Users/karanocave/Code/SmartLabManagement/backend/settings.gradle", "Gradle", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/LabPlatformApplication.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 8, 5, 27
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/common/annotation/AuditLog.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 14, 4, 28
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/common/constant/SystemConstants.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 15, 6, 27
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/common/dto/PageRequestDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 15, 8, 37
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/common/enums/ResponseCode.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 10, 9, 44
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/common/exception/BusinessException.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 18, 7, 40
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/common/handler/GlobalExceptionHandler.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 0, 31, 7, 94
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/common/utils/BeanCopyUtil.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 27, 7, 58
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/common/utils/JwtUtil.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 71, 0, 39, 16, 126
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/common/vo/ApiResponse.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 43, 13, 86
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/config/MyMetaObjectHandler.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 23, 6, 50
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/config/MybatisPlusConfig.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 16, 7, 42
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/config/OpenApiConfig.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 16, 5, 55
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/config/SecurityConfig.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53, 0, 37, 14, 104
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/config/SwaggerConfig.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 2, 5
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/config/WebMvcConfig.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 14, 5, 35
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/auth/controller/AuthController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 23, 20, 97
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/auth/dto/LoginRequestDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 6, 7, 27
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/auth/dto/LoginResponseVO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 36, 14, 73
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/auth/service/AuthService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 2, 5
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/auth/service/AuthServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 2, 5
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/log/aspect/AuditLogAspect.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 78, 0, 36, 17, 131
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/log/controller/LogController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 18, 6, 48
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/log/dto/AuditLogQueryDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 19, 11, 51
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/log/dto/AuditLogVO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 4, 5, 28
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/log/entity/AuditLog.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 30, 14, 76
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/log/entity/SystemLog.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 24, 12, 64
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/log/mapper/AuditLogMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 4, 11
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/log/mapper/SystemLogMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/log/service/LogService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 14, 4, 27
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/log/service/impl/LogServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 0, 10, 10, 65
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/controller/AttachmentController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 0, 24, 9, 68
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/controller/ExperimentRecordController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51, 0, 30, 9, 90
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/controller/ExperimentReportController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 44, 0, 18, 9, 71
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/controller/ProjectController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 78, 0, 33, 13, 124
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/controller/ProjectTaskController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 57, 0, 34, 9, 100
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/AddProjectMemberDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 4, 7, 28
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/AttachmentVO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 4, 6, 28
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/ExperimentRecordCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 4, 8, 29
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/ExperimentReportCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 4, 9, 30
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/ExperimentReportVO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 4, 7, 31
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/ProjectCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 4, 11, 34
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/ProjectMemberVO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 1, 3, 16
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/ProjectTaskCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 6, 11, 36
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/ProjectTaskUpdateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 4, 11, 30
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/ProjectUpdateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 4, 6, 29
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/ProjectVO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 4, 7, 33
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/dto/ReportVersionCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 4, 6, 22
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/entity/Attachment.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 33, 15, 82
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/entity/ExperimentRecord.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 33, 14, 81
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/entity/ExperimentReport.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 30, 13, 75
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/entity/Project.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 0, 33, 13, 81
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/entity/ProjectMember.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 15, 8, 45
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/entity/ProjectTask.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 33, 14, 78
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/entity/ReportVersion.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 6, 12, 42
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/mapper/AttachmentMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/mapper/ExperimentRecordMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/mapper/ExperimentReportMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/mapper/ProjectMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/mapper/ProjectMemberMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/mapper/ProjectTaskMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/mapper/ReportVersionMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/AttachmentService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 17, 3, 27
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/ExperimentRecordService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 15, 3, 25
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/ExperimentReportService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 7, 5, 22
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/ProjectMemberService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 7, 2, 14
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/ProjectService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 34, 8, 55
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/ProjectTaskService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 7, 3, 15
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/ReportVersionService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 3, 8
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/impl/AttachmentServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51, 0, 10, 10, 71
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/impl/ExperimentRecordServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 8, 4, 32
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/impl/ExperimentReportServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 13, 15, 105
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/impl/ProjectMemberServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 6, 3, 18
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/impl/ProjectServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 102, 0, 17, 22, 141
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/impl/ProjectTaskServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 6, 3, 18
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/project/service/impl/ReportVersionServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 3, 12
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/controller/EquipmentController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 9, 9, 81
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/controller/LabController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 0, 40, 8, 100
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/controller/MaterialController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 55, 0, 22, 10, 87
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/controller/ResourceRequestController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 55, 0, 42, 11, 108
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/controller/SupplierController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 0, 40, 8, 100
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/dto/EquipmentCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 4, 8, 32
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/dto/EquipmentUpdateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 7, 14, 42
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/dto/MaterialCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 7, 11, 40
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/dto/MaterialStockAdjustDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 4, 8, 31
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/dto/MaterialUpdateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 7, 13, 40
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/dto/ResourceRequestApproveDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 4, 7, 27
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/dto/ResourceRequestCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 10, 28
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/dto/ResourceRequestQueryDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 10, 6, 30
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/dto/ResourceRequestVO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 4, 5, 35
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/entity/Equipment.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 0, 42, 16, 99
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/entity/EquipmentMaintenanceRecord.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 30, 14, 78
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/entity/Lab.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 24, 11, 63
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/entity/Material.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 0, 33, 14, 82
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/entity/MaterialStockMovement.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 27, 12, 70
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/entity/ResourceRequest.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 0, 45, 19, 107
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/entity/Supplier.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 27, 12, 69
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/mapper/EquipmentMaintenanceRecordMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/mapper/EquipmentMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/mapper/LabMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 4, 11
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/mapper/MaterialMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/mapper/MaterialStockMovementMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 4, 11
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/mapper/ResourceRequestMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/mapper/SupplierMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/EquipmentMaintenanceRecordService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 7, 2, 14
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/EquipmentService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 20, 7, 39
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/LabService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 7, 2, 14
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/MaterialService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 30, 6, 49
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/MaterialStockMovementService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 9, 2, 16
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/ResourceRequestService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 37, 9, 61
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/SupplierService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 7, 3, 15
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/impl/EquipmentMaintenanceRecordServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 6, 2, 19
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/impl/EquipmentServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 74, 0, 0, 10, 84
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/impl/LabServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 6, 2, 17
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/impl/MaterialServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 80, 0, 13, 14, 107
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/impl/MaterialStockMovementServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 7, 3, 21
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/impl/ResourceRequestServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 132, 0, 13, 17, 162
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/resource/service/impl/SupplierServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 6, 3, 18
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/controller/RiskAssessmentController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 26, 9, 83
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/controller/SafetyIncidentController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 0, 25, 8, 76
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/dto/RiskAssessmentCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 4, 9, 35
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/dto/RiskAssessmentVO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 4, 6, 30
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/dto/SafetyIncidentCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 4, 8, 30
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/dto/SafetyIncidentVO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 4, 5, 28
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/entity/RiskAssessment.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 30, 13, 76
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/entity/SafetyIncident.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 27, 13, 70
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/mapper/RiskAssessmentMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 5, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/mapper/SafetyIncidentMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 4, 9
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/service/RiskAssessmentService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 22, 4, 35
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/service/SafetyIncidentService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 22, 4, 35
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/service/impl/RiskAssessmentServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 6, 7, 53
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/safety/service/impl/SafetyIncidentServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 8, 9, 67
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/controller/PermissionController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 7, 5, 33
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/controller/RoleController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 7, 8, 55
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/controller/UserController.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 0, 7, 11, 79
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/dto/AssignPermissionsToRoleDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 9, 8, 31
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/dto/AssignRolesToUserDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 9, 9, 32
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/dto/RoleCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 6, 8, 27
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/dto/UserCreateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 9, 12, 47
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/dto/UserUpdateDTO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 9, 10, 37
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/dto/UserVO.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 7, 7, 34
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/entity/Permission.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 19, 8, 49
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/entity/Role.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 16, 7, 43
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/entity/RolePermission.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 13, 7, 40
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/entity/User.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 10, 25, 98
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/entity/UserPermission.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 19, 10, 50
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/entity/UserRole.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 13, 7, 40
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/mapper/PermissionMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 15, 4, 42
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/mapper/RoleMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/mapper/RolePermissionMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/mapper/UserMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/mapper/UserPermissionMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/mapper/UserRoleMapper.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 3, 10
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/service/PermissionService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 8, 4, 17
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/service/RolePermissionService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 6, 2, 13
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/service/RoleService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 11, 5, 23
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/service/UserRoleService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 6, 3, 14
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/service/UserService.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 35, 8, 59
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/service/impl/PermissionServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 6, 2, 17
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/service/impl/RolePermissionServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 6, 2, 17
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/service/impl/RoleServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 9, 7, 49
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/service/impl/UserRoleServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 6, 3, 18
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/modules/system/service/impl/UserServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, 0, 26, 27, 166
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/security/filter/JwtAuthenticationFilter.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51, 0, 21, 14, 86
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/security/handler/CustomAccessDeniedHandler.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 14, 9, 46
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/security/handler/CustomAuthenticationEntryPoint.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 14, 7, 43
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/java/com/labmanagement/backend/security/provider/UserDetailsServiceImpl.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 4, 12, 52
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/resources/application-dev.properties", "Java Properties", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 6, 0, 11
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/resources/application-prod.properties", "Java Properties", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 11, 1, 17
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/resources/application.properties", "Java Properties", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 23, 0, 44
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/resources/mapper/project/ProjectMapper.xml", "XML", 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 2, 23
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/resources/mapper/system/PermissionMapper.xml", "XML", 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 5, 34
+"/Users/karanocave/Code/SmartLabManagement/backend/src/main/resources/mapper/system/UserMapper.xml", "XML", 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 2, 24
+"/Users/karanocave/Code/SmartLabManagement/backend/src/test/java/com/labmanagement/backend/BackendApplicationTests.java", "Java", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 5, 14
+"/Users/karanocave/Code/SmartLabManagement/fronted/.VSCodeCounter/2025-07-13_14-38-30/details.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 169, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 175
+"/Users/karanocave/Code/SmartLabManagement/fronted/.VSCodeCounter/2025-07-13_14-38-30/diff-details.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 15
+"/Users/karanocave/Code/SmartLabManagement/fronted/.VSCodeCounter/2025-07-13_14-38-30/diff.csv", "CSV", 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/Users/karanocave/Code/SmartLabManagement/fronted/.VSCodeCounter/2025-07-13_14-38-30/diff.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 19
+"/Users/karanocave/Code/SmartLabManagement/fronted/.VSCodeCounter/2025-07-13_14-38-30/results.csv", "CSV", 0, 0, 0, 0, 0, 0, 0, 0, 162, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 162
+"/Users/karanocave/Code/SmartLabManagement/fronted/.VSCodeCounter/2025-07-13_14-38-30/results.json", "JSON", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/karanocave/Code/SmartLabManagement/fronted/.VSCodeCounter/2025-07-13_14-38-30/results.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 67
+"/Users/karanocave/Code/SmartLabManagement/fronted/client/api.ts", "TypeScript", 0, 0, 2899, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4567, 544, 8010
+"/Users/karanocave/Code/SmartLabManagement/fronted/client/base.ts", "TypeScript", 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 11, 87
+"/Users/karanocave/Code/SmartLabManagement/fronted/client/common.ts", "TypeScript", 0, 0, 83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 54, 14, 151
+"/Users/karanocave/Code/SmartLabManagement/fronted/client/configuration.ts", "TypeScript", 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 71, 6, 116
+"/Users/karanocave/Code/SmartLabManagement/fronted/client/index.ts", "TypeScript", 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 4, 19
+"/Users/karanocave/Code/SmartLabManagement/fronted/eslint.config.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 1, 2, 27
+"/Users/karanocave/Code/SmartLabManagement/fronted/index.html", "HTML", 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14
+"/Users/karanocave/Code/SmartLabManagement/fronted/openapitools.json", "JSON", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 8
+"/Users/karanocave/Code/SmartLabManagement/fronted/package-lock.json", "JSON", 7069, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7070
+"/Users/karanocave/Code/SmartLabManagement/fronted/package.json", "JSON", 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 48
+"/Users/karanocave/Code/SmartLabManagement/fronted/postcss.config.cjs", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 3, 2, 11
+"/Users/karanocave/Code/SmartLabManagement/fronted/public/vite.svg", "SVG", 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/App.tsx", "TypeScript JSX", 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 8, 48
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/api/client.ts", "TypeScript", 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 10, 70
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/api/index.ts", "TypeScript", 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 4, 50
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/assets/react.svg", "SVG", 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/client/api.ts", "TypeScript", 0, 0, 2899, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4567, 544, 8010
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/client/base.ts", "TypeScript", 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 11, 87
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/client/common.ts", "TypeScript", 0, 0, 83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 54, 14, 151
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/client/configuration.ts", "TypeScript", 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 71, 6, 116
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/client/index.ts", "TypeScript", 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 4, 19
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/common/ConfirmationDialog.tsx", "TypeScript JSX", 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 87
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/common/DataTable.tsx", "TypeScript JSX", 0, 0, 0, 134, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 152
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/common/PageHeader.tsx", "TypeScript JSX", 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 5, 48
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/layout/AuthLayout.tsx", "TypeScript JSX", 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 33
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/layout/DashboardLayout.tsx", "TypeScript JSX", 0, 0, 0, 284, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 10, 311
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/specific/equipment/EquipmentForm.tsx", "TypeScript JSX", 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 121
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/specific/lab/LabForm.tsx", "TypeScript JSX", 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 99
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/specific/material/MaterialForm.tsx", "TypeScript JSX", 0, 0, 0, 91, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 111
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/specific/project/ProjectForm.tsx", "TypeScript JSX", 0, 0, 0, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 10, 120
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/specific/resource/ResourceRequestForm.tsx", "TypeScript JSX", 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 10, 136
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/specific/role/RoleForm.tsx", "TypeScript JSX", 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 80
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/specific/safety/SafetyIncidentForm.tsx", "TypeScript JSX", 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 9, 96
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/specific/supplier/SupplierForm.tsx", "TypeScript JSX", 0, 0, 0, 111, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 9, 137
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/components/specific/user/UserForm.tsx", "TypeScript JSX", 0, 0, 0, 149, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 11, 169
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/index.css", "PostCSS", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 7, 42
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/main.tsx", "TypeScript JSX", 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 14
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/NotFoundPage.tsx", "TypeScript JSX", 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 5, 61
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/audit/LogPage.tsx", "TypeScript JSX", 0, 0, 0, 124, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 16, 151
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/auth/LoginPage.tsx", "TypeScript JSX", 0, 0, 0, 174, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10, 186
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/dashboard/OverviewPage.tsx", "TypeScript JSX", 0, 0, 0, 169, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 12, 192
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/management/LabPage.tsx", "TypeScript JSX", 0, 0, 0, 133, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 17, 161
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/management/RolePage.tsx", "TypeScript JSX", 0, 0, 0, 186, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 20, 219
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/management/SupplierPage.tsx", "TypeScript JSX", 0, 0, 0, 126, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 18, 157
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/management/UserPage.tsx", "TypeScript JSX", 0, 0, 0, 155, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 17, 182
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/ProjectListPage.tsx", "TypeScript JSX", 0, 0, 0, 169, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 16, 194
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/index.tsx", "TypeScript JSX", 0, 0, 0, 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 15, 125
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/OverviewTab.tsx", "TypeScript JSX", 0, 0, 0, 111, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 12, 140
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/RecordsTab.tsx", "TypeScript JSX", 0, 0, 0, 116, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 12, 141
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/ReportsTab.tsx", "TypeScript JSX", 0, 0, 0, 93, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 12, 120
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/RiskAssessmentsTab.tsx", "TypeScript JSX", 0, 0, 0, 119, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 12, 144
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/project/detail/tabs/TasksTab.tsx", "TypeScript JSX", 0, 0, 0, 135, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 15, 170
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/resource/EquipmentPage.tsx", "TypeScript JSX", 0, 0, 0, 105, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 14, 130
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/resource/MaterialPage.tsx", "TypeScript JSX", 0, 0, 0, 124, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 14, 150
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/resource/RequestPage.tsx", "TypeScript JSX", 0, 0, 0, 122, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 14, 148
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/pages/safety/IncidentPage.tsx", "TypeScript JSX", 0, 0, 0, 83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 12, 105
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/router/ProtectedRoute.tsx", "TypeScript JSX", 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 6, 36
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/router/index.tsx", "TypeScript JSX", 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 12, 104
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/router/paths.ts", "TypeScript", 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 10, 57
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/store/authStore.ts", "TypeScript", 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 8, 46
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/store/userStore.ts", "TypeScript", 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 22
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/styles/global.css", "PostCSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/styles/theme.ts", "TypeScript", 0, 0, 65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 3, 78
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/types/index.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/karanocave/Code/SmartLabManagement/fronted/src/vite-env.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2
+"/Users/karanocave/Code/SmartLabManagement/fronted/tailwind.config.cjs", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 6, 0, 19
+"/Users/karanocave/Code/SmartLabManagement/fronted/tsconfig.app.json", "JSON", 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 28
+"/Users/karanocave/Code/SmartLabManagement/fronted/tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 11
+"/Users/karanocave/Code/SmartLabManagement/fronted/tsconfig.node.json", "JSON", 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 26
+"/Users/karanocave/Code/SmartLabManagement/fronted/vite.config.ts", "TypeScript", 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 2, 25
+"Total", "-", 7168, 14, 6377, 3958, 157, 2, 17, 409, 164, 7, 43, 354, 46, 41, 31, 251, 4124, 16, 12409, 3156, 38744

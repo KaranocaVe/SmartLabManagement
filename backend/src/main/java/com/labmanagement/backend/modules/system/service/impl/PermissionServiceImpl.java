@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * 权限管理 服务实现类
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Service

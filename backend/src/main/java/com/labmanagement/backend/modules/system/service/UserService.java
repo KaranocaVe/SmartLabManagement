@@ -13,7 +13,7 @@ import com.labmanagement.backend.modules.system.entity.User;
 /**
  * 用户管理 服务类
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 public interface UserService extends IService<User> {

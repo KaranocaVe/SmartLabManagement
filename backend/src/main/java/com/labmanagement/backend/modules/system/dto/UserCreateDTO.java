@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * 创建新用户时使用的数据传输对象
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-11
  */
 @Data

@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 /**
  * 风险评估控制器
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController

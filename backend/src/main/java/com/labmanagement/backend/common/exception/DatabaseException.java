@@ -8,7 +8,7 @@ import com.labmanagement.backend.common.enums.ResponseCode;
  * 当数据库操作（如插入、更新、删除）失败时，可以抛出此异常。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-15
  */
 public class DatabaseException extends BusinessException {

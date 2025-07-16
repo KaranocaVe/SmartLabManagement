@@ -12,7 +12,6 @@ import com.labmanagement.backend.modules.resource.entity.Equipment;
 import com.labmanagement.backend.modules.resource.service.EquipmentService;
 import com.labmanagement.backend.modules.system.entity.User;
 import jakarta.validation.Valid;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -24,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
  * 管理“设备”主数据。提供设备的增、删、改、查以及记录维护事件等接口。
  * </p>
  *
- * @author Gemini
+ * @author Ge
  * @since 2025-07-12
  */
 @RestController
