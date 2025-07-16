@@ -203,14 +203,14 @@ const LoginPage: React.FC = () => {
                 input: {
                   endAdornment: (
                     <InputAdornment position="end">
-                      <IconButton
-                        aria-label="切换密码可见性"
-                        onClick={() => setShowPassword((show) => !show)}
-                        edge="end"
-                        disabled={isLoading}
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
+                      {/*<IconButton*/}
+                      {/*  aria-label="切换密码可见性"*/}
+                      {/*  onClick={() => setShowPassword((show) => !show)}*/}
+                      {/*  edge="end"*/}
+                      {/*  disabled={isLoading}*/}
+                      {/*>*/}
+                      {/*  {showPassword ? <VisibilityOff /> : <Visibility />}*/}
+                      {/*</IconButton>*/}
                     </InputAdornment>
                   ),
                 },
