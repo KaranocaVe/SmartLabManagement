@@ -90,8 +90,8 @@ const LogPage: React.FC = () => {
         { field: 'id', headerName: 'ID', width: 90 },
         { field: 'userName', headerName: '操作人', flex: 1 },
         { field: 'action', headerName: '动作', flex: 1.5 },
-        { field: 'targetType', headerName: '目标类型', flex: 1 },
-        { field: 'targetId', headerName: '目标ID', flex: 1 },
+        // { field: 'targetType', headerName: '目标类型', flex: 1 },
+        // { field: 'targetId', headerName: '目标ID', flex: 1 },
         { field: 'ipAddress', headerName: 'IP地址', flex: 1 },
         { field: 'createdAt', headerName: '操作时间', flex: 1.5},
     ];
