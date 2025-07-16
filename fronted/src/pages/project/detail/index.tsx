@@ -4,12 +4,12 @@ import {
   Box,
   Container,
   Typography,
-  CircularProgress,
   Tabs,
   Tab,
   Card,
   CardContent,
   Chip,
+  Skeleton,
 } from "@mui/material";
 import { useSnackbar } from "notistack";
 
@@ -41,33 +41,39 @@ const ProjectDetailPage: React.FC = () => {
   const [project, setProject] = useState<ProjectVO | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [currentTab, setCurrentTab] = useState("overview");
+  // 记录已加载的项目ID，避免重复请求
+  const [loadedId, setLoadedId] = useState<string | null>(null);
 
   // --- Data Fetching ---
   useEffect(() => {
-    if (!id) return;
+    if (!id || loadedId === id) return;
     setIsLoading(true);
     projectApi
       .getProjectById(Number(id))
       .then((response) => {
-        console.log("项目详情接口返回:", response);
         if (response.data && response.data.code === 200 && response.data.data) {
-          console.log("项目详情数据:", response.data.data);
           setProject(response.data.data);
+          setLoadedId(id);
         } else {
           enqueueSnackbar("获取项目详情失败", { variant: "error" });
-          console.error("项目详情接口异常返回:", response.data);
           navigate("/projects");
         }
       })
       .catch((error) => {
-        console.error("获取项目详情时发生错误:", error);
-        enqueueSnackbar("无法加载项目详情，请稍后重试", { variant: "error" });
+        if (error.response?.data) {
+          enqueueSnackbar(
+            `接口错误: ${error.response.data.message || "未知错误"}`,
+            { variant: "error" }
+          );
+        } else {
+          enqueueSnackbar("无法加载项目详情，请稍后重试", { variant: "error" });
+        }
         navigate("/projects");
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [id, enqueueSnackbar, navigate]);
+  }, [id, loadedId, enqueueSnackbar, navigate]);
 
   // --- Tab Synchronization with URL ---
   useEffect(() => {
@@ -95,10 +101,34 @@ const ProjectDetailPage: React.FC = () => {
   };
 
   if (isLoading) {
+    // 骨架屏替代加载动画
     return (
-      <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-        <CircularProgress />
-      </Box>
+      <Container maxWidth={false}>
+        <Card>
+          <CardContent>
+            <Skeleton variant="text" width={240} height={48} />
+            <Skeleton
+              variant="rectangular"
+              width={120}
+              height={32}
+              sx={{ mt: 2 }}
+            />
+          </CardContent>
+        </Card>
+        <Box
+          sx={{
+            borderBottom: 1,
+            borderColor: "divider",
+            mt: 3,
+            bgcolor: "background.paper",
+          }}
+        >
+          <Skeleton variant="rectangular" width={480} height={48} />
+        </Box>
+        <Box sx={{ mt: 3 }}>
+          <Skeleton variant="rectangular" width="100%" height={320} />
+        </Box>
+      </Container>
     );
   }
 

@@ -44,14 +44,17 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ApiResponse<Object> handleAuthenticationException(AuthenticationException ex) {
         log.warn("认证失败: {}", ex.getMessage());
-        return switch (ex) {
-            case BadCredentialsException badCredentialsException -> ApiResponse.error(ResponseCode.INVALID_CREDENTIALS);
-            case DisabledException disabledException -> ApiResponse.error(ResponseCode.USER_ACCOUNT_DISABLED);
-            case LockedException lockedException -> ApiResponse.error(ResponseCode.USER_ACCOUNT_LOCKED);
-            default ->
-                // 对于其他认证异常，返回一个通用的未认证错误
-                    ApiResponse.error(ResponseCode.UNAUTHENTICATED.getCode(), ex.getMessage());
-        };
+        // 使用 instanceof 而不是 pattern matching 来处理不同的异常类型
+        if (ex instanceof BadCredentialsException) {
+            return ApiResponse.error(ResponseCode.INVALID_CREDENTIALS);
+        } else if (ex instanceof DisabledException) {
+            return ApiResponse.error(ResponseCode.USER_ACCOUNT_DISABLED);
+        } else if (ex instanceof LockedException) {
+            return ApiResponse.error(ResponseCode.USER_ACCOUNT_LOCKED);
+        } else {
+            // 对于其他认证异常，返回一个通用的未认证错误
+            return ApiResponse.error(ResponseCode.UNAUTHENTICATED.getCode(), ex.getMessage());
+        }
     }
 
     /**

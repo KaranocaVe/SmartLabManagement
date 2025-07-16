@@ -185,12 +185,12 @@ const DashboardLayout: React.FC = () => {
       <Toolbar />
       <Box sx={{ overflow: "auto", height: "calc(100vh - 64px - 80px)" }}>
         <List>
-          {navConfig.map((item, index) => {
+          {navConfig.map((item) => {
             // 分割线直接显示
             if (item.isDivider) {
               return (
                 <Divider
-                  key={`divider-${index}`}
+                  key={`nav-divider-${Math.random().toString(36).substring(7)}`}
                   sx={{ my: 1, borderColor: "rgba(0, 0, 0, 0.1)" }}
                 />
               );
@@ -198,8 +198,7 @@ const DashboardLayout: React.FC = () => {
             // 权限校验：无 requiredPermission 或用户拥有该权限才显示
             if (
               !item.requiredPermission ||
-              (userInfo.permissions &&
-                userInfo.permissions.includes(item.requiredPermission))
+              userInfo.permissions?.includes(item.requiredPermission)
             ) {
               return (
                 <ListItem key={item.text} disablePadding>
@@ -336,9 +335,9 @@ const DashboardLayout: React.FC = () => {
                 onClose={handleAvatarMouseLeave}
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
-                sx={{ pointerEvents: "none" }}
-                PaperProps={{
-                  sx: {
+                sx={{
+                  pointerEvents: "none",
+                  "& .MuiPopover-paper": {
                     pointerEvents: "auto",
                     p: 2,
                     minWidth: 260,
@@ -423,9 +422,9 @@ const DashboardLayout: React.FC = () => {
                             sx={{ mt: 0.5 }}
                             flexWrap="wrap"
                           >
-                            {userInfo.permissions.map((perm, idx) => (
+                            {userInfo.permissions?.map((perm, idx) => (
                               <Chip
-                                key={perm + idx}
+                                key={`permission-${perm}-${idx}`}
                                 label={perm}
                                 size="small"
                                 sx={{

@@ -46,9 +46,9 @@ const LoginPage: React.FC = () => {
     phone: "",
     email: "",
   });
-  const [registerErrors, setRegisterErrors] = useState<{ [key: string]: string }>(
-    {}
-  );
+  const [registerErrors, setRegisterErrors] = useState<{
+    [key: string]: string;
+  }>({});
 
   const {
     register,
@@ -116,7 +116,9 @@ const LoginPage: React.FC = () => {
     setTimeout(() => {
       setRegisterLoading(false);
       setRegisterOpen(false);
-      enqueueSnackbar("注册成功（仅前端演示，无后端交互）", { variant: "success" });
+      enqueueSnackbar("注册成功（仅前端演示，无后端交互）", {
+        variant: "success",
+      });
       setRegisterForm({
         username: "",
         password: "",
@@ -271,8 +273,10 @@ const LoginPage: React.FC = () => {
               borderRadius: "0 0 16px 16px",
             }}
           >
-            SmartLabManagement v3.0.0<br />
-            © 2025 KaranocaVe<br />
+            SmartLabManagement v3.0.0
+            <br />
+            © 2025 KaranocaVe
+            <br />
             保留所有权利
           </Box>
         </CardContent>
@@ -286,23 +290,27 @@ const LoginPage: React.FC = () => {
         PaperProps={{
           sx: {
             borderRadius: 3,
-            background: 'rgba(255,255,255,0.85)',
-            backdropFilter: 'blur(8px)',
+            background: "rgba(255,255,255,0.85)",
+            backdropFilter: "blur(8px)",
             boxShadow: 8,
             p: 2,
-          }
+          },
         }}
       >
-        <DialogTitle sx={{
-          fontWeight: 'bold',
-          fontSize: '1.3rem',
-          textAlign: 'center',
-          letterSpacing: 2,
-          color: 'primary.main',
-          pb: 1,
-        }}>注册新账号</DialogTitle>
+        <DialogTitle
+          sx={{
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+            textAlign: "center",
+            letterSpacing: 2,
+            color: "primary.main",
+            pb: 1,
+          }}
+        >
+          注册新账号
+        </DialogTitle>
         <DialogContent sx={{ pt: 1 }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
             <TextField
               label="用户名"
               name="username"
@@ -314,12 +322,12 @@ const LoginPage: React.FC = () => {
               helperText={registerErrors.username}
               disabled={registerLoading}
               sx={{
-                background: 'rgba(245,247,250,0.7)',
+                background: "rgba(245,247,250,0.7)",
                 borderRadius: 2,
                 boxShadow: 1,
-                '& .MuiOutlinedInput-root': {
-                  '&.Mui-focused fieldset': {
-                    borderColor: 'primary.main',
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "primary.main",
                   },
                 },
               }}
@@ -336,12 +344,12 @@ const LoginPage: React.FC = () => {
               helperText={registerErrors.password}
               disabled={registerLoading}
               sx={{
-                background: 'rgba(245,247,250,0.7)',
+                background: "rgba(245,247,250,0.7)",
                 borderRadius: 2,
                 boxShadow: 1,
-                '& .MuiOutlinedInput-root': {
-                  '&.Mui-focused fieldset': {
-                    borderColor: 'primary.main',
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "primary.main",
                   },
                 },
               }}
@@ -358,12 +366,12 @@ const LoginPage: React.FC = () => {
               helperText={registerErrors.confirmPassword}
               disabled={registerLoading}
               sx={{
-                background: 'rgba(245,247,250,0.7)',
+                background: "rgba(245,247,250,0.7)",
                 borderRadius: 2,
                 boxShadow: 1,
-                '& .MuiOutlinedInput-root': {
-                  '&.Mui-focused fieldset': {
-                    borderColor: 'primary.main',
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "primary.main",
                   },
                 },
               }}
@@ -379,12 +387,12 @@ const LoginPage: React.FC = () => {
               helperText={registerErrors.phone}
               disabled={registerLoading}
               sx={{
-                background: 'rgba(245,247,250,0.7)',
+                background: "rgba(245,247,250,0.7)",
                 borderRadius: 2,
                 boxShadow: 1,
-                '& .MuiOutlinedInput-root': {
-                  '&.Mui-focused fieldset': {
-                    borderColor: 'primary.main',
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "primary.main",
                   },
                 },
               }}
@@ -400,12 +408,12 @@ const LoginPage: React.FC = () => {
               helperText={registerErrors.email}
               disabled={registerLoading}
               sx={{
-                background: 'rgba(245,247,250,0.7)',
+                background: "rgba(245,247,250,0.7)",
                 borderRadius: 2,
                 boxShadow: 1,
-                '& .MuiOutlinedInput-root': {
-                  '&.Mui-focused fieldset': {
-                    borderColor: 'primary.main',
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "primary.main",
                   },
                 },
               }}
@@ -415,8 +423,12 @@ const LoginPage: React.FC = () => {
             * 所有信息仅前端演示，不会保存到服务器
           </Typography> */}
         </DialogContent>
-        <DialogActions sx={{ justifyContent: 'center', pb: 2 }}>
-          <Button onClick={() => setRegisterOpen(false)} disabled={registerLoading} sx={{ borderRadius: 2, px: 3 }}>
+        <DialogActions sx={{ justifyContent: "center", pb: 2 }}>
+          <Button
+            onClick={() => setRegisterOpen(false)}
+            disabled={registerLoading}
+            sx={{ borderRadius: 2, px: 3 }}
+          >
             取消
           </Button>
           <Button
@@ -426,12 +438,12 @@ const LoginPage: React.FC = () => {
             sx={{
               borderRadius: 2,
               px: 4,
-              fontWeight: 'bold',
+              fontWeight: "bold",
               boxShadow: 2,
-              transition: 'background 0.2s, transform 0.2s',
-              '&:hover': {
-                background: 'linear-gradient(90deg, #2563eb 0%, #60a5fa 100%)',
-                transform: 'scale(1.04)',
+              transition: "background 0.2s, transform 0.2s",
+              "&:hover": {
+                background: "linear-gradient(90deg, #2563eb 0%, #60a5fa 100%)",
+                transform: "scale(1.04)",
               },
             }}
           >
